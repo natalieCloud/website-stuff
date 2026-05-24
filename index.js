@@ -34,7 +34,8 @@ class Navbar {
 
     time_function() {
         var date = new Date();
-        document.getElementById("clock").innerHTML= date.toLocaleString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
+        //document.getElementById("clock").innerHTML= date.toLocaleString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
+        document.getElementById("clock").innerHTML= date.toLocaleTimeString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
         let t = setTimeout('navbar.time_function()', 10000)
     }
 }

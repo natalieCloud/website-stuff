@@ -78,10 +78,11 @@ h1 {
     padding: 4px;
     width: 50px;
     height: 50px;
-    background-image: url("content/Favicon.png");
+    background-image: url("content/home_24.png");
     background-size: cover;
     background-color: transparent;
     background-repeat: no-repeat;
+    border: transparent;
 }
 
 .home-button:hover {
@@ -97,7 +98,7 @@ h1 {
     padding: 10px;
     width: 400px;
     height: 500px;
-    border: black solid 3px;
+    border: white solid 3px;
     background-color: blue;
     cursor: pointer;
 }
