@@ -11,17 +11,31 @@
   </head>
   <body>
     <div class="image-container">
-      <main>
-        <h1 style="color: white; font-family: 'Courier New', Courier, monospace;">Hi Hiiiiiiiii!!!!!!! :)</h1>
-      </main>
-    </div>
-    <div id="menu-container" class="home-menu"></div>
-    <nav class="navbar">
-      <div class="home-container">
-        <button class="home-button" onclick="navbar.toggle_popup()"></button>
+      <div class="desktop-space">
+        <main>
+          <h1 style="color: white; font-family: 'Courier New', Courier, monospace;">Hi Hiiiiiiiii!!!!!!! :)</h1>
+        </main>
+      <div id="menu-container" class="home-menu"></div>
       </div>
-      <div class="task-container">yrr</div>
-      <div class="time-container" id="clock"></div>
-    </nav>
+      <div class="nav-space">
+        <nav class="navbar">
+          <div class="home-container">
+            <button class="home-button" onclick="navbar.toggle_popup()"></button>
+          </div>
+          <div class="task-container">
+            <button class="running-icons art" id="art-icon" onclick="navbar.toggle_item('art')"></button>
+            <button class="running-icons cv" id="cv-icon" onclick="navbar.toggle_item('cv')"></button>
+            <button class="running-icons duck" id="duck-icon" onclick="navbar.toggle_item('duck')"></button>
+            <button class="running-icons email" id="email-icon" onclick="navbar.toggle_item('email')"></button>
+            <button class="running-icons file" id="file-icon" onclick="navbar.toggle_item('file')"></button>
+            <button class="running-icons music" id="music-icon" onclick="navbar.toggle_item('music')"></button>
+            <button class="running-icons plant" id="plant-icon" onclick="navbar.toggle_item('plant')"></button>
+            <button class="running-icons term" id="term-icon" onclick="navbar.toggle_item('term')"></button>
+          </div>
+          <div class="time-container" id="clock"></div>
+        </nav>
+      </div>
+    </div>
+    
   </body>
 </html>

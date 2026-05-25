@@ -1,12 +1,18 @@
-// function log() {
-//     console.log('New Popup')
-// }
-
 class Navbar {
     constructor() {
         this.open_icons = [];
         this.time = "";
         this.toggled = false;
+        this.prog_map = {
+            "art": {"shown": false, "max": false, "min": true},
+            "cv": {"shown": false, "max": false, "min": true},
+            "duck": {"shown": false, "max": false, "min": true},
+            "email": {"shown": false, "max": false, "min": true},
+            "file": {"shown": false, "max": false, "min": true},
+            "music": {"shown": false, "max": false, "min": true},
+            "plant": {"shown": false, "max": false, "min": true},
+            "term": {"shown": false, "max": false, "min": true},
+        }
     }
 
     log() {
@@ -37,6 +43,14 @@ class Navbar {
         //document.getElementById("clock").innerHTML= date.toLocaleString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
         document.getElementById("clock").innerHTML= date.toLocaleTimeString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
         let t = setTimeout('navbar.time_function()', 10000)
+    }
+
+    toggle_item(icon_name) {
+        console.log("pushed " + icon_name)
+        let p = this.prog_map[icon_name]
+        p["min"] = !p["min"]
+        p["shown"] = !p["shown"]
+        console.log(p)
     }
 }
 

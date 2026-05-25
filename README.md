@@ -1,1 +1,3 @@
 # Website stuff
+
+I am not a web dev, and I just wanted to make something without relying on frameworks since it made it too much like work/school dev work I've done. Went for functionality without frameworks and absolutley *NO AI INVOLVEMENT* so everything here is personally hand-crafted jank. It's more or less the web equivalent of having a crochet hook and yarn and a dream and hoping for the best instead of using one of the many patterns as a guide.
