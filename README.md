@@ -7,6 +7,7 @@ Blargh
 ### Pixel Art
 - download icon
 - my different ducks! (sprite sheet time >:D )
+- trash can pixel art
 
 ### Art Content
 
@@ -37,6 +38,10 @@ Blog style, at this point photos and descriptions I think
 ### Terminal Content
 
 Interactive mock terminal! A Subproject in and of itself...
+
+### Trash Content
+
+Secrets.txt file
 
 ### other stuff
 - menu styling
