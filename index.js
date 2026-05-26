@@ -4,14 +4,14 @@ class Navbar {
         this.time = "";
         this.toggled = false;
         this.prog_map = {
-            "art-prog": {"shown": true, "max": false, "min": false},
-            "cv-prog": {"shown": true, "max": false, "min": false},
-            "duck-prog": {"shown": true, "max": false, "min": false},
-            "email-prog": {"shown": true, "max": false, "min": false},
-            "file-prog": {"shown": true, "max": false, "min": false},
-            "music-prog": {"shown": true, "max": false, "min": false},
-            "plant-prog": {"shown": true, "max": false, "min": false},
-            "term-prog": {"shown": true, "max": false, "min": false},
+            "art-prog": {"shown": false, "max": false, "min": false},
+            "cv-prog": {"shown": false, "max": false, "min": false},
+            "duck-prog": {"shown": false, "max": false, "min": false},
+            "email-prog": {"shown": false, "max": false, "min": false},
+            "file-prog": {"shown": false, "max": false, "min": false},
+            "music-prog": {"shown": false, "max": false, "min": false},
+            "plant-prog": {"shown": false, "max": false, "min": false},
+            "term-prog": {"shown": false, "max": false, "min": false},
         }
     }
 
@@ -59,14 +59,29 @@ class Navbar {
     }
 
     toggle_close(icon_name) {
-    let prog = document.getElementById(icon_name);
-    let p = this.prog_map[icon_name];
-    p["shown"] = !p["shown"];
-    p["min"] = false;
-    prog.style.width = "700px";
-    prog.style.height = "500px";
-    prog.style.display = "none";
-    console.log("closed " + icon_name);
+        let prog = document.getElementById(icon_name);
+        let p = this.prog_map[icon_name];
+        p["shown"] = !p["shown"];
+        if (!p["shown"]) {
+            p["min"] = false;
+            prog.style.width = "700px";
+            prog.style.height = "500px";
+            prog.style.display = "none";
+            console.log("closed " + icon_name);
+         }
+    }
+
+    toggle_show(icon_name) {
+        let prog = document.getElementById(icon_name);
+        let p = this.prog_map[icon_name];
+        p["shown"] = !p["shown"];
+        if (p["shown"]) {
+            p["min"] = true;
+            prog.style.width = "700px";
+            prog.style.height = "500px";
+            prog.style.display = "block";
+            console.log("opened " + icon_name);
+        }
     }
 
     toggle_min(icon_name) {

@@ -370,8 +370,9 @@ h1 {
 }
 
 .desktop-full {
-    width: 70px;
-    height: 90px;
+    width: 90px;
+    height: 120px;
+    margin: 5px;
     display: flex;
     z-index: 90;
     background-repeat: no-repeat;
@@ -385,8 +386,8 @@ h1 {
 }
 
 .desktop-icon {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
 }
 
 .desktop-icon.art {
