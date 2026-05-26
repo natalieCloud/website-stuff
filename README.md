@@ -5,9 +5,9 @@ Blargh
 ## Todos
 
 ### Pixel Art
-- download icon
+- ~~~download icon~~~
 - my different ducks! (sprite sheet time >:D )
-- trash can pixel art
+- ~~~trash can pixel art~~~
 
 ### Art Content
 
