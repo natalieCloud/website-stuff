@@ -42,7 +42,7 @@ Interactive mock terminal! A Subproject in and of itself...
 - menu styling
 - finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...
 - make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small
-
+- screen reader accessible!!!
 
 
 <sup>1</sup> 

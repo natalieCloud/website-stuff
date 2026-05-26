@@ -370,14 +370,53 @@ h1 {
 }
 
 .desktop-full {
-    width: 50px;
-    height: 70px;
+    width: 70px;
+    height: 90px;
     display: flex;
+    z-index: 90;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
 }
 
 .desktop-full:hover {
-    background-color: grey;
-    border: 2px dashed black;
+    background-color: rgba(100, 149, 237, .2);
+    border: 2px solid rgba(100, 149, 237, .15);
+}
+
+.desktop-icon {
+    width: 70px;
+    height: 70px;
+}
+
+.desktop-icon.art {
+    content: url("content/art_32.png");
+}
+.desktop-icon.cv {
+    content: url("content/cv_32.png");
+}
+.desktop-icon.duck {
+    content: url("content/duck_32.png");
+}
+.desktop-icon.email {
+    content: url("content/email_32.png");
+}
+.desktop-icon.file {
+    content: url("content/file_32.png");
+}
+.desktop-icon.music {
+    content: url("content/music_32.png");
+}
+.desktop-icon.plant {
+    content: url("content/plant_32.png");
+}
+.desktop-icon.term {
+    content: url("content/term_32.png");
+}
+
+.desktop-icon-text {
+    justify-content: end;
+    justify-self: center;
 }
 
 .sleep-overlay {
