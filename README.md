@@ -1,3 +1,48 @@
 # Website stuff
 
-I am not a web dev, and I just wanted to make something without relying on frameworks since it made it too much like work/school dev work I've done. Went for functionality without frameworks and absolutley *NO AI INVOLVEMENT* so everything here is personally hand-crafted jank. It's more or less the web equivalent of having a crochet hook and yarn and a dream and hoping for the best instead of using one of the many patterns as a guide.
+Blargh
+
+## Todos
+
+### Pixel Art
+- download icon
+- my different ducks! (sprite sheet time >:D )
+
+### Art Content
+
+Just gonna be a scrollable blog style I reckon?
+
+### CV Content
+
+Going to be a view of the cv and have a download button
+
+### Duck Content
+
+Small window to pop up - controls properties of duck animation and info + picture about each of the ducks?
+
+### Email Content
+
+Small window to pop up - embeds an auto populated email to my proton mail?
+
+### File Content
+Pictures + descriptions of finished projects + current wips? + github and download link?
+
+### Music Content
+Blog style, atp mostly just photos and a daily rec type deal.
+
+### Plant Content
+
+Blog style, at this point photos and descriptions I think
+
+### Terminal Content
+
+Interactive mock terminal! A Subproject in and of itself...
+
+### other stuff
+- menu styling
+- finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...
+- make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small
+
+
+
+<sup>1</sup> 

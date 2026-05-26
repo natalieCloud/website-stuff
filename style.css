@@ -31,15 +31,16 @@ h1 {
 }
 
 .desktop-space {
-    display: inline-flex;
+    display: flex;
     top: 0;
     width: 100%;
     flex: 2 1 0;
     position: relative;
+    justify-content: center;
 }
 
 .nav-space {
-    display: inline-flex;
+    display: flex;
     flex: 0 1 auto;
     margin: 0px;
     z-index: 100;
@@ -72,7 +73,7 @@ h1 {
     justify-items: center;
     justify-content: center;
     height: 100%;
-    border: 1px solid;
+    border: 1px solid hsl(299, 17%, 48%);;
 }
 
 .time-container {
@@ -117,20 +118,89 @@ h1 {
     padding: 10px;
     width: 400px;
     height: 500px;
-    border: white solid 3px;
+    border: white solid 4px;
     background-color: blue;
     cursor: pointer;
+}
+
+.pfp-zone {
+    background-color: pink;
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    width: 160px;
+    height: 160px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 2px solid salmon;
+    background-image: url("content/pfp_b.png");
+    background-size: 170px 170px;
+    border-radius: 50%;
+     background-position: -10px -5px;
+    
+}
+
+.info-zone {
+    background-color: cornflowerblue;
+    position: absolute;
+    right: 0rem;
+    width: 160px;
+    height: 200px;
+    margin-top: 180px;
+    margin-right: 10px;
+    border: 2px solid salmon;
+    display: flex;
+    flex-flow: column;
+}
+
+.button-zone {
+    position: absolute;
+    right: 0rem;
+    bottom: 0rem;
+    width: 160px;
+    height: 48px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border: 2px solid salmon;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.link-zone {
+    background-color: brown;
+    border: 2px solid salmon;
+    top: 0rem;
+    left: 0rem;
+    bottom: 0rem;
+    width: 220px;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.running-prog {
+    display: none;
+    position: absolute;
+    z-index: 90;
+    width: 700px;
+    height: 500px;
+    border: white solid 3px;
+    background-color: magenta;
+    cursor: pointer;
+    align-self: center;
 }
 
 .running-icons {
     margin: 4px;
     width: 48px;
     height: 48px;
+    flex: 1 2 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
     border: gainsboro;
 }
+
 .running-icons:hover {
     background-color: gray;
 }
@@ -158,4 +228,167 @@ h1 {
 }
 .running-icons.term {
     background-image: url("content/term_24.png");
+}
+
+.restart {
+    position: flexbox;
+    background-color: transparent;
+    /* border: transparent; */
+    height: 32px;
+    width: 32px;
+    margin: 8px;
+    margin-right: 0px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url("content/restart_16.png");
+    background-position: 0px 1px;
+}
+.restart:hover {
+    background-color: grey;
+}
+
+.sleep {
+    position: flexbox;
+    background-color: transparent;
+    /* border: transparent */
+    height: 32px;
+    width: 32px;
+    margin: 8px;
+    margin-right: 0px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url("content/sleep_16.png");
+    background-position: 0px 1px;
+}
+.sleep:hover {
+    background-color: grey;
+}
+
+.power {
+    position: flexbox;
+    background-color: transparent;
+    height: 32px;
+    width: 32px;
+    margin: 8px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-image: url("content/power_16.png");
+    background-position: 0px 2px;
+}
+.power:hover {
+    background-color: grey;
+}
+
+.dark-mode-toggle {
+    position: flexbox;
+    /* background-color: transparent; */
+    height: 32px;
+    width: 32px;
+    margin: 8px;
+    margin-left: 0px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 125%;
+    padding: 2px;
+    background-position: -3px -2px;
+}
+.dark-mode-toggle:hover {
+    background-color: grey;
+}
+
+.dark.dark-mode-toggle {
+    background-image: url("content/night_16.png");
+}
+
+.light.dark-mode-toggle {
+    background-image: url("content/day_16.png");
+}
+
+.line {
+    display: flexbox;
+    width: 90%;
+    margin: 4px;
+    border-bottom: 2px solid gray;
+    height: 10 px;
+    align-self: center;
+}
+
+.info-span {
+    display: flexbox;
+    margin-top: 4px;
+}
+
+.head {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    top: 0rem;
+    flex-flow: row;
+    justify-content: flex-end;
+}
+
+.common.head {
+    background-color: greenyellow;
+}
+
+.term.head {
+    background-color: aqua;
+}
+
+.button-head {
+    display: flexbox;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+    background-size: cover;
+    background-repeat: no-repeat;;
+    margin-right: 5px;
+}
+
+.button-head.min {
+    background-image: url("content/min_16.png");
+}
+
+.button-head.max {
+    background-image: url("content/max_16.png");
+}
+
+.button-head.close {
+    background-image: url("content/close_16.png");
+}
+
+.span-title {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+    flex: 2 1 0;
+    height: 100%;
+}
+
+.desktop-full {
+    width: 50px;
+    height: 70px;
+    display: flex;
+}
+
+.desktop-full:hover {
+    background-color: grey;
+    border: 2px dashed black;
+}
+
+.sleep-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 200;
+    position: fixed;
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+    animation: fadeIn;
+    animation-duration: 1s;
 }

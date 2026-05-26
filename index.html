@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>www.nataliechmura.com</title>
     <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./animate.min.css"> Perchance -->
     <link rel="icon" href="./content/Favicon.png" type=image/x-icon">
     <script src="./index.js"></script>
   </head>
@@ -15,7 +16,117 @@
         <main>
           <h1 style="color: white; font-family: 'Courier New', Courier, monospace;">Hi Hiiiiiiiii!!!!!!! :)</h1>
         </main>
-      <div id="menu-container" class="home-menu"></div>
+        <div id="menu-container" class="home-menu">
+          <div class="button-zone">
+            <button class="restart" onclick="navbar.restart()"></button>
+            <button class="sleep" onclick="navbar.sleep()"></button>
+            <button class="power" onclick="navbar.power()"></button>
+            <button class="dark dark-mode-toggle"></button>
+          </div>
+          <div class="pfp-zone">
+
+          </div>
+          <div class="info-zone">
+            <span class="info-span" style="align-self: center;">Natalie Chmura</span>
+            <div class="line"></div>
+            <ul class="info-span">
+              <li>he/she/they</li>
+              <li>From: Cleveland, OH</li>
+              <li>Computer Scientist</li>
+            </ul>
+          </div>
+          <div class="link-zone">
+            <ul class="list-styling"> <!-- Regular Programs -->
+              <li>art</li>
+              <li>cv</li>
+              <li>ducks</li>
+              <li>email</li>
+              <li>files</li>
+              <li>music</li>
+              <li>plants</li>
+              <li>terminal</li>
+            </ul>
+             <ul class="list-styling"> <!-- Social Media -->
+              <li>github</li>
+              <li>instagram</li>
+              <li>linkedin</li>
+              <li>pixelfed</li>
+            </ul>
+          </div>
+        </div>
+       <div class="desktop-full"></div>
+        <div id="art-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Art</span>
+            <button class="button-head min" onclick="navbar.toggle_min('art-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('art-prog')"></button>
+            <button class="button-head close"  onclick="navbar.toggle_close('art-prog')"></button>
+          </div>
+          art
+        </div>
+        <div id="cv-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">CV</span>
+            <button class="button-head min" onclick="navbar.toggle_min('cv-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('cv-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('cv-prog')"></button>
+          </div>
+          cv
+        </div>
+        <div id="duck-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Duck</span>
+            <button class="button-head min" onclick="navbar.toggle_min('duck-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('duck-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('duck-prog')"></button>
+          </div>
+          duck
+        </div>
+        <div id="email-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Email</span>
+            <button class="button-head min" onclick="navbar.toggle_min('email-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('email-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('email-prog')"></button>
+            </div>
+          email
+        </div>
+        <div id="file-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Files</span>
+            <button class="button-head min" onclick="navbar.toggle_min('file-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('file-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('file-prog')"></button>
+          </div>
+          file
+        </div>
+        <div id="music-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Music</span>
+            <button class="button-head min" onclick="navbar.toggle_min('music-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('music-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('music-prog')"></button>
+          </div>
+          music
+        </div>
+        <div id="plant-prog" class="running-prog">
+          <div class="common head">
+            <span class="span-title">Plants</span>
+            <button class="button-head min" onclick="navbar.toggle_min('plant-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('plant-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('plant-prog')"></button>
+          </div>
+          plant
+        </div>
+        <div id="term-prog" class="running-prog">
+          <div class="term head">
+            <span class="span-title">Terminal</span>
+            <button class="button-head min" onclick="navbar.toggle_min('term-prog')"></button>
+            <button class="button-head max" onclick="navbar.toggle_max('term-prog')"></button>
+            <button class="button-head close" onclick="navbar.toggle_close('term-prog')"></button>
+          </div>
+          term
+        </div>
       </div>
       <div class="nav-space">
         <nav class="navbar">
@@ -23,14 +134,14 @@
             <button class="home-button" onclick="navbar.toggle_popup()"></button>
           </div>
           <div class="task-container">
-            <button class="running-icons art" id="art-icon" onclick="navbar.toggle_item('art')"></button>
-            <button class="running-icons cv" id="cv-icon" onclick="navbar.toggle_item('cv')"></button>
-            <button class="running-icons duck" id="duck-icon" onclick="navbar.toggle_item('duck')"></button>
-            <button class="running-icons email" id="email-icon" onclick="navbar.toggle_item('email')"></button>
-            <button class="running-icons file" id="file-icon" onclick="navbar.toggle_item('file')"></button>
-            <button class="running-icons music" id="music-icon" onclick="navbar.toggle_item('music')"></button>
-            <button class="running-icons plant" id="plant-icon" onclick="navbar.toggle_item('plant')"></button>
-            <button class="running-icons term" id="term-icon" onclick="navbar.toggle_item('term')"></button>
+            <button class="running-icons art" id="art-icon" onclick="navbar.toggle_min('art-prog')"></button>
+            <button class="running-icons cv" id="cv-icon" onclick="navbar.toggle_min('cv-prog')"></button>
+            <button class="running-icons duck" id="duck-icon" onclick="navbar.toggle_min('duck-prog')"></button>
+            <button class="running-icons email" id="email-icon" onclick="navbar.toggle_min('email-prog')"></button>
+            <button class="running-icons file" id="file-icon" onclick="navbar.toggle_min('file-prog')"></button>
+            <button class="running-icons music" id="music-icon" onclick="navbar.toggle_min('music-prog')"></button>
+            <button class="running-icons plant" id="plant-icon" onclick="navbar.toggle_min('plant-prog')"></button>
+            <button class="running-icons term" id="term-icon" onclick="navbar.toggle_min('term-prog')"></button>
           </div>
           <div class="time-container" id="clock"></div>
         </nav>
