@@ -1,6 +1,5 @@
 class Navbar {
     constructor() {
-        this.open_icons = [];
         this.time = "";
         this.toggled = false;
         this.prog_map = {
@@ -12,6 +11,7 @@ class Navbar {
             "music-prog": {"shown": false, "max": false, "min": false},
             "plant-prog": {"shown": false, "max": false, "min": false},
             "term-prog": {"shown": false, "max": false, "min": false},
+            "trash-prog": {"shown": false, "max": false, "min": false},
         }
     }
 
@@ -30,11 +30,25 @@ class Navbar {
     }
 
     add_icon(icon_name) {
-        this.open_icons.push(icon_name);
+        var nicon = icon_name.substring(0, icon_name.length - 5);
+        console.log("adding button " + nicon);
+
+        var open_prog = document.createElement('button');
+        open_prog.setAttribute('id', `${nicon}-icon`);
+        open_prog.setAttribute('class', `running-icons ${nicon}`);
+        // open_prog.setAttribute('class', nicon);
+        open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
+        open_prog.innerHTML = ""
+        let t_c = document.getElementById("task-buttons")
+        t_c.appendChild(open_prog);
     }
 
     remove_icon(icon_name) {
-         this.open_icons.pop(icon_name);
+        console.log("removing div");
+        var nicon = icon_name.substring(0, icon_name.length - 5);
+        var child_to_abort = document.getElementById(`${nicon}-icon`);
+        let t_c = document.getElementById("task-buttons")
+        t_c.removeChild(child_to_abort);
     }
 
     time_function() {
@@ -68,6 +82,7 @@ class Navbar {
             prog.style.height = "500px";
             prog.style.display = "none";
             console.log("closed " + icon_name);
+            navbar.remove_icon(icon_name);
          }
     }
 
@@ -80,6 +95,7 @@ class Navbar {
             prog.style.width = "700px";
             prog.style.height = "500px";
             prog.style.display = "block";
+            navbar.add_icon(icon_name);
             console.log("opened " + icon_name);
         }
     }
@@ -130,9 +146,9 @@ class Navbar {
     }
 
     wakeup() {
-        console.log("remving div");
+        console.log("removing div");
         var child_to_abort = document.getElementById('sleep-overlay');
-        document.body.removeChild(child_to_abort)
+        document.body.removeChild(child_to_abort);
     }
 
     sleep() {
