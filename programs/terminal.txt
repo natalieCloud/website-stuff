@@ -1,0 +1,98 @@
+CFG for parser
+<command> ::== <look-command> | <non-command>
+<look-command> ::== look <object> | examine <object> | look <offscreen-object> | examine <offscreen-object> 
+<non-command> ::== get <object> | touch <object> | move <object> | drop <object> | etc...
+<object> ::== desktop | terminal | icon | icons | art | menu | clock | disk-scheduling-algorithms | house |
+house-of-leaves | html | javascript | css | code | natalie | natalie-chmura | cleveland | www.nataliechmura.com |
+cv | ducks | projects | music | plants | email | trash | dsa-<name>
+<name> c-scan | f-scan | fcfs | scan | look | c-look | sstf
+
+Terminal commands
+
+help
+
+NTerminalC version 1.0.0 release (static-web)
+These commands are defined interally. Type `help` to see this list.
+Type `help name` to find out more about the function `name`
+
+cd [dir | ]
+
+    Changes the shell working directory
+
+    Change the current directory to dir. The default value of dir is 
+    the HOME shell vairable.
+
+    To naviagate to the parent directory of the current working directory,
+    `..` may be used. 
+
+    Aside from navigation to the HOME directory, levels may only be traversed
+    one at a time, from parent->child or from child->parent. Commands using `/`
+    will be ignored.
+
+help [name | ] 
+
+    Display information about the built in terminal commands. 
+
+    Displays a summary of the builtin command. If no command is
+    specified, the list of potential help topics is printed.
+    
+list [dir | ]
+
+    Prints the items in the desired directory.
+
+    The default directory is the current working directoy. 
+
+    Aside from listing content in the HOME directory, content may only be listed in
+    the current working directory.
+
+look [value]
+
+    For fans of Roberta, perhaps?
+
+    At the beginning, look takes three possible values. Running look with any of these
+    values gives you a small description and optional links...
+     
+    Further info about the reasoning behind these values can be gained by running `help look value`
+
+    `Roberta`
+    `terminal`
+    `disk-scheduling-algorithms`
+
+look Roberta
+
+    A very cool game desginer behind many of the Sierra Titles, which is how I got into parser gaming in particular.
+
+look terminal
+
+    <Opening for through the looking terminal...>
+
+look disk-scheduling-algorithms
+
+    I couldn't not include anything about my dearly beloved scheduling algorithms here!
+    
+    An Ode to Disk Scheduling Algorithms, in Iambic pentameter by Natalie Chmura
+
+    x / x / x / x / x /
+
+quit 
+
+    Exits the currently running terminal program.
+
+run [name] 
+
+    Executes the program spcified by name. Must be in the current working directory
+    of the program in order to launch it sucessfully. Works for any installed program.
+
+show [name]
+
+    Displays the content of the file specififed by name. Must be in the current working
+    directory of said file in order to launch it successfully. Works for any .txt extension.
+
+tree [dir | ]
+
+    Displays the structure of the subdirectories and files nested within the specified
+    directory. By default uses the current working directory, but can take HOME as another
+    value.
+
+
+guest@natchm-website:~$

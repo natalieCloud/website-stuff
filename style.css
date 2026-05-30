@@ -67,14 +67,17 @@ h1 {
 
 .task-container {
     /* display: flex; */
-    align-self: center;
-    flex: 2 1 0;
+    padding: relative;
+    flex: 1 1 0;
     margin: 0px;
     align-self: center;
-    justify-items: center;
-    justify-content: center;
     height: 52px;
-    border: 1px solid hsl(299, 17%, 48%);;
+    max-height: 52px;
+    width: 100%;
+    border: 1px solid hsl(299, 17%, 48%);
+    overflow-x: scroll;
+    flex-direction: column;
+
 }
 
 .time-container {
@@ -119,8 +122,8 @@ h1 {
     padding: 10px;
     width: 400px;
     height: 500px;
-    border: white solid 4px;
-    background-color: blue;
+    border: solid 4px hsl(299, 17%, 28%);
+    background-color: hsl(299, 17%, 48%);
     cursor: pointer;
 }
 
@@ -133,7 +136,7 @@ h1 {
     height: 160px;
     margin-right: 10px;
     margin-top: 10px;
-    border: 2px solid salmon;
+    border: 3px solid hsl(299, 17%, 28%);
     background-image: url("content/pfp_b.png");
     background-size: 170px 170px;
     border-radius: 50%;
@@ -142,14 +145,14 @@ h1 {
 }
 
 .info-zone {
-    background-color: cornflowerblue;
+    background-color: transparent;
     position: absolute;
     right: 0rem;
     width: 160px;
     height: 200px;
     margin-top: 180px;
     margin-right: 10px;
-    border: 2px solid salmon;
+    border: 2px solid hsl(299, 17%, 28%);
     display: flex;
     flex-flow: column;
 }
@@ -162,46 +165,158 @@ h1 {
     height: 48px;
     margin-bottom: 10px;
     margin-right: 10px;
-    border: 2px solid salmon;
+    border: 2px solid hsl(299, 17%, 28%);
     align-items: center;
     justify-content: center;
     display: flex;
 }
 
 .link-zone {
-    background-color: brown;
-    border: 2px solid salmon;
-    top: 0rem;
+    /* background-color: brown; */
+    border: 2px solid hsl(299, 17%, 28%);
+    display: flex;
+    flex-flow: column;
+    position: absolute;
     left: 0rem;
     bottom: 0rem;
     width: 220px;
-    height: 100%;
-    margin-right: 10px;
+    height: 495px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.styling {
+    list-style-type: none;
+    margin: 0px;
+    padding: 3px;
+    line-height: 30px;
+    background-color: hsl(299, 17%, 50%);
+    overflow-y: scroll;
+    scrollbar-color: hsl(299, 17%, 28%) hsl(299, 17%, 48%);
+    scrollbar-width: thin;
+}
+.styling:nth-child(even) {
+    background-color: hsl(299, 17%, 48%);
+
+}
+.styling.a:hover{
+    background-color: rgba(100, 149, 237, .2);
+    border: 2px solid rgba(100, 149, 237, .15);
+}
+
+.styling.a {
+    display: block;
 }
 
 .running-prog {
     display: none;
+    flex-flow: column;
     position: absolute;
     z-index: 90;
     width: 700px;
     height: 500px;
-    border: white solid 3px;
-    background-color: magenta;
+    border: solid 4px hsl(321, 17%, 56%);
+    background-color: white;
     cursor: pointer;
     align-self: center;
 }
 
-.running-icons {
-    display: flexbox;
+.running-prog.term {
+    border: solid 4px hsl(0, 0%, 21%);
+}
+
+.running-term {
+    background-color: black;
+    color: chartreuse;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+}
+
+.running-ducks {
+    background-color: hsla(322, 93%, 82%, 0.233);
     position: relative;
+    flex-grow: 1;
+    width: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    /* overflow-x: hidden; */
+}
+
+.licon {
+    display: inline-flexbox;
+    float: left;
+    margin: 3px;
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lspan {
+    position: relative;
+    margin: 3px;
+}
+
+.licon.github {
+    background-image: url("content/github_24.png");
+}
+.licon.instagram {
+    background-image: url("content/insta_24.png");
+}
+.licon.linkedin {
+    background-image: url("content/lkdin_24.png");
+}
+.licon.pixelfed {
+    background-image: url("content/pixelfed_24.png");
+}
+.licon.website {
+    background-image: url("content/Favicon.png");
+}
+.licon.art {
+    background-image: url("content/art_24.png");
+}
+.licon.cv {
+    background-image: url("content/cv_24.png");
+}
+.licon.duck {
+    background-image: url("content/duck_24.png");
+}
+.licon.term {
+    background-image: url("content/term_24.png");
+}
+.licon.file {
+    background-image: url("content/file_24.png");
+}
+.licon.music {
+    background-image: url("content/music_24.png");
+}
+.licon.plant {
+    background-image: url("content/plant_24.png");
+}
+.licon.email {
+    background-image: url("content/email_24.png");
+}
+.licon.trash {
+    background-image: url("content/trash_24.png");
+}
+
+
+.running-icons {
+    display:block;
+    position: relative;
+    float: left;
     margin: 2px;
     width: 48px;
     height: 48px;
-    flex: 1 2 0;
+    flex: 1 1 0;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
-    border: gainsboro;
+    border: transparent;
 }
 
 .running-icons:hover {
@@ -239,7 +354,6 @@ h1 {
 .restart {
     position: flexbox;
     background-color: transparent;
-    /* border: transparent; */
     height: 32px;
     width: 32px;
     margin: 8px;
@@ -257,7 +371,6 @@ h1 {
 .sleep {
     position: flexbox;
     background-color: transparent;
-    /* border: transparent */
     height: 32px;
     width: 32px;
     margin: 8px;
@@ -317,7 +430,7 @@ h1 {
     display: flexbox;
     width: 90%;
     margin: 4px;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid hsl(299, 17%, 28%);
     height: 10 px;
     align-self: center;
 }
@@ -330,18 +443,20 @@ h1 {
 .head {
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 44px;
     top: 0rem;
     flex-flow: row;
-    justify-content: flex-end;
+    position: sticky;
 }
 
 .common.head {
-    background-color: greenyellow;
+    background-color: hsla(322, 93%, 82%, 0.67);
+    border-bottom: 2px solid hsl(321, 17%, 56%);
 }
 
 .term.head {
-    background-color: aqua;
+    background-color: hsl(0, 0%, 53%);
+    border-bottom: solid 2px hsl(0, 0%, 21%);
 }
 
 .button-head {
@@ -368,14 +483,16 @@ h1 {
 }
 .button-head.download {
     background-image: url("content/download_16.png");
+    background-position: 2px 0px;
+    background-size: 24px 24px;
+
 }
 
 .span-title {
     text-align: center;
     vertical-align: middle;
     line-height: 40px;
-    flex: 2 1 0;
-    height: 100%;
+    flex: 1 1 0;
 }
 
 .desktop-full {
@@ -451,3 +568,33 @@ h1 {
     animation: fadeIn;
     animation-duration: 1s;
 }
+
+.sticky-footer {
+    position: absolute;
+    right: 0rem;
+    bottom: 0rem;
+    border-top: 2px solid hsl(321, 17%, 56%);
+    background-color: hsla(322, 93%, 82%, 0.233);
+    height: 40px;
+    position: sticky;
+    bottom: 0rem;
+    padding: 5px;
+    vertical-align: middle;
+    flex-flow: row;
+}
+
+.submit-duck {
+    position: flexbox;
+    float: right;
+    border: 50%;
+    height: 40px;
+    width: 120px;
+    align-self: center;
+    align-content: center;
+    word-wrap: normal;
+    background-color: hsla(59, 100%, 50%, 0.233);
+}
+
+/* .duck-bio {
+    height: 150px;
+} */

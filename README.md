@@ -6,8 +6,11 @@ Blargh
 
 ### Pixel Art
 - ~~download icon~~
-- my different ducks! (sprite sheet time >:D )
+- ~~my different ducks! (sprite sheet time >:D )~~
+- update ducks w/ chair and piracy
 - ~~trash can pixel art~~
+- Gear Icon for user settings
+- add highlight for music_32
 
 ### Art Content
 
@@ -44,7 +47,8 @@ Interactive mock terminal! A Subproject in and of itself...
 Secrets.txt file
 
 ### other stuff
-- menu styling
+- ~~menu styling~~
+- menu 'user' (i.e. me) content
 - finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...
 - make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small
 - screen reader accessible!!!

@@ -94,7 +94,7 @@ class Navbar {
             p["min"] = true;
             prog.style.width = "700px";
             prog.style.height = "500px";
-            prog.style.display = "block";
+            prog.style.display = "flex";
             navbar.add_icon(icon_name);
             console.log("opened " + icon_name);
         }
@@ -129,18 +129,6 @@ class Navbar {
         }
     }
 
-    // add_prog(icon_name) {
-    //     var progDiv = document.createElement('div');
-    //     progDiv.setAttribute("id", icon_name+"_prog");
-    //     progDiv.setAttribute("class", "running_prog");
-    //     progDiv.innerHTML = `
-    //     <div class="">
-    //     </div>
-    //     `;
-    //     document.body.appendChild("progDiv");
-    // } Maybe Maybe Maybe
-
-
     restart() {
         window.location.reload();
     }
@@ -166,6 +154,10 @@ class Navbar {
         window.close();
     }
 }
+
+class DucktopBuddy {}
+
+class Terminal {}
 
 var navbar = new Navbar() 
 

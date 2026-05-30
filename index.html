@@ -38,21 +38,69 @@
           </ul>
         </div>
         <div class="link-zone">
-          <ul class="list-styling"> <!-- Regular Programs -->
-            <li>art</li>
-            <li>cv</li>
-            <li>ducks</li>
-            <li>email</li>
-            <li>files</li>
-            <li>music</li>
-            <li>plants</li>
-            <li>terminal</li>
+          <span class="info-span" style="align-self: center;">Installed Programs</span>
+          <div class="line"></div>
+          <ul class="styling"> <!-- Regular Programs -->
+            <li class="styling a" onclick="navbar.toggle_show('art-prog')">
+              <div class="licon art"></div>
+              <span class="lspan">art projects</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('cv-prog')">
+              <div class="licon cv"></div>
+              <span class="lspan">curriculum vitae</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('duck-prog')">
+              <div class="licon duck"></div>
+              <span class="lspan">ducktop buddy</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('term-prog')">
+              <div class="licon term"></div>
+              <span class="lspan">terminal</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('file-prog')">
+              <div class="licon file"></div>
+              <span class="lspan">coding projects</span>
+            </li>
+            <li class="styling a">
+              <div class="licon music" onclick="navbar.toggle_show('music-prog')"></div>
+              <span class="lspan">music projects</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('plant-prog')">
+              <div class="licon plant"></div>
+              <span class="lspan">plant posts</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('email-prog')">
+              <div class="licon email"></div>
+              <span class="lspan">email program</span>
+            </li>
+            <li class="styling a" onclick="navbar.toggle_show('trash-prog')">
+              <div class="licon trash"></div>
+              <span class="lspan">trash program</span>
+            </li>
           </ul>
-          <ul class="list-styling"> <!-- Social Media -->
-            <li>github</li>
-            <li>instagram</li>
-            <li>linkedin</li>
-            <li>pixelfed</li>
+          <span class="info-span" style="align-self: center;">Web Links</span>
+          <div class="line"></div>
+          <ul class="styling"> <!-- Social Media -->
+            <li class="styling a" onclick="location.href = 'https://github.com/natalieCloud';">
+              <div class="licon github"></div>
+              <span class="lspan">github</span>
+            </li>
+            <li class="styling a" onclick="location.href = 'https://www.instagram.com/natalie_chmura';">
+              <div class="licon instagram"></div>
+              <span class="lspan">instagram</span>
+            </li>
+            <li class="styling a" onclick="location.href = 'https://www.linkedin.com/in/nataliechmura34224/';">
+              <div class="licon linkedin"></div>
+              <span class="lspan">linkedin</span>
+            </li>
+            <li class="styling a" onclick="location.href = 'https://pixelfed.social/Chmura';">
+              <div class="licon pixelfed"></div>
+              <span class="lspan">pixelfed</span>
+            </li>
+            <li class="styling a" onclick="location.href = 'http://www.nataliechmura.com';">
+              <div class="licon website"></div>
+              <span class="lspan">website</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -114,11 +162,24 @@
       <div id="cv-prog" class="running-prog">
         <div class="common head">
           <span class="span-title">CV</span>
+            <form method="get" action="./content/Natalie_Chmura_CV.pdf">
+            <button class="button-head download" type="submit"></button>
+          </form>
           <button class="button-head min" onclick="navbar.toggle_min('cv-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('cv-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('cv-prog')"></button>
         </div>
-        cv
+        <object
+          data="./content/Natalie_Chmura_CV.pdf"
+          type="application/pdf"
+          width="100%"
+          height="100%"
+        >
+         <p>
+          Your browser does not support PDFs. [Download the file using the download button below]
+         </p>
+        
+        </object>
       </div>
       <div id="duck-prog" class="running-prog">
         <div class="common head">
@@ -127,7 +188,45 @@
           <button class="button-head max" onclick="navbar.toggle_max('duck-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('duck-prog')"></button>
         </div>
-        duck
+        <div class="running-ducks">
+         <form action="submit" method="">
+          <div class="duck-bio">
+            <input type="radio" id="higgs" name="duck-choice" value="higgs">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="napstar" name="duck-choice" value="napstar">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="timmy" name="duck-choice" value="timmy">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="tommy" name="duck-choice" value="tommy">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="nami" name="duck-choice" value="nami">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="nimda" name="duck-choice" value="nimda">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="brock" name="duck-choice" value="brock">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="guy" name="duck-choice" value="guy">
+          </div>
+          <div class="duck-bio">
+            <input type="radio" id="shaduck" name="duck-choice" value="shaduck">
+          </div>
+         </form>
+        </div>
+         <div class="sticky-footer">
+          <span style="width: 100%; line-height: 40px; height: 40px;">
+              <button class="submit-duck" onclick="ducktop.launch()">
+              Launch
+            </button>
+          </span>
+        </div>
+        
       </div>
       <div id="email-prog" class="running-prog">
         <div class="common head">
@@ -165,14 +264,16 @@
         </div>
         plant
       </div>
-      <div id="term-prog" class="running-prog">
+      <div id="term-prog" class="running-prog term">
         <div class="term head">
           <span class="span-title">Terminal</span>
           <button class="button-head min" onclick="navbar.toggle_min('term-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('term-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('term-prog')"></button>
         </div>
-        term
+        <div class="running-term">
+          guest@natchm-website:~$
+        </div>
       </div>
       <div id="trash-prog" class="running-prog">
         <div class="common head">
@@ -189,17 +290,7 @@
         <div class="home-container">
           <button class="home-button" onclick="navbar.toggle_popup()"></button>
         </div>
-        <div id="task-buttons" class="task-container">
-          <!-- <button class="running-icons art" id="art-icon" onclick="navbar.toggle_min('art-prog')"></button>
-            <button class="running-icons cv" id="cv-icon" onclick="navbar.toggle_min('cv-prog')"></button>
-            <button class="running-icons duck" id="duck-icon" onclick="navbar.toggle_min('duck-prog')"></button>
-            <button class="running-icons email" id="email-icon" onclick="navbar.toggle_min('email-prog')"></button>
-            <button class="running-icons file" id="file-icon" onclick="navbar.toggle_min('file-prog')"></button>
-            <button class="running-icons music" id="music-icon" onclick="navbar.toggle_min('music-prog')"></button>
-            <button class="running-icons plant" id="plant-icon" onclick="navbar.toggle_min('plant-prog')"></button>
-            <button class="running-icons term" id="term-icon" onclick="navbar.toggle_min('term-prog')"></button>
-            <button class="running-icons trash" id="trash-icon" onclick="navbar.toggle_min('trash-prog')"></button> -->
-        </div>
+        <div id="task-buttons" class="task-container"></div>
         <div class="time-container" id="clock"></div>
       </nav>
     </div>
