@@ -56,7 +56,7 @@ The keyboard featured on the baseplate uses the QWERTY layout.
 
 Nimda
 
-Birthday: 10/2/2023
+Birthday: 10/29/2023
 
 Origin: tOSU's 2023 hackathon gave out many forms of swag. My personal favorite was obviously,
 the duck. Due to the numerous hacking related jokes my groupmates and I made. (All horrible tbh)
@@ -90,7 +90,7 @@ Birthday: 2/1/25
 
 Origin: More obvious then the others, this duck is named after the hedgehog on which 
 he is modeled. Also, his middle and last names are 'The' and 'Hedgehog', because there
-aren't really any puns that worked with hedgehog.
+aren't really any duck puns that worked with hedgehog.
 
 
 this program was inspired by the vs-code pets plugin: https://github.com/tonybaloney/vscode-pets

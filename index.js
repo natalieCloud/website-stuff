@@ -106,7 +106,7 @@ class Navbar {
         p["min"] = !p["min"];
         p["shown"] = true;
         if (p["min"]) {
-            prog.style.display = "block";
+            prog.style.display = "flex";
             console.log("minimized " + icon_name);
         } else {
             prog.style.display = "none";
@@ -127,6 +127,10 @@ class Navbar {
             prog.style.height = "500px";
             console.log("un-minimized " + icon_name);
         }
+    }
+
+    sendEmail() {
+      window.location = "mailto:ntchmura@proton.me";  
     }
 
     restart() {

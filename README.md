@@ -7,10 +7,10 @@ Blargh
 ### Pixel Art
 - ~~download icon~~
 - ~~my different ducks! (sprite sheet time >:D )~~
-- update ducks w/ chair and piracy
+- ~~update ducks w/ chair and piracy~~
 - ~~trash can pixel art~~
 - Gear Icon for user settings
-- add highlight for music_32
+- ~~add highlight for music_32~~
 
 ### Art Content
 
@@ -52,6 +52,7 @@ Secrets.txt file
 - finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...
 - make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small
 - screen reader accessible!!!
+- add icons in top left of each window
 
 
 <sup>1</sup> 
