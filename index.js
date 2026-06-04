@@ -6,7 +6,7 @@ class Navbar {
             "art-prog": {"shown": false, "max": false, "min": false},
             "cv-prog": {"shown": false, "max": false, "min": false},
             "duck-prog": {"shown": false, "max": false, "min": false},
-            "email-prog": {"shown": false, "max": false, "min": false},
+            "txt-prog": {"shown": false, "max": false, "min": false},
             "file-prog": {"shown": false, "max": false, "min": false},
             "music-prog": {"shown": false, "max": false, "min": false},
             "plant-prog": {"shown": false, "max": false, "min": false},
@@ -83,6 +83,9 @@ class Navbar {
             prog.style.display = "none";
             console.log("closed " + icon_name);
             navbar.remove_icon(icon_name);
+             if (icon_name === 'term-prog') {
+                document.getElementById("baseball_stat_1").value = "";
+            }
          }
     }
 
@@ -97,6 +100,10 @@ class Navbar {
             prog.style.display = "flex";
             navbar.add_icon(icon_name);
             console.log("opened " + icon_name);
+            if (icon_name === 'term-prog') {
+                document.getElementById("baseball_stat_1").focus();
+            }
+
         }
     }
 
@@ -157,9 +164,46 @@ class Navbar {
     power() {
         window.close();
     }
+
+    submitTerm() {
+        var input=document.getElementById('baseball_stat_1').value
+        console.log(input)
+    }
 }
 
-class DucktopBuddy {}
+const State = {
+    FacingR: "FacingR",
+    FacingL: "FacingL",
+    Swim: "Swim",
+    Idle: "Idle",
+    Blink: "Blink",
+    Quack: "Quack"
+}
+
+class DucktopBuddy {
+    constructor() {
+       this.state = State.IdleL
+       this.duckDraw = this.loadContent()
+    }
+
+    loadContent() {}
+
+    swim() {}
+
+    idle() {}
+
+    quack() {}
+
+    blink() {}
+
+    runClean() {}
+
+    runInterrupt() {}
+
+    update() {}
+
+    draw() {}
+}
 
 class Terminal {}
 
@@ -168,4 +212,10 @@ var navbar = new Navbar()
 document.addEventListener("DOMContentLoaded", function() {
     navbar.time_function()
 })
+
+// var form = document.getElementById("baseball_stat_1");
+
+// function handleForm(event) { event.preventDefault(); return false}
+
+// form.addEventListener('submit', handleForm);
 

@@ -63,8 +63,8 @@
               <div class="licon file"></div>
               <span class="lspan">coding projects</span>
             </li>
-            <li class="styling a">
-              <div class="licon music" onclick="navbar.toggle_show('music-prog')"></div>
+            <li class="styling a" onclick="navbar.toggle_show('music-prog')">
+              <div class="licon music"></div>
               <span class="lspan">music projects</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('plant-prog')">
@@ -155,6 +155,7 @@
 
       <div id="art-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/art_24.png);"></div>
           <span class="span-title">Art</span>
           <button class="button-head min" onclick="navbar.toggle_min('art-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('art-prog')"></button>
@@ -164,6 +165,7 @@
       </div>
       <div id="cv-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/cv_24.png);"></div>
           <span class="span-title">CV</span>
             <form method="get" action="./content/Natalie_Chmura_CV.pdf">
             <button class="button-head download" type="submit"></button>
@@ -188,6 +190,7 @@
       </div>
       <div id="duck-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/duck_24.png);"></div>
           <span class="span-title">Ducktop</span>
           <button class="button-head min" onclick="navbar.toggle_min('duck-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('duck-prog')"></button>
@@ -337,17 +340,9 @@
 
         
       </div>
-      <div id="email-prog" class="running-prog">
-        <div class="common head">
-          <span class="span-title">Email</span>
-          <button class="button-head min" onclick="navbar.toggle_min('email-prog')"></button>
-          <button class="button-head max" onclick="navbar.toggle_max('email-prog')"></button>
-          <button class="button-head close" onclick="navbar.toggle_close('email-prog')"></button>
-        </div>
-        email
-      </div>
       <div id="file-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/file_24.png);"></div>
           <span class="span-title">Files</span>
           <button class="button-head min" onclick="navbar.toggle_min('file-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('file-prog')"></button>
@@ -357,15 +352,17 @@
       </div>
       <div id="music-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/music_24.png);"></div>
           <span class="span-title">Music</span>
           <button class="button-head min" onclick="navbar.toggle_min('music-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('music-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('music-prog')"></button>
         </div>
-        music
+          <div class="duck-frame napstarR" style="display: flexbox; background-image: url(./content/ducks/ducks_32.png); border: 1px solid;"></div>
       </div>
       <div id="plant-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/plant_24.png);"></div>
           <span class="span-title">Plants</span>
           <button class="button-head min" onclick="navbar.toggle_min('plant-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('plant-prog')"></button>
@@ -375,23 +372,55 @@
       </div>
       <div id="term-prog" class="running-prog term">
         <div class="term head">
+          <div class="pic-head" style="content: url(./content/icons/term_24.png);"></div>
           <span class="span-title">Terminal</span>
           <button class="button-head min" onclick="navbar.toggle_min('term-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('term-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('term-prog')"></button>
         </div>
         <div class="running-term">
-          guest@natchm-website:~$
+          
+          <!-- guest@natchm-website:~$ -->
+          <form name="term-input" action="javascript:void(0);" onsubmit="navbar.submitTerm()">
+            <label for="termput">guest@natchm-website:~$</label>
+            <input class="termput" id="baseball_stat_1" name="data_baseball_stat_1" type="text" autofocus="autofocus" autocomplete="off">
+            <input type="submit" hidden>
+          </form>
         </div>
       </div>
       <div id="trash-prog" class="running-prog">
         <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/trash_24.png);"></div>
           <span class="span-title">Trash</span>
           <button class="button-head min" onclick="navbar.toggle_min('trash-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('trash-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('trash-prog')"></button>
         </div>
-        trash
+        <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+          <div style="display: flex; overflow-x:hidden; margin: 0px; padding: 0px;" class="highlight" ondblclick="navbar.toggle_show('txt-prog')">
+            <h4 style="display: flexbox; flex-grow: 1;">secrets.txt</h4>
+            <input style="display: flexbox; padding-right: 20px;" type="checkbox" id="empty-trash" name="secrets.txt" value="secrets.txt">
+          </div>
+        </div>
+         <div class="sticky-footer">
+          <span style="width: 100%; line-height: 40px; height: 40px;">
+             Empty trash?
+              <button class="submit-trash" onclick="navbar.empty()" disabled="disabled">
+              Empty
+            </button>
+          </span>
+        </div>
+      </div>
+      <div id="txt-prog" class="running-prog">
+        <div class="common head">
+          <div class="pic-head" style="content: url(./content/icons/cv_24.png);"></div>
+          <span class="span-title">secrets.txt</span>
+          <button class="button-head min" onclick="navbar.toggle_min('txt-prog')"></button>
+          <button class="button-head max" onclick="navbar.toggle_max('txt-prog')"></button>
+          <button class="button-head close" onclick="navbar.toggle_close('txt-prog')"></button>
+        </div>
+        <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+        </div>
       </div>
     </div>
     <div class="nav-space">

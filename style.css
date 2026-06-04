@@ -108,10 +108,9 @@ h1 {
     background-repeat: no-repeat;
     background-color: transparent;
     border: transparent;
-}
-
-.home-button:hover {
-    background-color: gray;
+    &:hover {
+        background-color: gray;
+    }
 }
 
 .home-menu {
@@ -196,18 +195,16 @@ h1 {
     overflow-y: scroll;
     scrollbar-color: hsl(299, 17%, 28%) hsl(299, 17%, 48%);
     scrollbar-width: thin;
-}
-.styling:nth-child(even) {
-    background-color: hsl(299, 17%, 48%);
-
-}
-.styling.a:hover{
-    background-color: rgba(100, 149, 237, .2);
-    border: 2px solid rgba(100, 149, 237, .15);
-}
-
-.styling.a {
-    display: block;
+    &:nth-child(even) {
+        background-color: hsl(299, 17%, 48%);
+    }
+    &.a {
+        display: block;
+    }
+    &.a:hover{
+        background-color: rgba(100, 149, 237, .2);
+        border: 2px solid rgba(100, 149, 237, .15);
+    }
 }
 
 .running-prog {
@@ -233,6 +230,7 @@ h1 {
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 4px;
     overflow-y: scroll;
     /* overflow-x: hidden; */
 }
@@ -246,56 +244,54 @@ h1 {
     background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
+    &.github {
+    background-image: url("content/icons/github_24.png");
+    }
+    &.instagram {
+        background-image: url("content/icons/insta_24.png");
+    }
+    &.linkedin {
+        background-image: url("content/icons/lkdin_24.png");
+    }
+    &.pixelfed {
+        background-image: url("content/icons/pixelfed_24.png");
+    }
+    &.website {
+        background-image: url("content/icons/Favicon.png");
+    }
+    &.art {
+        background-image: url("content/icons/art_24.png");
+    }
+    &.cv {
+        background-image: url("content/icons/cv_24.png");
+    }
+    &.duck {
+        background-image: url("content/icons/duck_24.png");
+    }
+    &.term {
+        background-image: url("content/icons/term_24.png");
+    }
+    &.file {
+        background-image: url("content/icons/file_24.png");
+    }
+    &.music {
+        background-image: url("content/icons/music_24.png");
+    }
+    &.plant {
+        background-image: url("content/icons/plant_24.png");
+    }
+    &.email {
+        background-image: url("content/icons/email_24.png");
+    }
+    &.trash {
+        background-image: url("content/icons/trash_24.png");
+    }
 }
 
 .lspan {
     position: relative;
     margin: 3px;
 }
-
-.licon.github {
-    background-image: url("content/icons/github_24.png");
-}
-.licon.instagram {
-    background-image: url("content/icons/insta_24.png");
-}
-.licon.linkedin {
-    background-image: url("content/icons/lkdin_24.png");
-}
-.licon.pixelfed {
-    background-image: url("content/icons/pixelfed_24.png");
-}
-.licon.website {
-    background-image: url("content/icons/Favicon.png");
-}
-.licon.art {
-    background-image: url("content/icons/art_24.png");
-}
-.licon.cv {
-    background-image: url("content/icons/cv_24.png");
-}
-.licon.duck {
-    background-image: url("content/icons/duck_24.png");
-}
-.licon.term {
-    background-image: url("content/icons/term_24.png");
-}
-.licon.file {
-    background-image: url("content/icons/file_24.png");
-}
-.licon.music {
-    background-image: url("content/icons/music_24.png");
-}
-.licon.plant {
-    background-image: url("content/icons/plant_24.png");
-}
-.licon.email {
-    background-image: url("content/icons/email_24.png");
-}
-.licon.trash {
-    background-image: url("content/icons/trash_24.png");
-}
-
 
 .running-icons {
     display:block;
@@ -309,38 +305,37 @@ h1 {
     background-repeat: no-repeat;
     background-color: transparent;
     border: transparent;
-}
-
-.running-icons:hover {
+    &:hover {
     background-color: gray;
-}
+    }
 
-.running-icons.art {
-    background-image: url("content/icons/art_24.png");
-}
-.running-icons.cv {
-    background-image: url("content/icons/cv_24.png");
-}
-.running-icons.duck {
-    background-image: url("content/icons/duck_24.png");
-}
-.running-icons.email {
-    background-image: url("content/icons/email_24.png");
-}
-.running-icons.file {
-    background-image: url("content/icons/file_24.png");
-}
-.running-icons.music {
-    background-image: url("content/icons/music_24.png");
-}
-.running-icons.plant {
-    background-image: url("content/icons/plant_24.png");
-}
-.running-icons.term {
-    background-image: url("content/icons/term_24.png");
-}
-.running-icons.trash {
-    background-image: url("content/icons/trash_24.png");
+    &.art {
+        background-image: url("content/icons/art_24.png");
+    }
+    &.cv {
+        background-image: url("content/icons/cv_24.png");
+    }
+    &.duck {
+        background-image: url("content/icons/duck_24.png");
+    }
+    &.txt {
+        background-image: url("content/icons/cv_24.png");
+    }
+    &.file {
+        background-image: url("content/icons/file_24.png");
+    }
+    &.music {
+        background-image: url("content/icons/music_24.png");
+    }
+    &.plant {
+        background-image: url("content/icons/plant_24.png");
+    }
+    &.term {
+        background-image: url("content/icons/term_24.png");
+    }
+    &.trash {
+        background-image: url("content/icons/trash_24.png");
+    }
 }
 
 .restart {
@@ -355,10 +350,11 @@ h1 {
     background-size:contain;
     background-image: url("content/icons/restart_16.png");
     background-position: 0px 1px;
+    &:hover {
+        background-color: grey;
+    }
 }
-.restart:hover {
-    background-color: grey;
-}
+
 
 .sleep {
     position: flexbox;
@@ -372,10 +368,11 @@ h1 {
     background-size:contain;
     background-image: url("content/icons/sleep_16.png");
     background-position: 0px 1px;
+    &:hover {
+        background-color: grey;
+    }
 }
-.sleep:hover {
-    background-color: grey;
-}
+
 
 .power {
     position: flexbox;
@@ -388,9 +385,14 @@ h1 {
     background-size:contain;
     background-image: url("content/icons/power_16.png");
     background-position: 0px 2px;
+    &:hover {
+        background-color: grey;
+    }
 }
-.power:hover {
-    background-color: grey;
+
+.highlight:hover {
+    background-color: rgba(100, 149, 237, .2);
+    border: 2px solid rgba(100, 149, 237, .15);
 }
 
 .dark-mode-toggle {
@@ -405,9 +407,10 @@ h1 {
     background-size: 125%;
     padding: 2px;
     background-position: -3px -2px;
-}
-.dark-mode-toggle:hover {
-    background-color: grey;
+
+    &:hover {
+        background-color: grey;
+    }
 }
 
 .dark.dark-mode-toggle {
@@ -439,16 +442,14 @@ h1 {
     top: 0rem;
     flex-flow: row;
     position: sticky;
-}
-
-.common.head {
+    &.common{
     background-color: hsla(322, 93%, 82%, 0.67);
     border-bottom: 2px solid hsl(321, 17%, 56%);
-}
-
-.term.head {
-    background-color: hsl(0, 0%, 53%);
-    border-bottom: solid 2px hsl(0, 0%, 21%);
+    }
+    &.term {
+        background-color: hsl(0, 0%, 53%);
+        border-bottom: solid 2px hsl(0, 0%, 21%);
+    }
 }
 
 .button-head {
@@ -460,25 +461,26 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;;
     margin-right: 5px;
-}
 
-.button-head.min {
-    background-image: url("content/icons/min_16.png");
-}
-
-.button-head.max {
+    &.min {
+        background-image: url("content/icons/min_16.png");
+    }
+    &.max {
     background-image: url("content/icons/max_16.png");
+    }
+
+    &.close {
+        background-image: url("content/icons/close_16.png");
+    }
+    &.download {
+        background-image: url("content/icons/download_16.png");
+        background-position: 2px 0px;
+        background-size: 24px 24px;
+
+    }
 }
 
-.button-head.close {
-    background-image: url("content/icons/close_16.png");
-}
-.button-head.download {
-    background-image: url("content/icons/download_16.png");
-    background-position: 2px 0px;
-    background-size: 24px 24px;
 
-}
 
 .span-title {
     font-family: 'Courier New', Courier, monospace;
@@ -510,35 +512,46 @@ h1 {
 .desktop-icon {
     width: 90px;
     height: 90px;
+    &.art {
+    content: url("content/icons/art_32.png");
+    }
+    &.cv {
+        content: url("content/icons/cv_32.png");
+    }
+    &.duck {
+        content: url("content/icons/duck_32.png");
+    }
+    &.email {
+        content: url("content/icons/email_32.png");
+    }
+    &.file {
+        content: url("content/icons/file_32.png");
+    }
+    &.music {
+        content: url("content/icons/music_32.png");
+    }
+    &.plant {
+        content: url("content/icons/plant_32.png");
+    }
+    &.term {
+        content: url("content/icons/term_32.png");
+    }
+    &.trash {
+        content: url("content/icons/trash_32.png");
+    }
 }
 
-.desktop-icon.art {
-    content: url("content/icons/art_32.png");
+
+.pic-head {
+    width: 32px;
+    height: 32px;
+    display: flexbox;
+    background-color: transparent;
+    vertical-align: middle;
+    margin: 4px;
 }
-.desktop-icon.cv {
-    content: url("content/icons/cv_32.png");
-}
-.desktop-icon.duck {
-    content: url("content/icons/duck_32.png");
-}
-.desktop-icon.email {
-    content: url("content/icons/email_32.png");
-}
-.desktop-icon.file {
-    content: url("content/icons/file_32.png");
-}
-.desktop-icon.music {
-    content: url("content/icons/music_32.png");
-}
-.desktop-icon.plant {
-    content: url("content/icons/plant_32.png");
-}
-.desktop-icon.term {
-    content: url("content/icons/term_32.png");
-}
-.desktop-icon.trash {
-    content: url("content/icons/trash_32.png");
-}
+
+
 
 .desktop-icon-text {
     display: flexbox;
@@ -590,6 +603,18 @@ h1 {
     background-color: hsla(59, 100%, 50%, 0.233);
 }
 
+.submit-trash {
+    position: flexbox;
+    float: right;
+    border: 50%;
+    height: 40px;
+    width: 120px;
+    align-self: center;
+    align-content: center;
+    word-wrap: normal;
+    background-color: hsla(0, 0%, 69%, 0.445);
+}
+
 .content {
     flex-grow: 1;
     overflow-y: scroll;
@@ -627,32 +652,108 @@ h1 {
     border: 3px solid rgb(117, 86, 6);
     border-radius: 3%;
     background-color: transparent;
+
+    &.higgs {
+        content: url("./content/ducks/higgs.jpg");
+    }
+    &.nami {
+        content: url("./content/ducks/nami.jpg");
+    }
+    &.tommy {
+    content: url("./content/ducks/tommy.jpg");
+    }
+    &.timmy {
+        content: url("./content/ducks/timmy.jpg");
+    }
+    &.nimda {
+        content: url("./content/ducks/nimda.jpg");
+    }
+    &.guy {
+        content: url("./content/ducks/guy.jpg");
+    }
+    &.shaduck {
+        content: url("./content/ducks/shaduck.jpg");
+    }
+    &.napstar {
+        content: url("./content/ducks/napstar.jpg");
+    }
+    &.brock {
+        content: url("./content/ducks/brock.jpg");
+    }
 }
 
-.duck-icon.higgs {
-    content: url("./content/ducks/higgs.jpg");
+.duck-frame {
+    width: 30px;
+    height: 30px;
+    &.napstarR{
+        background-position: -1px 0px;
+    }
+    &.napstarL{
+        background-position: -1px 0px;
+        transform: scaleX(-1);
+    }
+    &.nimdaR{
+        background-position: -1px -36px;
+    }
+    &.nimdaL{
+        background-position: -1px -36px;
+        transform: scaleX(-1);
+    }
+    &.brockR{
+        background-position: -1px -72px;
+    }
+    &.brockL{
+        background-position: -1px -108px;
+    }
+    &.guyR{
+        background-position: -1px -144px;
+    }
+    &.guyL{
+        background-position: -1px -144px;
+        transform: scaleX(-1);
+    }
+    &.namiR{
+        background-position: -1px -180px;
+    }
+    &.namiL{
+        background-position: -1px -216px;
+    }
+    &.timmyR{
+        background-position: -1px -252px;
+    }
+    &.timmyL{
+        background-position: -1px -288px;
+    }&.tommyR{
+        background-position: -1px -324px;
+    }
+    &.tommyL{
+        background-position: -1px -360px;
+    }
+    &.higgsR{
+        background-position: -1px -396px;
+    }
+    &.higgsL{
+        background-position: -1px -432px;
+    }
+    &.shaduckR{
+        background-position: -1px -468px;
+    }
+    &.shaduckL{
+        background-position: -1px -504px;
+    }
 }
-.duck-icon.nami {
-    content: url("./content/ducks/nami.jpg");
+
+.termput {
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    caret-color: chartreuse;
+    color: chartreuse;
+    font-family: 'Courier New', Courier, monospace;
+    /* &:focus{
+        background-color: transparent;
+        border: transparent;
+    } */
 }
-.duck-icon.tommy {
-    content: url("./content/ducks/tommy.jpg");
-}
-.duck-icon.timmy {
-    content: url("./content/ducks/timmy.jpg");
-}
-.duck-icon.nimda {
-    content: url("./content/ducks/nimda.jpg");
-}
-.duck-icon.guy {
-    content: url("./content/ducks/guy.jpg");
-}
-.duck-icon.shaduck {
-    content: url("./content/ducks/shaduck.jpg");
-}
-.duck-icon.napstar {
-    content: url("./content/ducks/napstar.jpg");
-}
-.duck-icon.brock {
-    content: url("./content/ducks/brock.jpg");
-}
+
+
