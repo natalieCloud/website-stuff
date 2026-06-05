@@ -3,15 +3,15 @@ class Navbar {
         this.time = "";
         this.toggled = false;
         this.prog_map = {
-            "art-prog": {"shown": false, "max": false, "min": false},
-            "cv-prog": {"shown": false, "max": false, "min": false},
-            "duck-prog": {"shown": false, "max": false, "min": false},
-            "txt-prog": {"shown": false, "max": false, "min": false},
-            "file-prog": {"shown": false, "max": false, "min": false},
-            "music-prog": {"shown": false, "max": false, "min": false},
-            "plant-prog": {"shown": false, "max": false, "min": false},
-            "term-prog": {"shown": false, "max": false, "min": false},
-            "trash-prog": {"shown": false, "max": false, "min": false},
+            "art-prog": { "shown": false, "max": false, "min": false },
+            "cv-prog": { "shown": false, "max": false, "min": false },
+            "duck-prog": { "shown": false, "max": false, "min": false },
+            "txt-prog": { "shown": false, "max": false, "min": false },
+            "file-prog": { "shown": false, "max": false, "min": false },
+            "music-prog": { "shown": false, "max": false, "min": false },
+            "plant-prog": { "shown": false, "max": false, "min": false },
+            "term-prog": { "shown": false, "max": false, "min": false },
+            "trash-prog": { "shown": false, "max": false, "min": false },
         }
     }
 
@@ -53,7 +53,7 @@ class Navbar {
 
     time_function() {
         var date = new Date();
-        document.getElementById("clock").innerHTML= date.toLocaleTimeString(navigator.language || 'en-US', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12:true});
+        document.getElementById("clock").innerHTML = date.toLocaleTimeString(navigator.language || 'en-US', { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true });
         let t = setTimeout('navbar.time_function()', 10000);
     }
 
@@ -83,10 +83,13 @@ class Navbar {
             prog.style.display = "none";
             console.log("closed " + icon_name);
             navbar.remove_icon(icon_name);
-             if (icon_name === 'term-prog') {
+            if (icon_name === 'term-prog') {
                 document.getElementById("baseball_stat_1").value = "";
             }
-         }
+            if (icon_name === 'term-prog') {
+                document.getElementById("history").innerHTML = "";
+            }
+        }
     }
 
     toggle_show(icon_name) {
@@ -137,7 +140,7 @@ class Navbar {
     }
 
     sendEmail() {
-      window.location = "mailto:ntchmura@proton.me";  
+        window.location = "mailto:ntchmura@proton.me";
     }
 
     restart() {
@@ -166,7 +169,7 @@ class Navbar {
     }
 
     submitTerm() {
-        var input=document.getElementById('baseball_stat_1').value
+        var input = document.getElementById('baseball_stat_1').value
         console.log(input)
     }
 }
@@ -182,34 +185,53 @@ const State = {
 
 class DucktopBuddy {
     constructor() {
-       this.state = State.IdleL
-       this.duckDraw = this.loadContent()
+        this.state = State.IdleL
+        this.duckDraw = this.loadContent()
     }
 
-    loadContent() {}
+    loadContent() { }
 
-    swim() {}
+    swim() { }
 
-    idle() {}
+    idle() { }
 
-    quack() {}
+    quack() { }
 
-    blink() {}
+    blink() { }
 
-    runClean() {}
+    runClean() { }
 
-    runInterrupt() {}
+    runInterrupt() { }
 
-    update() {}
+    update() { }
 
-    draw() {}
+    draw() { }
 }
 
-class Terminal {}
+class Terminal {
+    constructor() {
+        this.preface = 'guest@natchm-website:~$';
+        this.looking = false;
+    }
 
-var navbar = new Navbar() 
+    parse_command() {
+        var input = document.getElementById('baseball_stat_1').value;
+        var leaf = document.createElement('div');
+        leaf.setAttribute('class', 'term-history');
+        leaf.innerHTML = this.preface + " " + input;
+        document.getElementById('history').appendChild(leaf)
+        document.getElementById('baseball_stat_1').value = '';
+    }
 
-document.addEventListener("DOMContentLoaded", function() {
+    fetch_outcome() {
+
+    }
+}
+
+var navbar = new Navbar()
+var term = new Terminal()
+
+document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function()
 })
 

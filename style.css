@@ -230,7 +230,7 @@ h1 {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 4px;
+    /* padding: 4px; */
     overflow-y: scroll;
     /* overflow-x: hidden; */
 }
@@ -744,16 +744,26 @@ h1 {
 }
 
 .termput {
+    display: flexbox;
     background-color: transparent;
     border-color: transparent;
     outline: none;
     caret-color: chartreuse;
     color: chartreuse;
     font-family: 'Courier New', Courier, monospace;
-    /* &:focus{
-        background-color: transparent;
-        border: transparent;
-    } */
+    font-size: 16px;
+    margin-left: 0px;
+    padding-left: 0;
+    width: 100%;
+    flex:2 1 0;
+}
+
+.history {
+    height: fit-content;
+    flex-grow: 1;
+    width: 100%;
+    color: chartreuse;
+    margin-top: 6px;
 }
 
 
