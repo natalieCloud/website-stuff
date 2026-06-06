@@ -93,6 +93,3 @@ tree [dir | ]
     Displays the structure of the subdirectories and files nested within the specified
     directory. By default uses the current working directory, but can take HOME as another
     value.
-
-
-guest@natchm-website:~$

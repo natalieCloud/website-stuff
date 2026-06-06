@@ -1,0 +1,142 @@
+{
+    "tokens": {
+        "look": [
+            "look",
+            "check",
+            "examine"
+        ],
+        "Roberta": [
+            "Roberta",
+            "Berta",
+            "Roberta Williams"
+        ],
+        "terminal": [
+            "terminal",
+            "term",
+            "this",
+            "terminal program"
+        ],
+        "desktop" : [
+            "desktop",
+            "page",
+            "screen"
+        ],
+        "dsa": [
+            "disk-scheduling-algorithms",
+            "disk scheduling algorithms"
+        ],
+        "website": [
+            "website",
+            "nataliechmura.com",
+            "www.nataliechmura.com"
+        ],
+        "code": [
+            "code",
+            "html",
+            "css",
+            "js",
+            "javascript"
+        ],
+        "cleveland": [
+            "cleveland",
+            "the land",
+            "natalie's hometown"
+        ],
+        "icons": "icons",
+        "ducks": [
+            "ducks",
+            "duckstop buddy",
+            "duck desktop buddy",
+            "duck program"
+        ],
+        "art": [
+            "art",
+            "art program"
+        ],
+        "projects": [
+            "projects",
+            "code projects",
+            "project files",
+            "files"
+        ],
+        "cv": "cv",
+        "music": "music",
+        "plants": "plants",
+        "email": [
+            "email",
+            "email link",
+            "email program"
+        ],
+        "trash": [
+            "trash",
+            "trash program",
+            "garbage"
+        ],
+        "menu": [
+            "menu",
+            "menu screen",
+            "home"
+        ],
+        "house": [
+            "house",
+            "house-of-leaves",
+            "house of leaves"
+        ],
+        "natalie": [
+            "natalie",
+            "newt",
+            "natalia",
+            "dipper",
+            "natalie chmura",
+            "natalie cloud",
+            "developer",
+            "the developer",
+            "the author",
+            "author",
+            "dsa fangirl",
+            "dsa fanboy",
+            "dsa fanthey"
+        ],
+        "clock": [
+           "clock",
+           "time"
+        ],
+        "c-scan": "dsa-c-scan",
+        "f-scan": "dsa-f-scan",
+        "fcfs": "dsa-fcfs",
+        "scan": "dsa-scan",
+        "dsa-look": "dsa-look",
+        "c-look": "dsa-c-look",
+        "sstf": "dsa-sstf"
+    },
+    "output": {
+        "Roberta": "",
+        "terminal": "",
+        "desktop": "",
+        "dsa": "",
+        "website": "",
+        "code": "",
+        "cleveland": "",
+        "icons": "",
+        "ducks": "",
+        "art": "",
+        "projects": "",
+        "cv": "Are you a Professor that is doing research related to Operating Systems and currently taking on grad students?\nHey- it's nice to meet you.\n\n",
+        "music": "",
+        "plants": "",
+        "email": "",
+        "trash": "",
+        "menu": "",
+        "house": "",
+        "natalie": "",
+        "clock": "",
+        "c-scan": "",
+        "f-scan": "",
+        "fcfs": "",
+        "scan": "",
+        "dsa-look": "",
+        "c-look": "",
+        "sstf": ""
+    }
+
+}

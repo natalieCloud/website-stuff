@@ -13,6 +13,8 @@ class Navbar {
             "term-prog": { "shown": false, "max": false, "min": false },
             "trash-prog": { "shown": false, "max": false, "min": false },
         }
+        this.day = new Date();
+        this.day.setHours(0, 0, 0, 0);
     }
 
     log() {
@@ -47,13 +49,17 @@ class Navbar {
         console.log("removing div");
         var nicon = icon_name.substring(0, icon_name.length - 5);
         var child_to_abort = document.getElementById(`${nicon}-icon`);
-        let t_c = document.getElementById("task-buttons")
+        let t_c = document.getElementById("task-buttons");
         t_c.removeChild(child_to_abort);
     }
 
     time_function() {
         var date = new Date();
         document.getElementById("clock").innerHTML = date.toLocaleTimeString(navigator.language || 'en-US', { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true });
+        if (this.day > date.setHours(0, 0, 0, 0)) {
+            this.day = date;
+            this.change_song();
+        } ;
         let t = setTimeout('navbar.time_function()', 10000);
     }
 
@@ -172,6 +178,8 @@ class Navbar {
         var input = document.getElementById('baseball_stat_1').value
         console.log(input)
     }
+
+    change_song() {}
 }
 
 const State = {
