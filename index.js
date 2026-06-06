@@ -13,6 +13,8 @@ class Navbar {
             "term-prog": { "shown": false, "max": false, "min": false },
             "trash-prog": { "shown": false, "max": false, "min": false },
         }
+        this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
+        this.modulo = 14;
         this.day = new Date();
         this.day.setHours(0, 0, 0, 0);
     }
@@ -34,14 +36,12 @@ class Navbar {
     add_icon(icon_name) {
         var nicon = icon_name.substring(0, icon_name.length - 5);
         console.log("adding button " + nicon);
-
         var open_prog = document.createElement('button');
         open_prog.setAttribute('id', `${nicon}-icon`);
         open_prog.setAttribute('class', `running-icons ${nicon}`);
-        // open_prog.setAttribute('class', nicon);
         open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
-        open_prog.innerHTML = ""
-        let t_c = document.getElementById("task-buttons")
+        open_prog.innerHTML = "";
+        let t_c = document.getElementById("task-buttons");
         t_c.appendChild(open_prog);
     }
 
@@ -112,6 +112,9 @@ class Navbar {
             if (icon_name === 'term-prog') {
                 document.getElementById("baseball_stat_1").focus();
             }
+            else if (icon_name === 'art-prog') {
+                document.getElementById("jupiter").style.display = "flex";
+            }
 
         }
     }
@@ -132,8 +135,8 @@ class Navbar {
 
     toggle_max(icon_name) {
         let prog = document.getElementById(icon_name);
-        let p = this.prog_map[icon_name]
-        p["max"] = !p["max"]
+        let p = this.prog_map[icon_name];
+        p["max"] = !p["max"];
         if (p["max"]) {
             prog.style.width = "100%";
             prog.style.height = "100%";
@@ -166,7 +169,7 @@ class Navbar {
         sleepDiv.setAttribute('class', 'sleep-overlay');
         sleepDiv.setAttribute('onmousemove', 'navbar.wakeup()');
         sleepDiv.setAttribute('onclick', 'navbar.wakeup()');
-        sleepDiv.innerHTML = ""
+        sleepDiv.innerHTML = "";
         document.body.appendChild(sleepDiv);
     }
 
@@ -175,11 +178,35 @@ class Navbar {
     }
 
     submitTerm() {
-        var input = document.getElementById('baseball_stat_1').value
-        console.log(input)
+        var input = document.getElementById('baseball_stat_1').value;
+        console.log(input);
     }
 
     change_song() {}
+
+    go_prev(idx) {
+        var prev
+        let me = this.art[idx]
+        if (idx === 0) {
+            prev = this.art[13]
+        } else {
+            prev = this.art[idx - 1]
+        }
+        document.getElementById(me).style.display = "none"
+        document.getElementById(prev).style.display = "flex"
+    }
+
+    go_next(idx) {
+        var prev
+        let me = this.art[idx]
+        if (idx === 13) {
+            prev = this.art[0]
+        } else {
+            prev = this.art[idx + 1]
+        }
+        document.getElementById(me).style.display = "none"
+        document.getElementById(prev).style.display = "flex"
+    }
 }
 
 const State = {
@@ -193,8 +220,8 @@ const State = {
 
 class DucktopBuddy {
     constructor() {
-        this.state = State.IdleL
-        this.duckDraw = this.loadContent()
+        this.state = State.IdleL;
+        this.duckDraw = this.loadContent();
     }
 
     loadContent() { }
@@ -236,12 +263,14 @@ class Terminal {
     }
 }
 
-var navbar = new Navbar()
-var term = new Terminal()
+var navbar = new Navbar();
+var term = new Terminal();
+var ducks = new DucktopBuddy();
 
 document.addEventListener("DOMContentLoaded", function () {
-    navbar.time_function()
+    navbar.time_function();
 })
+
 
 // var form = document.getElementById("baseball_stat_1");
 

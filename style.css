@@ -150,7 +150,7 @@ h1 {
     position: absolute;
     right: 0rem;
     width: 160px;
-    height: 200px;
+    height: 250px;
     margin-top: 180px;
     margin-right: 10px;
     border: 2px solid hsl(299, 17%, 28%);
@@ -478,9 +478,14 @@ h1 {
         background-size: 24px 24px;
 
     }
+    &.next {
+        background-image: url("content/icons/next_16.png");
+    }
+    &.prev {
+        background-image: url("content/icons/next_16.png");
+        transform: scaleX(-1);
+    }
 }
-
-
 
 .span-title {
     font-family: 'Courier New', Courier, monospace;
@@ -766,4 +771,7 @@ h1 {
     margin-top: 6px;
 }
 
-
+.art-page {
+    display: none;
+    overflow-y: scroll;
+}
