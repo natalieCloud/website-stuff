@@ -156,6 +156,7 @@ h1 {
     border: 2px solid hsl(299, 17%, 28%);
     display: flex;
     flex-flow: column;
+    overflow: hidden;
 }
 
 .button-zone {
@@ -799,4 +800,12 @@ h1 {
     flex-grow: 1;
     top: 5rem;
     right: 0rem;
+}
+
+.tip {
+    position: relative;
+    width: 30%;
+    display: flexbox;
+    padding-left: 10px;
+    /* margin: 0; */
 }
