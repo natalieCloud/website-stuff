@@ -91,9 +91,12 @@ class Navbar {
             navbar.remove_icon(icon_name);
             if (icon_name === 'term-prog') {
                 document.getElementById("baseball_stat_1").value = "";
-            }
-            if (icon_name === 'term-prog') {
                 document.getElementById("history").innerHTML = "";
+            }
+            if (icon_name === 'art-prog') {
+                for (const elem of document.getElementsByClassName('art-page')) {
+                    elem.style.display = "none"
+                }
             }
         }
     }
@@ -270,11 +273,4 @@ var ducks = new DucktopBuddy();
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
 })
-
-
-// var form = document.getElementById("baseball_stat_1");
-
-// function handleForm(event) { event.preventDefault(); return false}
-
-// form.addEventListener('submit', handleForm);
 

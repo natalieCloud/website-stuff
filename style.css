@@ -774,4 +774,29 @@ h1 {
 .art-page {
     display: none;
     overflow-y: scroll;
+    padding: 50px;
+}
+
+.art-fig {
+    width: fit-content;
+}
+
+.art-img {
+    width: 50%;
+    height: auto;
+    display: flexbox;
+    margin-right: 50px;
+}
+
+.art-title {
+    width: 100%;
+    display: flexbox;
+    text-align: center;
+}
+
+.art-talk {
+    display: flexbox;
+    flex-grow: 1;
+    top: 5rem;
+    right: 0rem;
 }
