@@ -809,3 +809,11 @@ h1 {
     padding-left: 10px;
     /* margin: 0; */
 }
+
+.file-entry {
+    display: flex;
+    overflow-x:hidden;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid grey;
+}

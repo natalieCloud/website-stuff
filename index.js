@@ -118,6 +118,9 @@ class Navbar {
             else if (icon_name === 'art-prog') {
                 document.getElementById("jupiter").style.display = "flex";
             }
+            else if (icon_name === 'music-prog') {
+                this.change_song(this.day);
+            }
 
         }
     }
@@ -185,7 +188,14 @@ class Navbar {
         console.log(input);
     }
 
-    change_song() {}
+    change_song(up_date) {
+        let month_key = up_date.toLocaleString('en-US', {month: 'long'}).toLowerCase();
+        let day_key = up_date.toLocaleString('en-US', {day: 'numeric'});
+        console.log(day_key)
+        let artist = daily_songs["daily song recs"][month_key][day_key]["artist"];
+        let title = daily_songs["daily song recs"][month_key][day_key]["title"];
+        document.getElementById("daily-songs").innerHTML = `<h4 style="text-align: center;">${title}; ${artist}<h4>`
+    }
 
     go_prev(idx) {
         var prev
@@ -274,3 +284,1485 @@ document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
 })
 
+var term_out = {}
+
+var daily_songs = {
+    "daily song recs": {
+        "january": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "february": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "march": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "april": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "may": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "june": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "hahaha",
+                "artist": "gggg"
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "july": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "august": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "september": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "october": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "november": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            }
+        },
+        "december": {
+            "1": {
+                "title": "",
+                "artist": ""
+            },
+            "2": {
+                "title": "",
+                "artist": ""
+            },
+            "3": {
+                "title": "",
+                "artist": ""
+            },
+            "4": {
+                "title": "",
+                "artist": ""
+            },
+            "5": {
+                "title": "",
+                "artist": ""
+            },
+            "6": {
+                "title": "",
+                "artist": ""
+            },
+            "7": {
+                "title": "",
+                "artist": ""
+            },
+            "8": {
+                "title": "",
+                "artist": ""
+            },
+            "9": {
+                "title": "",
+                "artist": ""
+            },
+            "10": {
+                "title": "",
+                "artist": ""
+            },
+            "11": {
+                "title": "",
+                "artist": ""
+            },
+            "12": {
+                "title": "",
+                "artist": ""
+            },
+            "13": {
+                "title": "",
+                "artist": ""
+            },
+            "14": {
+                "title": "",
+                "artist": ""},
+            "15": {
+                "title": "",
+                "artist": ""
+            },
+            "16": {
+                "title": "",
+                "artist": ""
+            },
+            "17": {
+                "title": "",
+                "artist": ""
+            },
+            "18": {
+                "title": "",
+                "artist": ""
+            },
+            "19": {
+                "title": "",
+                "artist": ""
+            },
+            "20": {
+                "title": "",
+                "artist": ""
+            },
+            "21": {
+                "title": "",
+                "artist": ""
+            },
+            "22": {
+                "title": "",
+                "artist": ""
+            },
+            "23": {
+                "title": "",
+                "artist": ""
+            },
+            "24": {
+                "title": "",
+                "artist": ""
+            },
+            "25": {
+                "title": "",
+                "artist": ""
+            },
+            "26": {
+                "title": "",
+                "artist": ""
+            },
+            "27": {
+                "title": "",
+                "artist": ""
+            },
+            "28": {
+                "title": "",
+                "artist": ""
+            },
+            "29": {
+                "title": "",
+                "artist": ""
+            },
+            "30": {
+                "title": "",
+                "artist": ""
+            },
+            "31": {
+                "title": "",
+                "artist": ""
+            }
+        }
+    }
+}

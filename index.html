@@ -604,12 +604,25 @@
       <div id="file-prog" class="running-prog">
         <div class="common head">
           <div class="pic-head" style="content: url(./content/icons/file_24.png);"></div>
-          <span class="span-title">Files</span>
+          <span class="span-title">Project Files</span>
           <button class="button-head min" onclick="navbar.toggle_min('file-prog')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('file-prog')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('file-prog')"></button>
         </div>
-        file
+        <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+          <div class="file-entry highlight" onclick="">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Polyominos Project</h4>
+          </div>
+          <div class="file-entry highlight" onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99336'">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Block Game Theme</h4>
+          </div>
+          <div class="file-entry highlight" onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99337'">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Strawberry Milk Theme</h4>
+          </div>
+          <div class="file-entry highlight" onclick="">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Arp-Reach</h4>
+          </div>
+        </div>
       </div>
       <div id="music-prog" class="running-prog">
         <div class="common head">
@@ -627,7 +640,8 @@
             comfortable showing now. Until then, you can enjoy a gallery of bass pictures and my daily song
             recommendations!
           </p>
-          <h3 style="text-align: center;">Song of the Day: `insert text here`</h3>
+          <h3 style="text-align: center;">Song of the Day:</h3>
+          <div id="daily-songs"></div>
           <figure style="display: inline-block;">
             <img id="corner_stella" src="./content/pictures/corner_stella.jpg" style="position: relative; width: 300px; height: auto; margin: 50px;
               border: 4px solid palevioletred;">
