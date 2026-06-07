@@ -9,16 +9,16 @@ Blargh
 - ~~my different ducks! (sprite sheet time >:D )~~
 - ~~update ducks w/ chair and piracy~~
 - ~~trash can pixel art~~
-- Gear Icon for user settings
+- ~~Gear Icon for user settings~~ NO LONGER GOING TO ADD
 - ~~add highlight for music_32~~
 
 ### Art Content
 
-Just gonna be a scrollable blog style I reckon?
+~~Just gonna be a scrollable blog style I reckon?~~
 
 ### CV Content
 
-Going to be a view of the cv and have a download button
+~~Going to be a view of the cv and have a download button~~
 
 ### Duck Content
 
@@ -26,7 +26,7 @@ Small window to pop up - controls properties of duck animation and info + pictur
 
 ### Email Content
 
-Small window to pop up - embeds an auto populated email to my proton mail?
+~~Small window to pop up - embeds an auto populated email to my proton mail?~~
 
 ### File Content
 Pictures + descriptions of finished projects + current wips? + github and download link?
@@ -48,17 +48,21 @@ Secrets.txt file
 
 ### other stuff
 - ~~menu styling~~
-- menu 'user' (i.e. me) content
-- finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...
-- make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small
+- ~~menu 'user' (i.e. me) content~~
+- ~~finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...~~
+- ~~make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small~~
 - screen reader accessible!!!
+- dark mode color palette
 - ~~add icons in top left of each window~~
 
-- take photos of artwork
-- add photos of stella
+- ~~take photos of artwork~~
+- ~~add photos of stella~~
 - make song rec list 100 minimum but ideally 365
+- daily song
 - duck prog
 - term prog
+- term game content
+- file and project content - include the link to the libre office themes!
 - music rec the daily looks like a mp3 player type interface where its likew the daily in the center, then rewind, back, (dis for curr. day) forward, skip so users can puruse the previous recommended tracks? IDK that is def a stretch goal and not goin in release 1.0.0
 
 <sup>1</sup> 
