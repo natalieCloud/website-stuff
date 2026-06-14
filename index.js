@@ -198,29 +198,43 @@ class Navbar {
     }
 
     go_prev(idx) {
-        var prev
-        let me = this.art[idx]
+        var prev;
+        let me = this.art[idx];
         if (idx === 0) {
-            prev = this.art[13]
+            prev = this.art[13];
         } else {
-            prev = this.art[idx - 1]
+            prev = this.art[idx - 1];
         }
-        document.getElementById(me).style.display = "none"
-        document.getElementById(prev).style.display = "flex"
+        document.getElementById(me).style.display = "none";
+        document.getElementById(prev).style.display = "flex";
     }
 
     go_next(idx) {
-        var prev
-        let me = this.art[idx]
+        var prev;
+        let me = this.art[idx];
         if (idx === 13) {
-            prev = this.art[0]
+            prev = this.art[0];
         } else {
-            prev = this.art[idx + 1]
+            prev = this.art[idx + 1];
         }
-        document.getElementById(me).style.display = "none"
-        document.getElementById(prev).style.display = "flex"
+        document.getElementById(me).style.display = "none";
+        document.getElementById(prev).style.display = "flex";
+    }
+
+    checked() {
+        let t_btn = document.getElementById("trash-button");
+        t_btn.disabled = !t_btn.disabled;
+    }
+
+    empty() {
+        var child_to_abort = document.getElementById('trash-item');
+        let t_c = child_to_abort.parentNode
+        t_c.removeChild(child_to_abort);
     }
 }
+
+const pleasedontlookatthecodebeneththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around."
+
 
 const State = {
     FacingR: "FacingR",
@@ -251,7 +265,32 @@ class DucktopBuddy {
 
     runInterrupt() { }
 
-    update() { }
+    update() { 
+        var mvidl = Math.floor(Math.random() * 4);
+        var dur = Math.floor(Math.random() * 8);
+        var intr = Math.floor(Math.random() * 10);
+
+        if (mvidl === 0){
+            if (intr === 0) {
+                this.runInterrupt(this.idle, dur, this.blink)
+            } else if (intr === 9) {
+                this.runInterrupt(this.idle, dur, this.quack)
+            } else {
+                this.runClean(this.idle, dur)
+            }
+        } else {
+            if (intr === 0) {
+                this.runInterrupt(this.move, dur, this.blink)
+            } else if (intr === 9) {
+                this.runInterrupt(this.move, dur, this.quack)
+            } else {
+                this.runClean(this.move, dur)
+            }
+        }
+
+        this.draw();
+        let t = setTimeout('navbar.time_function()', 10000);
+    }
 
     draw() { }
 }
@@ -268,11 +307,19 @@ class Terminal {
         leaf.setAttribute('class', 'term-history');
         leaf.innerHTML = this.preface + " " + input;
         document.getElementById('history').appendChild(leaf)
+        document.getElementById('history').appendChild(this.fetch_outcome(input));
+        document.getElementById('history').lastChild.scrollIntoView();
         document.getElementById('baseball_stat_1').value = '';
     }
 
-    fetch_outcome() {
-
+    fetch_outcome(input_key) {
+        var leaf = document.createElement('div');
+        leaf.setAttribute('class', 'term-history');
+        let found = term_out.alias[input_key];
+        if (found) {
+            leaf.innerHTML = term_out.output[found]
+        } else { leaf.innerHTML = "</br>"; }
+        return leaf
     }
 }
 
@@ -284,9 +331,125 @@ document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
 })
 
-var term_out = {}
+const term_out = {
+    alias: {
+        "look": "look",
+        "check": "look",
+        "examine": "look",
+        "view": "look",
+        "Roberta": "roberta",
+        "Berta": "roberta",
+        "Roberta Williams": "roberta", 
+        "terminal": "terminal",
+        "term": "terminal",
+        "this": "terminal",
+        "terminal program": "terminal",
+        "desktop": "desktop",
+        "page": "desktop",
+        "screen": "desktop",
+        "disk-scheduling-algorithms": "dsa",
+        "disk scheduling algorithms": "dsa",
+        "website": "website",
+        "nataliechmura.com": "website",
+        "www.nataliechmura.com": "website",
+        "code": "code",
+        "html": "code",
+        "css": "code",
+        "js": "code",
+        "javascript": "cleveland",
+        "cleveland": "cleveland",
+        "the land": "cleveland",
+        "natalie's hometown": "cleveland",
+        "icons": "icons",
+        "ducks": "ducks",
+        "duckstop buddy": "ducks",
+        "duck desktop buddy": "ducks",
+        "duck program": "ducks",
+        "art": "art",
+        "art program": "art",
+        "projects": "projects",
+        "code projects": "projects",
+        "project files": "projects",
+        "files": "projects",
+        "cv": "cv",
+        "music": "music",
+        "plants": "plants",
+        "email": "email",
+        "email link": "email",
+        "email program": "email",
+        "trash": "trash",
+        "trash program": "trash",
+        "garbage": "trash",
+        "menu": "menu",
+        "menu screen": "menu",
+        "home": "menu",
+        "house": "house",
+        "house-of-leaves": "house",
+        "house of leaves": "house",
+        "natalie": "natalie",
+        "newt": "natalie",
+        "natalia": "natalie",
+        "dipper": "natalie",
+        "natalie chmura": "natalie",
+        "natalie cloud": "natalie",
+        "developer": "natalie",
+        "the developer": "natalie",
+        "the author": "natalie",
+        "author": "natalie",
+        "dsa fangirl": "natalie",
+        "dsa fanboy": "natalie",
+        "dsa fanthey": "natalie",
+        "clock": "clock",
+        "time": "clock",
+        "dsa-c-scan": "dsa-c-scan",
+        "dsa-f-scan": "dsa-f-scan",
+        "dsa-fcfs": "dsa-fcfs",
+        "dsa-scan": "dsa-scan",
+        "dsa-look": "dsa-look",
+        "dsa-c-look": "dsa-c-look",
+        "dsa-sstf": "dsa-sstf",
+        "hidden": "hidden",
+        "menu-up": "menu-up",
+        "menu-full": "menu-full",
+        "menu-true": "menu",
+        "menu-false": "menu-false",
+    },
+    output: {
+        "roberta": "",
+        "terminal": "",
+        "desktop": "You see a finely crafted desktop environment, with a variety of pixel art icons corresponding to the \"programs\", that have been installed.",
+        "dsa": "",
+        "website": "",
+        "code": "",
+        "cleveland": "",
+        "icons": "",
+        "ducks": "",
+        "art": "",
+        "projects": "",
+        "cv": "Are you doing research related to Operating Systems and/or memory management and currently taking on grad students?</br>Hey - it's nice to meet you! :D I'm going to be applying to start my PhD in Au2027",
+        "music": "",
+        "plants": "",
+        "email": "",
+        "trash": "You marvel at the level of detail in the art for this icon. You can even see the crumpled up forms of the documents that have been moved there!",
+        "menu": "",
+        "house": "",
+        "natalie": "",
+        "clock": "",
+        "dsa-c-scan": "",
+        "dsa-f-scan": "",
+        "dsa-fcfs": "",
+        "dsa-scan": "",
+        "dsa-look": "",
+        "dsa-c-look": "",
+        "dsa-sstf": "",
+        "hidden": "You try and peer through the layers of &ltdiv&gts at the content beneath- tragically the maximized terminal window obscures your vision. Drat!",
+        "menu-up": "</br></br></br></br></br><div class='menu-min'>I wouldn't recommend having the menu screen toggled up while in windowed mode - try going full screen for a moment?</div>",
+        "menu-full": "</br></br></br></br></br><div class='menu-min'>It's a fun-feature, not a bug! Anyways, try look menu-true</div>",
+        "menu-false": "You gaze at the bottom left hand of the screen, where the home menu button lies waiting to be clicked.",
+    }
+}
 
-var daily_songs = {
+const daily_songs = {
     "daily song recs": {
         "january": {
             "1": {

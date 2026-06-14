@@ -611,13 +611,19 @@
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
           <div class="file-entry highlight" onclick="">
-            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Polyominos Project</h4>
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">MPI Benchmark Automation in High Performance Computing</h4> 
           </div>
           <div class="file-entry highlight" onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99336'">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Block Game Theme</h4>
           </div>
           <div class="file-entry highlight" onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99337'">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Strawberry Milk Theme</h4>
+          </div>
+          <div class="file-entry highlight" onclick="">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">RSA Number Theory</h4>
+          </div>
+          <div class="file-entry highlight" onclick="">
+            <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Polyominos Project</h4>
           </div>
           <div class="file-entry highlight" onclick="">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Arp-Reach</h4>
@@ -702,17 +708,17 @@
           <button class="button-head close" onclick="navbar.toggle_close('trash-prog')"></button>
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
-          <div style="display: flex; overflow-x:hidden; margin: 0px; padding: 0px;" class="highlight"
+          <div id="trash-item" style="display: flex; overflow-x:hidden; margin: 0px; padding: 0px;" class="highlight"
             ondblclick="navbar.toggle_show('txt-prog')">
             <h4 style="display: flexbox; flex-grow: 1;">secrets.txt</h4>
             <input style="display: flexbox; padding-right: 20px;" type="checkbox" id="empty-trash" name="secrets.txt"
-              value="secrets.txt">
+              value="secrets.txt" onchange="document.getElementById('trash-button').disabled = !this.checked;">
           </div>
         </div>
         <div class="sticky-footer">
           <span style="width: 100%; line-height: 40px; height: 40px;">
             Empty trash?
-            <button class="submit-trash" onclick="navbar.empty()" disabled="disabled">
+            <button class="submit-trash" id="trash-button" onclick="navbar.empty()">
               Empty
             </button>
           </span>

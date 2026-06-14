@@ -233,7 +233,7 @@ h1 {
     margin: 0;
     /* padding: 4px; */
     overflow-y: scroll;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 .licon {
@@ -624,6 +624,13 @@ h1 {
 .content {
     flex-grow: 1;
     overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.term .content {
+    flex-grow: 1;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .duck-bio {
@@ -816,4 +823,9 @@ h1 {
     margin: 0px;
     padding: 0px;
     border: 1px solid grey;
+}
+
+.menu-min {
+    display: flex;
+    width: 250px;
 }
