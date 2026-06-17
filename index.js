@@ -302,6 +302,32 @@ class Terminal {
         this.location = term_out.terminal.file_sys;
     }
 
+    nav_parent(its_rough_but_works) {
+        if (its_rough_but_works === "/") {
+            return "At the top level";
+        } else if (its_rough_but_works === "./") {
+            this.addendum = '~$';
+            this.location = term_out.terminal.file_sys;
+            return "";
+        } else if (its_rough_but_works === "installed_programs/") {
+            this.addendum = 'installed_programs$';
+            this.location = term_out.terminal.file_sys.installed_programs;
+            return "";
+        } else if (its_rough_but_works === "website_content/") {
+            this.addendum = 'website_content$';
+            this.location = term_out.terminal.file_sys.website_content;
+            return "";
+        } else {
+            console.log(its_rough_but_works);
+            return `${its_rough_but_works} is not valid`;
+        }
+    }
+
+    nav_child(its_rough_but_works) {
+        this.location = this.location[its_rough_but_works]
+        this.addendum = this.location.name.substring(0, this.location.name.length - 1) + '$';
+    }
+
     parse_command() {
         var input = document.getElementById('baseball_stat_1').value;
         var leaf = document.createElement('div');
@@ -316,13 +342,31 @@ class Terminal {
     fetch_outcome(input_key) {
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
+
+        const input = input_key.split(" ");
+
+        console.log(input);
+
+        if (input.length === 1) {
+            if (input_key === "list") {
+                leaf.innerHTML = this.print_list(this.location);
+            } else {
+                leaf.innerHTML = this.print_tree("", -1, this.location);
+            }
+        }
+        else {
+            leaf.innerHTML = this.change_dir(input[1]) 
+        }
+
+
         // let found = term_out.alias[input_key];
         // if (found) {
         //     leaf.innerHTML = term_out.output[found]
         // } else { leaf.innerHTML = "</br>"; }
         // leaf.innerHTML = term_out.term["file-sys"][""];
         //leaf.innerHTML = this.print_list();
-        leaf.innerHTML = this.print_tree("", -1, term_out.terminal.file_sys.website_content);
+        
+        //leaf.innerHTML = this.print_tree("", -1, this.location);
         return leaf;
     }
 
@@ -335,58 +379,68 @@ class Terminal {
         }
 
         if (level !== -1) {
-            branches += " L"
+            branches += " L";
         }
 
         if (Array.isArray(dir)) {
             for (var j = 0; j < dir.length; j++) {
-                out_str = out_str + " | &emsp;" + branches + ` ${dir[j]}</br>`
+                out_str = out_str + " | &emsp;" + branches + ` ${dir[j]}</br>`;
             }
-            return out_str
+            return out_str;
         }
         
-        
-        // if (out_str !== "./</br>") {
-        //     out_str = out_str + branches + ` L ${dir.name} </br>`
-        // }
-
-        // if (typeof dir === "string") {
-        //     console.log(dir)
-        //     return out_str + branches + ` L ${dir.name} </br>`
-        // }
-
-        // if (typeof dir === 'string' || dir instanceof String) {
-        //     // out_str = out_str + branches + ` L ${dir.name} </br>`
-        // } else {
-        //     out_str = out_str + branches + ` ${dir.name} </br>`
-        //     for (let [ch, value] of Object.entries(dir)) {
-        //         console.log(ch)
-        //         if (ch !== "name") {
-        //             console.log(ch.name)
-        //             out_str = this.print_tree(out_str, level+1, value)
-        //         }
-        //     }
-            
-        // }
-
-        out_str = out_str + branches + ` ${dir.name} </br>`
+        out_str = out_str + branches + ` ${dir.name} </br>`;
         for (var ch in dir) {
-            var child = dir[ch]
+            var child = dir[ch];
             if (typeof child === "object") {
-                console.log(child)
-                out_str = this.print_tree(out_str, level+1, child)
+                console.log(child);
+                out_str = this.print_tree(out_str, level+1, child);
             } 
         }
-
-
-        return out_str
+        return out_str;
     }
 
-    print_list() {
-        var out_str = "<div class='col-text'>"
+    change_dir(loc) {
+        let inhtml = ""
 
-        for (var prop in this.location) {
-            out_str += `<div class='list-col'>${prop}</div>`;
+        if (loc === "$HOME") {
+            this.addendum = '~$';
+            this.location = term_out.terminal.file_sys;
+        } else if (loc === "..") {
+            inhtml = this.nav_parent(this.location.parent);
+        } else if (this.location[loc]) {
+            this.nav_child(loc);
+        } else {
+            inhtml = `'${loc}' is not a valid directory to change to!`;
+        }
+
+        document.getElementById('preface').innerHTML = this.preface + this.addendum;
+        return inhtml;
+    }
+
+    print_list(dir) {
+        console.log("in method")
+
+        var out_str = "<div class='list-text'>";
+
+        for (var prop in dir) {
+            if (Array.isArray(dir[prop])) {
+                console.log(typeof prop)
+                console.log(prop)
+                for (var j = 0; j < dir[prop].length; j++) {
+                    out_str += `<div class='list-col'>${dir[prop][j]}</div>`;
+                }
+            } else if (typeof dir[prop] === "object") {
+                out_str += `<div class='list-col'>${dir[prop].name}</div>`;
+            }
+            // } else if (Array.isArray(dir[prop])) {
+            //     console.log(typeof prop)
+            //     console.log(prop)
+            //     for (var j = 0; j < dir[prop].length; j++) {
+            //         out_str += `<div class='list-col'>${dir[prop][j]}</div>`;
+            //     }
+            // } 
+
         }
 
         return out_str + "</div>";
@@ -568,49 +622,69 @@ const term_out = {
         },
         file_sys: {
             name: "./",
+            parent: "/",
             installed_programs: {
                 name: "installed_programs/",
+                parent: "./",
                 art_program: {
                     name: "art_program",
+                    parent: "installed_programs/",
                     arrgh: ["art.txt", "art.exe"]
                 },
                 cv_program: {
                     name: "cv_program",
+                    parent: "installed_programs/",
                     arrgh: ["Natalie_Chmura_CV.pdf", "cv.exe"]
                 },
                 ducktop_program: {
                     name: "ducktop_program",
+                    parent: "installed_programs/",
                     arrgh: ["ducktop.txt", "ducktop.exe"]
                 },
                 email_program: {
                     name: "email_program",
+                    parent: "installed_programs/",
                     arrgh: ["email.txt", "email.exe"]
                 },
                 music_program: {
                     name: "music_program",
+                    parent: "installed_programs/",
                     arrgh: ["music.txt", "music.exe"]
                 },
                 plants_program: {
                     name: "plants_program",
+                    parent: "installed_programs/",
                     arrgh: ["plants.txt", "plants.exe"]
                 },
                 projects_program: {
                     name: "projects_program",
+                    parent: "installed_programs/",
                     arrgh: ["projects.txt", "projects.exe", "MPI_Benchmarking.pdf", "strawberry_milk.link", "block_game.link", "number_theory.pdf", "polyominos.link", "arp-reach.link"]
                 },
                 terminal_program: {
                     name: "terminal_program",
+                    parent: "installed_programs/",
                     arrgh: ["terminal.txt", "terminal.exe"]
                 },
                 trash_program: {
                     name: "trash_program",
+                    parent: "installed_programs/",
                     arrgh: ["trash.txt", "trash.exe"]
                 },
             },
             website_content: {
                 name: "website_content/",
-                art: ["ar.jpg", "collection.jpg", "cube_inner.jpg", "grad.gif", "grtk.jpg", "gsnk.jpg", "hmc.jpg", "hs.jpg", "jfsp.jp", "jupiter.jpg", "lining.jpg", "mmart.jpg", "musiks_cube.jpg", "ram.jpg", "saiki.jpg", "ssb.jpg", "stella_drawn.png", "stk.jpg", "vest.jpg"],
-                ducks: ["brock.jpg", "ducks_32.jpg", "guy.jpg", "higgs.jpg", "nami.jpg", "napstar.jpg", "nimda.jpg", "shaduck.jpg", "timmy.jpg", "tommy.jpg"],
+                parent: "./",
+                art: {
+                    name: "art/",
+                    parent: "website_content/",
+                    arrgh: ["ar.jpg", "collection.jpg", "cube_inner.jpg", "grad.gif", "grtk.jpg", "gsnk.jpg", "hmc.jpg", "hs.jpg", "jfsp.jp", "jupiter.jpg", "lining.jpg", "mmart.jpg", "musiks_cube.jpg", "ram.jpg", "saiki.jpg", "ssb.jpg", "stella_drawn.png", "stk.jpg", "vest.jpg"],
+                },
+                ducks: {
+                    name: "ducks/",
+                    parent: "website_content/",
+                    arrgh: ["brock.jpg", "ducks_32.jpg", "guy.jpg", "higgs.jpg", "nami.jpg", "napstar.jpg", "nimda.jpg", "shaduck.jpg", "timmy.jpg", "tommy.jpg"]
+                },
             }
         },
     },

@@ -845,10 +845,17 @@ h1 {
    width: 50%; 
 }
 
+.list-text {
+    display: block;
+    text-align: left;
+    width: 100%;
+}
+
 .list-col {
-    display: flexbox;
-    margin: 20px;
+    display: inline-block;
+    margin: 5px;
     margin-left: 0;
+    margin-right: 20px;
 }
 
 .word {
