@@ -29,14 +29,14 @@ cd [dir | ]
     one at a time, from parent->child or from child->parent. Commands using `/`
     will be ignored.
 
-help [name | ] 
+help [name| ] 
 
     Display information about the built in terminal commands. 
 
     Displays a summary of the builtin command. If no command is
     specified, the list of potential help topics is printed.
     
-list [dir | ]
+list [dir| ]
 
     Prints the items in the desired directory.
 
@@ -88,7 +88,7 @@ show [name]
     Displays the content of the file specififed by name. Must be in the current working
     directory of said file in order to launch it successfully. Works for any .txt extension.
 
-tree [dir | ]
+tree [dir| ]
 
     Displays the structure of the subdirectories and files nested within the specified
     directory. By default uses the current working directory, but can take HOME as another

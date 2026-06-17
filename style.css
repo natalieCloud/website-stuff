@@ -829,3 +829,34 @@ h1 {
     display: flex;
     width: 250px;
 }
+
+.col-text {
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+.col-text.r {
+   display: flexbox;
+   width: 50%; 
+   right: 0;
+}
+.col-text.l {
+   display: flexbox;
+   width: 50%; 
+}
+
+.list-col {
+    display: flexbox;
+    margin: 20px;
+    margin-left: 0;
+}
+
+.word {
+    margin-top: 20px;
+}
+
+.def {
+    width: 80%;
+    margin-top: 20px;
+    margin-left: 30px;
+}

@@ -233,8 +233,7 @@ class Navbar {
     }
 }
 
-const pleasedontlookatthecodebeneththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around."
-
+const pleasedontlookatthecodebeneththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
 
 const State = {
     FacingR: "FacingR",
@@ -297,15 +296,17 @@ class DucktopBuddy {
 
 class Terminal {
     constructor() {
-        this.preface = 'guest@natchm-website:~$';
+        this.preface = 'guest@natchm-website:';
+        this.addendum = '~$'
         this.looking = false;
+        this.location = term_out.terminal.file_sys;
     }
 
     parse_command() {
         var input = document.getElementById('baseball_stat_1').value;
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
-        leaf.innerHTML = this.preface + " " + input;
+        leaf.innerHTML = this.preface + this.addendum + " " + input;
         document.getElementById('history').appendChild(leaf)
         document.getElementById('history').appendChild(this.fetch_outcome(input));
         document.getElementById('history').lastChild.scrollIntoView();
@@ -315,17 +316,82 @@ class Terminal {
     fetch_outcome(input_key) {
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
-        let found = term_out.alias[input_key];
-        if (found) {
-            leaf.innerHTML = term_out.output[found]
-        } else { leaf.innerHTML = "</br>"; }
-        return leaf
+        // let found = term_out.alias[input_key];
+        // if (found) {
+        //     leaf.innerHTML = term_out.output[found]
+        // } else { leaf.innerHTML = "</br>"; }
+        // leaf.innerHTML = term_out.term["file-sys"][""];
+        //leaf.innerHTML = this.print_list();
+        leaf.innerHTML = this.print_tree("", -1, term_out.terminal.file_sys.website_content);
+        return leaf;
+    }
+
+    print_tree(out_str, level, dir) {
+
+        var branches = "";
+
+        for (var i = 0; i < level; i++) {
+            branches += " | &emsp;"
+        }
+
+        if (level !== -1) {
+            branches += " L"
+        }
+
+        if (Array.isArray(dir)) {
+            for (var j = 0; j < dir.length; j++) {
+                out_str = out_str + " | &emsp;" + branches + ` ${dir[j]}</br>`
+            }
+            return out_str
+        }
+        
+        
+        // if (out_str !== "./</br>") {
+        //     out_str = out_str + branches + ` L ${dir.name} </br>`
+        // }
+
+        // if (typeof dir === "string") {
+        //     console.log(dir)
+        //     return out_str + branches + ` L ${dir.name} </br>`
+        // }
+
+        // if (typeof dir === 'string' || dir instanceof String) {
+        //     // out_str = out_str + branches + ` L ${dir.name} </br>`
+        // } else {
+        //     out_str = out_str + branches + ` ${dir.name} </br>`
+        //     for (let [ch, value] of Object.entries(dir)) {
+        //         console.log(ch)
+        //         if (ch !== "name") {
+        //             console.log(ch.name)
+        //             out_str = this.print_tree(out_str, level+1, value)
+        //         }
+        //     }
+            
+        // }
+
+        out_str = out_str + branches + ` ${dir.name} </br>`
+        for (var ch in dir) {
+            var child = dir[ch]
+            if (typeof child === "object") {
+                console.log(child)
+                out_str = this.print_tree(out_str, level+1, child)
+            } 
+        }
+
+
+        return out_str
+    }
+
+    print_list() {
+        var out_str = "<div class='col-text'>"
+
+        for (var prop in this.location) {
+            out_str += `<div class='list-col'>${prop}</div>`;
+        }
+
+        return out_str + "</div>";
     }
 }
-
-var navbar = new Navbar();
-var term = new Terminal();
-var ducks = new DucktopBuddy();
 
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
@@ -414,6 +480,140 @@ const term_out = {
         "menu-true": "menu",
         "menu-false": "menu-false",
     },
+    terminal: {
+        "help": {
+            "": 
+            `</br>
+            NTerminalC version 1.0.0 release (static-web)</br>
+            These commands are defined interally. Type 'help' to see this list.</br>
+            Type 'help name' to find out more about the function 'name'</br></br>
+            <div class='col-text'>
+            <div class='col-text l'>
+                cd [dir| ]</br>
+                help [name| ]</br>
+                list [dir| ]</br>
+                look [value]</br>
+            </div>
+            <div class='col-text r'>
+                quit</br>
+                run [name]</br>
+                show[name]</br>
+                tree[dir| ]</br>
+            </div>
+            </div></br>`,
+            "cd":
+            `<div class='word'>cd [dir| ]</div>
+            <div class='def'>Changes the shell working directory</div>
+            <div class='def'>Change the current directory to dir. The default value of dir is 
+    the HOME shell vairable.</div>
+            <div class='def'>To naviagate to the parent directory of the current working directory,
+    '..' may be used. </div>
+            <div class='def'>Aside from navigation to the HOME directory, levels may only be traversed
+    one at a time, from parent->child or from child->parent. Commands using '/'
+    will be ignored.</div>
+            </br>`,
+            "help":
+            `<div class='word'>help [name| ]</div>
+            <div class='def'>Display information about the built in terminal commands.</div>
+            <div class='def'>Displays a summary of the builtin command. If no command is
+    specified, the list of potential help topics is printed.</div>
+            </br>`,
+            "list":
+            `<div class='word'>list [dir| ]</div>
+            <div class='def'>Prints the items in the desired directory.</div>
+            <div class='def'>The default directory is the current working directoy.</div>
+            <div class='def'>Aside from listing content in the HOME directory, content may only be listed in
+    the current working directory.</div>
+            </br>`,
+            "look":
+            `<div class='word'>look [value]</div>
+            <div class='def'>For fans of Roberta, perhaps?</div>
+            <div class='def'> At the beginning, look takes three possible values. Running look with any of these
+    values gives you a small description and optional links...</div>
+            <div class='def'>Further info about the reasoning behind these values can be gained by running 'help look value'</div>
+            <div class='def'>'disk-scheduling-algorithms'</br>'roberta'</br>'terminal'</br></div>
+            </br>`,
+            "roberta":
+            `<div class='word'>look Roberta</div>
+            <div class='def'>A very cool game desginer behind many of the Sierra Titles, which is how I got into parser gaming in particular.</div>
+            </br>`,
+            "terminal":
+            `<div class='word'>look terminal</div>
+            <div class='def'>About text parser games</div>
+            </br>`,
+            "disk-scheduling-algorithms":
+            `<div class='word'>look disk-scheduling-algorithms</div>
+            <div class='def'>If only Natalie had included the ability to <span style='color: blue'>look</span> at a specific dsa</div>
+            </br>`,
+            "quit":
+            `<div class='word'>quit</div>
+            <div class='def'>Exits the currently running terminal session.</div>
+            </br>`,
+            "run":
+            `<div class='word'>run [name]</div>
+            <div class='def'>Executes the program spcified by name. Must be in the current working directory
+    of the program in order to launch it sucessfully. Works for any installed program.</div>
+            </br>`,
+            "show":
+            `<div class='word'>show [name]</div>
+            <div class='def'>Displays the content of the file specififed by name. Must be in the current working
+    directory of said file in order to launch it successfully. Works for any .txt extension.</div>
+            </br>`,
+            "tree":
+            `<div class='word'>tree [dir| ]</div>
+            <div class='def'>Displays the structure of the subdirectories and files nested within the specified
+    directory. By default uses the current working directory, but can take HOME as another
+    value.</div>
+            </br>`,
+        },
+        file_sys: {
+            name: "./",
+            installed_programs: {
+                name: "installed_programs/",
+                art_program: {
+                    name: "art_program",
+                    arrgh: ["art.txt", "art.exe"]
+                },
+                cv_program: {
+                    name: "cv_program",
+                    arrgh: ["Natalie_Chmura_CV.pdf", "cv.exe"]
+                },
+                ducktop_program: {
+                    name: "ducktop_program",
+                    arrgh: ["ducktop.txt", "ducktop.exe"]
+                },
+                email_program: {
+                    name: "email_program",
+                    arrgh: ["email.txt", "email.exe"]
+                },
+                music_program: {
+                    name: "music_program",
+                    arrgh: ["music.txt", "music.exe"]
+                },
+                plants_program: {
+                    name: "plants_program",
+                    arrgh: ["plants.txt", "plants.exe"]
+                },
+                projects_program: {
+                    name: "projects_program",
+                    arrgh: ["projects.txt", "projects.exe", "MPI_Benchmarking.pdf", "strawberry_milk.link", "block_game.link", "number_theory.pdf", "polyominos.link", "arp-reach.link"]
+                },
+                terminal_program: {
+                    name: "terminal_program",
+                    arrgh: ["terminal.txt", "terminal.exe"]
+                },
+                trash_program: {
+                    name: "trash_program",
+                    arrgh: ["trash.txt", "trash.exe"]
+                },
+            },
+            website_content: {
+                name: "website_content/",
+                art: ["ar.jpg", "collection.jpg", "cube_inner.jpg", "grad.gif", "grtk.jpg", "gsnk.jpg", "hmc.jpg", "hs.jpg", "jfsp.jp", "jupiter.jpg", "lining.jpg", "mmart.jpg", "musiks_cube.jpg", "ram.jpg", "saiki.jpg", "ssb.jpg", "stella_drawn.png", "stk.jpg", "vest.jpg"],
+                ducks: ["brock.jpg", "ducks_32.jpg", "guy.jpg", "higgs.jpg", "nami.jpg", "napstar.jpg", "nimda.jpg", "shaduck.jpg", "timmy.jpg", "tommy.jpg"],
+            }
+        },
+    },
     output: {
         "roberta": "",
         "terminal": "",
@@ -444,8 +644,9 @@ const term_out = {
         "dsa-sstf": "",
         "hidden": "You try and peer through the layers of &ltdiv&gts at the content beneath- tragically the maximized terminal window obscures your vision. Drat!",
         "menu-up": "</br></br></br></br></br><div class='menu-min'>I wouldn't recommend having the menu screen toggled up while in windowed mode - try going full screen for a moment?</div>",
-        "menu-full": "</br></br></br></br></br><div class='menu-min'>It's a fun-feature, not a bug! Anyways, try look menu-true</div>",
+        "menu-full": "</br></br></br></br></br><div class='menu-min'>It's a feature, not a bug! Anyways, try look menu-true</div>",
         "menu-false": "You gaze at the bottom left hand of the screen, where the home menu button lies waiting to be clicked.",
+        "else": "is not an action you can take in this game",
     }
 }
 
@@ -1929,3 +2130,7 @@ const daily_songs = {
         }
     }
 }
+
+var navbar = new Navbar();
+var term = new Terminal();
+var ducks = new DucktopBuddy();
