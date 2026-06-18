@@ -3,15 +3,15 @@ class Navbar {
         this.time = "";
         this.toggled = false;
         this.prog_map = {
-            "art-prog": { "shown": false, "max": false, "min": false },
-            "cv-prog": { "shown": false, "max": false, "min": false },
-            "duck-prog": { "shown": false, "max": false, "min": false },
-            "txt-prog": { "shown": false, "max": false, "min": false },
-            "file-prog": { "shown": false, "max": false, "min": false },
-            "music-prog": { "shown": false, "max": false, "min": false },
-            "plant-prog": { "shown": false, "max": false, "min": false },
-            "term-prog": { "shown": false, "max": false, "min": false },
-            "trash-prog": { "shown": false, "max": false, "min": false },
+            "art-program": { "shown": false, "max": false, "min": false },
+            "cv-program": { "shown": false, "max": false, "min": false },
+            "duck-program": { "shown": false, "max": false, "min": false },
+            "txt-program": { "shown": false, "max": false, "min": false },
+            "file-program": { "shown": false, "max": false, "min": false },
+            "music-program": { "shown": false, "max": false, "min": false },
+            "plant-program": { "shown": false, "max": false, "min": false },
+            "terminal-program": { "shown": false, "max": false, "min": false },
+            "trash-program": { "shown": false, "max": false, "min": false },
         }
         this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
         this.modulo = 14;
@@ -33,8 +33,15 @@ class Navbar {
         console.log(this.toggled);
     }
 
+    reset_index() {
+        var classes = document.getElementsByClassName("running-prog");
+        for (var i = 0; i < classes.length; i++) {
+            classes[i].style.zIndex = "90";
+        }
+    }
+
     add_icon(icon_name) {
-        var nicon = icon_name.substring(0, icon_name.length - 5);
+        var nicon = icon_name.substring(0, icon_name.length - 8);
         console.log("adding button " + nicon);
         var open_prog = document.createElement('button');
         open_prog.setAttribute('id', `${nicon}-icon`);
@@ -47,7 +54,7 @@ class Navbar {
 
     remove_icon(icon_name) {
         console.log("removing div");
-        var nicon = icon_name.substring(0, icon_name.length - 5);
+        var nicon = icon_name.substring(0, icon_name.length - 8);
         var child_to_abort = document.getElementById(`${nicon}-icon`);
         let t_c = document.getElementById("task-buttons");
         t_c.removeChild(child_to_abort);
@@ -87,13 +94,14 @@ class Navbar {
             prog.style.width = "700px";
             prog.style.height = "500px";
             prog.style.display = "none";
+            prog.style.zIndex = "90";
             console.log("closed " + icon_name);
             navbar.remove_icon(icon_name);
-            if (icon_name === 'term-prog') {
+            if (icon_name === 'terminal-program') {
                 document.getElementById("baseball_stat_1").value = "";
                 document.getElementById("history").innerHTML = "";
             }
-            if (icon_name === 'art-prog') {
+            if (icon_name === 'art-program') {
                 for (const elem of document.getElementsByClassName('art-page')) {
                     elem.style.display = "none"
                 }
@@ -110,15 +118,17 @@ class Navbar {
             prog.style.width = "700px";
             prog.style.height = "500px";
             prog.style.display = "flex";
+            navbar.reset_index();
+            prog.style.zIndex = "91";
             navbar.add_icon(icon_name);
             console.log("opened " + icon_name);
-            if (icon_name === 'term-prog') {
+            if (icon_name === 'terminal-program') {
                 document.getElementById("baseball_stat_1").focus();
             }
-            else if (icon_name === 'art-prog') {
+            else if (icon_name === 'art-program') {
                 document.getElementById("jupiter").style.display = "flex";
             }
-            else if (icon_name === 'music-prog') {
+            else if (icon_name === 'music-program') {
                 this.change_song(this.day);
             }
 
@@ -132,10 +142,13 @@ class Navbar {
         p["shown"] = true;
         if (p["min"]) {
             prog.style.display = "flex";
-            console.log("minimized " + icon_name);
+            console.log("un-minimized " + icon_name);
+            navbar.reset_index();
+            prog.style.zIndex = "91";
         } else {
             prog.style.display = "none";
-            console.log("un-minimized " + icon_name);
+            prog.style.zIndex = "90";
+            console.log("minimized " + icon_name);
         }
     }
 
@@ -146,11 +159,14 @@ class Navbar {
         if (p["max"]) {
             prog.style.width = "100%";
             prog.style.height = "100%";
-            console.log("minimized " + icon_name);
+            navbar.reset_index();
+            prog.style.zIndex = "91";
+            console.log("maximized " + icon_name);
         } else {
             prog.style.width = "700px";
             prog.style.height = "500px";
-            console.log("un-minimized " + icon_name);
+            prog.style.zIndex = "90";
+            console.log("un-maximized " + icon_name);
         }
     }
 
@@ -362,8 +378,12 @@ class Terminal {
         else {
             if (input === "help" && term_out.terminal["help"][remaining]) {
                 leaf.innerHTML = term_out.terminal["help"][remaining];
-            } else {
+            } else if (input === "cd") {
                 leaf.innerHTML = this.change_dir(remaining) 
+            } else if (input === "show") {
+                leaf.innerHTML = this.show_file(remaining);
+            } else if (input === "run") {
+                leaf.innerHTML = this.run_program(remaining);
             }
         }
 
@@ -378,12 +398,27 @@ class Terminal {
         return leaf;
     }
 
-    show_file() {
+    show_file(file_name) {
+        let name = file_name.split(".");
+        if (name[1] !== "txt" || name[1] !== "pdf") {
+            return `${file_name} does not have the appropriate extension for use with the show command`;
+        }
 
+        // logic about adding a div 'n stuff
+
+        return `opened ${file_name}`;
     }
 
-    run_program() {
-        
+    run_program(exe_name) {
+        let name = exe_name.split(".");
+        if (name[1] !== "exe") {
+            return `${exe_name} is not a runnable program`;
+        }
+
+        console.log(name[0])
+        navbar.toggle_show(name[0]);
+
+        return `started ${exe_name}`
     }
 
     print_tree(out_str, level, dir) {

@@ -331,7 +331,7 @@ h1 {
     &.plant {
         background-image: url("content/icons/plant_24.png");
     }
-    &.term {
+    &.terminal {
         background-image: url("content/icons/term_24.png");
     }
     &.trash {
