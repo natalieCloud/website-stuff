@@ -22,7 +22,7 @@ Blargh
 
 ### Duck Content
 
-Small window to pop up - controls properties of duck animation and info + picture about each of the ducks?
+Small window to pop up - controls properties of duck animation and ~~info + picture about each of the ducks?~~
 
 ### Email Content
 
@@ -40,7 +40,7 @@ Blog style, at this point photos and descriptions I think
 
 ### Terminal Content
 
-Interactive mock terminal! A Subproject in and of itself...
+Interactive mock terminal! A subproject in and of itself...
 
 ### Trash Content
 

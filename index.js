@@ -343,21 +343,29 @@ class Terminal {
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
 
-        const input = input_key.split(" ");
+        const [first, ...rest] = input_key.split(" ");
+        const input = first;
+        const remaining = rest.join(" ");
 
         console.log(input);
 
-        if (input.length === 1) {
-            if (input_key === "list") {
+        if (remaining.length === 0) {
+            if (input === "list") {
                 leaf.innerHTML = this.print_list(this.location);
-            } else {
-                leaf.innerHTML = this.print_tree("", -1, this.location);
+            } else if (input === "tree"){
+                leaf.innerHTML = this.print_tree("", 0, this.location);
+            } else if (input === "help"){
+                leaf.innerHTML = term_out.terminal["help"][""];
+                // leaf.innerHTML = this.print_tree("", -1, this.location);
             }
         }
         else {
-            leaf.innerHTML = this.change_dir(input[1]) 
+            if (input === "help" && term_out.terminal["help"][remaining]) {
+                leaf.innerHTML = term_out.terminal["help"][remaining];
+            } else {
+                leaf.innerHTML = this.change_dir(remaining) 
+            }
         }
-
 
         // let found = term_out.alias[input_key];
         // if (found) {
@@ -370,21 +378,30 @@ class Terminal {
         return leaf;
     }
 
+    show_file() {
+
+    }
+
+    run_program() {
+        
+    }
+
     print_tree(out_str, level, dir) {
 
-        var branches = "";
+        let branches = "";
 
-        for (var i = 0; i < level; i++) {
+        for (var i = 1; i < level; i++) {
             branches += " | &emsp;"
         }
 
-        if (level !== -1) {
+        if (level !== 0) {
             branches += " L";
         }
 
         if (Array.isArray(dir)) {
             for (var j = 0; j < dir.length; j++) {
-                out_str = out_str + " | &emsp;" + branches + ` ${dir[j]}</br>`;
+                out_str = out_str  + branches + ` ${dir[j]}</br>`;
+                // + " | &emsp;"
             }
             return out_str;
         }
@@ -433,14 +450,6 @@ class Terminal {
             } else if (typeof dir[prop] === "object") {
                 out_str += `<div class='list-col'>${dir[prop].name}</div>`;
             }
-            // } else if (Array.isArray(dir[prop])) {
-            //     console.log(typeof prop)
-            //     console.log(prop)
-            //     for (var j = 0; j < dir[prop].length; j++) {
-            //         out_str += `<div class='list-col'>${dir[prop][j]}</div>`;
-            //     }
-            // } 
-
         }
 
         return out_str + "</div>";
@@ -627,47 +636,47 @@ const term_out = {
                 name: "installed_programs/",
                 parent: "./",
                 art_program: {
-                    name: "art_program",
+                    name: "art_program/",
                     parent: "installed_programs/",
                     arrgh: ["art.txt", "art.exe"]
                 },
                 cv_program: {
-                    name: "cv_program",
+                    name: "cv_program/",
                     parent: "installed_programs/",
                     arrgh: ["Natalie_Chmura_CV.pdf", "cv.exe"]
                 },
                 ducktop_program: {
-                    name: "ducktop_program",
+                    name: "ducktop_program/",
                     parent: "installed_programs/",
                     arrgh: ["ducktop.txt", "ducktop.exe"]
                 },
                 email_program: {
-                    name: "email_program",
+                    name: "email_program/",
                     parent: "installed_programs/",
                     arrgh: ["email.txt", "email.exe"]
                 },
                 music_program: {
-                    name: "music_program",
+                    name: "music_program/",
                     parent: "installed_programs/",
                     arrgh: ["music.txt", "music.exe"]
                 },
                 plants_program: {
-                    name: "plants_program",
+                    name: "plants_program/",
                     parent: "installed_programs/",
                     arrgh: ["plants.txt", "plants.exe"]
                 },
                 projects_program: {
-                    name: "projects_program",
+                    name: "projects_program/",
                     parent: "installed_programs/",
                     arrgh: ["projects.txt", "projects.exe", "MPI_Benchmarking.pdf", "strawberry_milk.link", "block_game.link", "number_theory.pdf", "polyominos.link", "arp-reach.link"]
                 },
                 terminal_program: {
-                    name: "terminal_program",
+                    name: "terminal_program/",
                     parent: "installed_programs/",
                     arrgh: ["terminal.txt", "terminal.exe"]
                 },
                 trash_program: {
-                    name: "trash_program",
+                    name: "trash_program/",
                     parent: "installed_programs/",
                     arrgh: ["trash.txt", "trash.exe"]
                 },
