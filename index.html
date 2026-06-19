@@ -7,14 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>www.nataliechmura.com</title>
   <link rel="stylesheet" href="./style.css">
-  <!-- <link rel="stylesheet" href="./animate.min.css"> Perchance -->
   <link rel="icon" href="./content/icons/Favicon.png" type=image/x-icon">
   <script src="./index.js"></script>
 </head>
 
 <body>
   <div class="image-container">
-    <div class="desktop-space">
+    <div class="desktop-space" id="desktop-space">
       <div id="menu-container" class="home-menu">
         <div class="button-zone">
           <button class="restart" onclick="navbar.restart()"></button>
@@ -685,8 +684,11 @@
         </div>
         <div class="content">
           <div class="running-term" style="padding: 5px; padding-top: 0;">
-            <div class="history" id="history"></div>
-            <!-- guest@natchm-website:~$ -->
+            <div class="history" id="history">
+              <div class="term-history">
+              
+              </div>
+            </div>
             <form name="term-input" style="overflow: hidden; display: flex;" action="javascript:void(0);"
               onsubmit="term.parse_command()">
               <label for="termput"
@@ -735,7 +737,7 @@
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
         </div>
       </div>
-    </div>/
+    </div>
     <div class="nav-space">
       <nav class="navbar">
         <div class="home-container">

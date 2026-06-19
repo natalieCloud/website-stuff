@@ -245,6 +245,7 @@ h1 {
     background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
+    background-image: url("content/icons/missing_24.png");
     &.github {
     background-image: url("content/icons/github_24.png");
     }
@@ -287,6 +288,12 @@ h1 {
     &.trash {
         background-image: url("content/icons/trash_24.png");
     }
+    &.txt-txt {
+        background-image: url("content/icons/txt_24.png");
+    }
+    &.txt-pdf {
+        background-image: url("content/icons/pdf_24.png");
+    }
 }
 
 .lspan {
@@ -305,6 +312,7 @@ h1 {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
+    background-image: url("content/icons/missing_24.png");
     border: transparent;
     &:hover {
     background-color: gray;
@@ -336,6 +344,12 @@ h1 {
     }
     &.trash {
         background-image: url("content/icons/trash_24.png");
+    }
+    &.txt-txt {
+        background-image: url("content/icons/txt_24.png");
+    }
+    &.txt-pdf {
+        background-image: url("content/icons/pdf_24.png");
     }
 }
 
@@ -665,6 +679,8 @@ h1 {
     border: 3px solid rgb(117, 86, 6);
     border-radius: 3%;
     background-color: transparent;
+    content: url("content/icons/missing_24.png");
+
 
     &.higgs {
         content: url("./content/ducks/higgs.jpg");

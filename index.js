@@ -12,6 +12,19 @@ class Navbar {
             "plant-program": { "shown": false, "max": false, "min": false },
             "terminal-program": { "shown": false, "max": false, "min": false },
             "trash-program": { "shown": false, "max": false, "min": false },
+            "art.txt-program": { "shown": false, "max": false, "min": false },
+            "credits.txt-program": { "shown": false, "max": false, "min": false },
+            "cv.txt-program": { "shown": false, "max": false, "min": false },
+            "ducktop.txt-program": { "shown": false, "max": false, "min": false },
+            "email.txt-program": { "shown": false, "max": false, "min": false },
+            "music.txt-program": { "shown": false, "max": false, "min": false },
+            "plants.txt-program": { "shown": false, "max": false, "min": false },
+            "projects.txt-program": { "shown": false, "max": false, "min": false },
+            "terminal.txt-program": { "shown": false, "max": false, "min": false },
+            "trash.txt-program": { "shown": false, "max": false, "min": false },
+            "Natalie_Chmura_CV.pdf-program": { "shown": false, "max": false, "min": false },
+            "rsa_number_theory.pdf-program": { "shown": false, "max": false, "min": false },
+            "mpi_benchmarking.pdf-program": { "shown": false, "max": false, "min": false },
         }
         this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
         this.modulo = 14;
@@ -42,9 +55,14 @@ class Navbar {
 
     add_icon(icon_name) {
         var nicon = icon_name.substring(0, icon_name.length - 8);
+        if (icon_name.indexOf("pdf") !== -1) {
+            nicon = "txt-pdf"
+        } else if (icon_name.indexOf("pdf") !== -1) {
+            nicon = "txt-txt"
+        }
         console.log("adding button " + nicon);
         var open_prog = document.createElement('button');
-        open_prog.setAttribute('id', `${nicon}-icon`);
+        open_prog.setAttribute('id', `${icon_name}-icon`);
         open_prog.setAttribute('class', `running-icons ${nicon}`);
         open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
         open_prog.innerHTML = "";
@@ -55,7 +73,10 @@ class Navbar {
     remove_icon(icon_name) {
         console.log("removing div");
         var nicon = icon_name.substring(0, icon_name.length - 8);
-        var child_to_abort = document.getElementById(`${nicon}-icon`);
+        if (icon_name.indexOf(".") !== -1) {
+            nicon = "cv"
+        }
+        var child_to_abort = document.getElementById(`${icon_name}-icon`);
         let t_c = document.getElementById("task-buttons");
         t_c.removeChild(child_to_abort);
     }
@@ -372,7 +393,6 @@ class Terminal {
                 leaf.innerHTML = this.print_tree("", 0, this.location);
             } else if (input === "help"){
                 leaf.innerHTML = term_out.terminal["help"][""];
-                // leaf.innerHTML = this.print_tree("", -1, this.location);
             }
         }
         else {
@@ -400,9 +420,50 @@ class Terminal {
 
     show_file(file_name) {
         let name = file_name.split(".");
-        if (name[1] !== "txt" || name[1] !== "pdf") {
+        if (name[1] !== "txt" && name[1] !== "pdf") {
             return `${file_name} does not have the appropriate extension for use with the show command`;
         }
+
+        // if (!navbar.prog_map[file_name]) {
+            navbar.prog_map[file_name] = { "shown": false, "max": false, "min": false };
+            var icon = "missing_24.png"
+
+            if (name[1] === "pdf") {
+                var obj_l = `<object data="./content/${file_name}" type="application/pdf" width="100%" height="100%"
+                style="min-height: 454px;">`;
+                icon = "pdf_24.png";
+            
+            } else {
+                var obj_l = `<object data="./content/programs/${file_name}" type="text/plain" width="100%" height="100%"
+                style="min-height: 454px;">`;
+                icon = "txt_24.png";
+            }
+            var id = file_name + "-program";
+
+            var leaf = document.createElement('div');
+            leaf.setAttribute("class", "running-prog");
+            leaf.setAttribute("id", id);
+            leaf.innerHTML = `
+            <div class="common head">
+                <div class="pic-head" style="content: url(./content/icons/${icon});"></div>
+                <span class="span-title">${file_name}</span>
+                <button class="button-head min" onclick="navbar.toggle_min('${file_name}-program')"></button>
+                <button class="button-head max" onclick="navbar.toggle_max('${file_name}-program')"></button>
+                <button class="button-head close" onclick="navbar.toggle_close('${file_name}-program')"></button>
+            </div>
+            <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+                ${obj_l}
+                    <p>
+                        Your browser does not support the ${name[1]} filetype.
+                    </p>
+                </object>
+            </div>
+            `;
+            document.getElementById("desktop-space").appendChild(leaf);
+    
+        // } // else {
+        navbar.toggle_show(id);
+        // }
 
         // logic about adding a div 'n stuff
 
@@ -733,33 +794,33 @@ const term_out = {
         },
     },
     output: {
-        "roberta": "",
-        "terminal": "",
+        "roberta": "Natalie doesn't double check their work so you see this.",
+        "terminal": "Natalie doesn't double check their work so you see this.",
         "desktop": "You see a finely crafted desktop environment, with a variety of pixel art icons corresponding to the \"programs\", that have been installed.",
-        "dsa": "",
-        "website": "",
-        "code": "",
-        "cleveland": "",
-        "icons": "",
-        "ducks": "",
-        "art": "",
-        "projects": "",
+        "dsa": "Natalie doesn't double check their work so you see this.",
+        "website": "Natalie doesn't double check their work so you see this.",
+        "code": "Natalie doesn't double check their work so you see this.",
+        "cleveland": "Natalie doesn't double check their work so you see this.",
+        "icons": "Natalie doesn't double check their work so you see this.",
+        "ducks": "Natalie doesn't double check their work so you see this.",
+        "art": "Natalie doesn't double check their work so you see this.",
+        "projects": "Natalie doesn't double check their work so you see this.",
         "cv": "Are you doing research related to Operating Systems and/or memory management and currently taking on grad students?</br>Hey - it's nice to meet you! :D I'm going to be applying to start my PhD in Au2027",
-        "music": "",
-        "plants": "",
-        "email": "",
+        "music": "Natalie doesn't double check their work so you see this.",
+        "plants": "Natalie doesn't double check their work so you see this.",
+        "email": "Natalie doesn't double check their work so you see this.",
         "trash": "You marvel at the level of detail in the art for this icon. You can even see the crumpled up forms of the documents that have been moved there!",
-        "menu": "",
-        "house": "",
-        "natalie": "",
-        "clock": "",
-        "dsa-c-scan": "",
-        "dsa-f-scan": "",
-        "dsa-fcfs": "",
-        "dsa-scan": "",
-        "dsa-look": "",
-        "dsa-c-look": "",
-        "dsa-sstf": "",
+        "menu": "Natalie doesn't double check their work so you see this.",
+        "house": "Natalie doesn't double check their work so you see this.",
+        "natalie": "Natalie doesn't double check their work so you see this.",
+        "clock": "Natalie doesn't double check their work so you see this.",
+        "dsa-c-scan": "Natalie doesn't double check their work so you see this.",
+        "dsa-f-scan": "Natalie doesn't double check their work so you see this.",
+        "dsa-fcfs": "Natalie doesn't double check their work so you see this.",
+        "dsa-scan": "Natalie doesn't double check their work so you see this.",
+        "dsa-look": "Natalie doesn't double check their work so you see this.",
+        "dsa-c-look": "Natalie doesn't double check their work so you see this.",
+        "dsa-sstf": "Natalie doesn't double check their work so you see this.",
         "hidden": "You try and peer through the layers of &ltdiv&gts at the content beneath- tragically the maximized terminal window obscures your vision. Drat!",
         "menu-up": "</br></br></br></br></br><div class='menu-min'>I wouldn't recommend having the menu screen toggled up while in windowed mode - try going full screen for a moment?</div>",
         "menu-full": "</br></br></br></br></br><div class='menu-min'>It's a feature, not a bug! Anyways, try look menu-true</div>",
