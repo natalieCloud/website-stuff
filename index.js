@@ -55,15 +55,18 @@ class Navbar {
 
     add_icon(icon_name) {
         var nicon = icon_name.substring(0, icon_name.length - 8);
+        var disp = nicon;
         if (icon_name.indexOf("pdf") !== -1) {
-            nicon = "txt-pdf"
-        } else if (icon_name.indexOf("pdf") !== -1) {
-            nicon = "txt-txt"
+            nicon = icon_name;
+            var disp = "txt-pdf";
+        } else if (icon_name.indexOf("txt") !== -1) {
+            nicon = icon_name;
+            var disp = "txt-txt";
         }
         console.log("adding button " + nicon);
         var open_prog = document.createElement('button');
         open_prog.setAttribute('id', `${icon_name}-icon`);
-        open_prog.setAttribute('class', `running-icons ${nicon}`);
+        open_prog.setAttribute('class', `running-icons ${disp}`);
         open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
         open_prog.innerHTML = "";
         let t_c = document.getElementById("task-buttons");
