@@ -65,7 +65,7 @@ class Navbar {
         }
         console.log("adding button " + nicon);
         var open_prog = document.createElement('button');
-        open_prog.setAttribute('id', `${icon_name}-icon`);
+        open_prog.setAttribute('id', `${nicon}-icon`);
         open_prog.setAttribute('class', `running-icons ${disp}`);
         open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
         open_prog.innerHTML = "";
@@ -74,12 +74,15 @@ class Navbar {
     }
 
     remove_icon(icon_name) {
-        console.log("removing div");
+        console.log(`removing div ${icon_name}`);
         var nicon = icon_name.substring(0, icon_name.length - 8);
-        if (icon_name.indexOf(".") !== -1) {
-            nicon = "cv"
+        console.log(`removing div ${icon_name}`);
+        if (icon_name.indexOf("pdf") !== -1) {
+            nicon = icon_name;
+        } else if (icon_name.indexOf("txt") !== -1) {
+            nicon = icon_name;
         }
-        var child_to_abort = document.getElementById(`${icon_name}-icon`);
+        var child_to_abort = document.getElementById(`${nicon}-icon`);
         let t_c = document.getElementById("task-buttons");
         t_c.removeChild(child_to_abort);
     }
@@ -154,6 +157,9 @@ class Navbar {
             }
             else if (icon_name === 'music-program') {
                 this.change_song(this.day);
+            }
+            else if (icon_name === 'duck-program') {
+                var duck = new DucktopBuddy();
             }
 
         }
@@ -275,6 +281,7 @@ class Navbar {
 
 const pleasedontlookatthecodebeneththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
 
+
 const State = {
     FacingR: "FacingR",
     FacingL: "FacingL",
@@ -284,11 +291,260 @@ const State = {
     Quack: "Quack"
 }
 
+const Targets = {
+    /**
+     *  |---------------------|
+     *  0 5  3  6  2  7  4  8 1
+     */
+    eighth: "eighth"
+
+}
+
+const Paths = {
+    /**
+     *  |----A-----^-----B----|
+     *             D
+     *        <----
+     *   /---------
+     *   \---->     ---------\
+     *         <-------------/ 
+     */
+    direct: "direct",
+    dir_one_b: "dir_one_b",
+    dir_two_b: "dir_two_b",
+    opp_one_b: "opp_one_b",
+    opp_two_b: "",
+}
+
+class DuckBehavior {
+    constructor() {
+        this.current_tar = 0;
+        this.current_loc = 0;
+        this.current_path = Paths.direct;
+        this.stopped = false;
+        this.facing = true; // true left false right
+
+        this.last_quacked = 0;
+        this.quack_prob = 0.1;
+        this.last_blinked = 0;
+        this.blink_prob = 0.1;
+
+        this.path_p = {
+            0: Paths.direct,
+            1: Paths.direct,
+            2: Paths.dir_one_b,
+            3: Paths.dir_two_b,
+            4: Paths.opp_one_b,
+            5: Paths.opp_two_b,
+        }
+
+        this.get_target();
+    }
+
+    // head
+    // get_target
+    // get_path
+    // move
+    // selector
+    // selector
+
+    // c\r 0 1 4 7
+    // 0   1 2 5 8 
+    // 1   0 2 5 8 
+    // 4   0 1 5 8
+    // 8   0 1 4 7
+
+    // 6 0 1 2 3 4 5 7 8
+    // 7 0 1 2 3 4 5 6 8
+    // 8 0 1 2 3 4 5 6 7
+    
+
+    get_target() {
+        var rdm = Math.floor(Math.random() * 8);
+
+        if (rdm >= this.current_tar) {
+            rdm = rdm + 1;
+            this.facing = false;
+        } else {
+            this.facing = true;
+        }
+
+        this.current_tar = rdm;
+        this.get_path();
+    }
+
+    get_path() {
+        var rdm = Math.floor(Math.random() * 5);
+        
+        this.current_path = this.path_p[rdm];
+
+        // Maybe move this?
+        if (this.current_path === Paths.dir_one_b || this.current_path === Paths.opp_two_b) {
+            this.facing = !this.facing;
+        }
+        var me = this;
+
+        let t = setTimeout(function() { me.move(); }, 10000);
+
+        // this.move();
+    }
+
+    /**
+     * 
+     *  srt =/= end
+     * 
+     *  0  1  2  3  4  5  6  7  8
+     *  |--|--|--|--|--|--|--|--|
+     * 
+     *  start < end
+     * 
+     *  r:
+     *      d: end - srt
+     *     1s: 16 - srt - end
+     *     2s: 16 - srt + end
+     *     1o: srt + end
+     *     2o: 16 + srt - end
+     * 
+     *  l:
+     * 
+     *      d: X
+     *     1s: srt + end
+     *     2s: 16 + srt - end
+     *     1o: 16 - srt - end
+     *     2o: 16 - srt + end
+     * 
+     *  start > end
+     *  
+     *  r:
+     *      d: X
+     *     1s: 16 - srt - end
+     *     2s: 16 - srt + end
+     *     1o: srt + end
+     *     2o: 16 + srt - end
+     * 
+     *  l:
+    *       d: srt - end
+    *      1s: srt + end
+    *      2s: 16 + srt - end
+    *      1o: 16 - srt - end
+    *      2o: 16 - srt + end
+     */
+
+    sq_cnt() {
+        
+        var mvdir = true; // true left false right
+
+        if (this.current_loc - this.current_tar < 0) {
+            mvdir = false;
+        }
+
+        if (this.facing) {
+            if (this.current_path === Paths.direct && mvdir)  {
+                return this.current_loc - this.current_tar;
+            } else if (this.current_path === Paths.direct) {
+                return -1;
+            } else if (this.current_path === Paths.dir_one_b) {
+                return this.current_loc + this.current_tar;
+            } else if (this.current_path === Paths.dir_two_b) {
+                return 16 + this.current_loc - this.current_tar;
+            } else if (this.current_path === Paths.opp_one_b) {
+                return 16 - this.current_loc - this.current_tar;
+            } else {
+                return 16 - this.current_loc + this.current_tar;
+            }
+            
+
+        } else {
+
+            if (this.current_path === Paths.direct && !mvdir)  {
+                return this.current_tar - this.current_loc;
+            } else if (this.current_path === Paths.direct) {
+                return -1;
+            } else if (this.current_path === Paths.dir_one_b) {
+                return 16 - this.current_loc - this.current_tar;
+            } else if (this.current_path === Paths.dir_two_b) {
+                return 16 - this.current_loc + this.current_tar;
+            } else if (this.current_path === Paths.opp_one_b) {
+                return this.current_loc + this.current_tar;
+            } else {
+                return 16 + this.current_loc - this.current_tar;
+            }
+            
+
+        }
+    }
+
+
+
+    move() {
+
+        console.log(`Move to ${this.current_tar} with path ${this.current_path}`)
+
+        console.log(`Move length: ${this.sq_cnt()}`)
+        
+        if (this.facing) {
+            console.log('Now facing left');
+        } else {
+            console.log('Now facing right');
+        }
+
+        this.current_loc = this.current_tar;
+
+        this.quack_seq();
+    }
+
+    quack_seq() {
+        var rdm = Math.floor(Math.random() * 100);
+
+        if (rdm <= ((this.quack_prob + (this.last_quacked * 0.05)) * 100)) {
+            this.last_quacked = 0;
+            console.log("Quack");
+            // do quack
+        } else {
+            this.last_quacked += 1;
+        }
+
+        this.blink_seq();
+    }
+
+    blink_seq() {
+        var rdm = Math.floor(Math.random() * 100);
+
+        if (rdm <= ((this.blink_prob + (this.last_blinked * 0.1)) * 100)) {
+            this.last_blinked = 0;
+            console.log("Blink");
+            // do blink
+        } else {
+            this.last_blinked += 1;
+        }
+
+        this.check_stop();
+    }
+
+    check_stop() {
+        if (!this.stopped) {
+            this.get_target()
+        }
+    }
+}
+
 class DucktopBuddy {
     constructor() {
         this.state = State.IdleL;
         this.duckDraw = this.loadContent();
+
+        this.tree = {
+            get_target: this.get_target,
+            get_path: this.get_path,
+            movement: this.move,
+            quack_sel: this.quack_sel,
+            blink_sel: this.blink_sel,
+        }
+
+        this.duck_mind = new DuckBehavior();
+        this.duck_mind
     }
+
 
     loadContent() { }
 
@@ -340,6 +596,7 @@ class Terminal {
         this.addendum = '~$'
         this.looking = false;
         this.location = term_out.terminal.file_sys;
+        this.index = 0;
     }
 
     nav_parent(its_rough_but_works) {
@@ -409,15 +666,6 @@ class Terminal {
                 leaf.innerHTML = this.run_program(remaining);
             }
         }
-
-        // let found = term_out.alias[input_key];
-        // if (found) {
-        //     leaf.innerHTML = term_out.output[found]
-        // } else { leaf.innerHTML = "</br>"; }
-        // leaf.innerHTML = term_out.term["file-sys"][""];
-        //leaf.innerHTML = this.print_list();
-        
-        //leaf.innerHTML = this.print_tree("", -1, this.location);
         return leaf;
     }
 
@@ -427,26 +675,25 @@ class Terminal {
             return `${file_name} does not have the appropriate extension for use with the show command`;
         }
 
-        // if (!navbar.prog_map[file_name]) {
-            navbar.prog_map[file_name] = { "shown": false, "max": false, "min": false };
-            var icon = "missing_24.png"
+        navbar.prog_map[file_name] = { "shown": false, "max": false, "min": false };
+        var icon = "missing_24.png"
 
-            if (name[1] === "pdf") {
-                var obj_l = `<object data="./content/${file_name}" type="application/pdf" width="100%" height="100%"
-                style="min-height: 454px;">`;
-                icon = "pdf_24.png";
-            
-            } else {
-                var obj_l = `<object data="./content/programs/${file_name}" type="text/plain" width="100%" height="100%"
-                style="min-height: 454px;">`;
-                icon = "txt_24.png";
-            }
-            var id = file_name + "-program";
+        if (name[1] === "pdf") {
+            var obj_l = `<object data="./content/${file_name}" type="application/pdf" width="100%" height="100%"
+            style="min-height: 454px;">`;
+            icon = "pdf_24.png";
+        
+        } else {
+            var obj_l = `<object data="./content/programs/${file_name}" type="text/plain" width="100%" height="100%"
+            style="min-height: 454px;">`;
+            icon = "txt_24.png";
+        }
+        var id = file_name + "-program";
 
-            var leaf = document.createElement('div');
-            leaf.setAttribute("class", "running-prog");
-            leaf.setAttribute("id", id);
-            leaf.innerHTML = `
+        var leaf = document.createElement('div');
+        leaf.setAttribute("class", "running-prog");
+        leaf.setAttribute("id", id);
+        leaf.innerHTML = `
             <div class="common head">
                 <div class="pic-head" style="content: url(./content/icons/${icon});"></div>
                 <span class="span-title">${file_name}</span>
@@ -462,13 +709,9 @@ class Terminal {
                 </object>
             </div>
             `;
-            document.getElementById("desktop-space").appendChild(leaf);
+        document.getElementById("desktop-space").appendChild(leaf);
     
-        // } // else {
         navbar.toggle_show(id);
-        // }
-
-        // logic about adding a div 'n stuff
 
         return `opened ${file_name}`;
     }
@@ -500,7 +743,6 @@ class Terminal {
         if (Array.isArray(dir)) {
             for (var j = 0; j < dir.length; j++) {
                 out_str = out_str  + branches + ` ${dir[j]}</br>`;
-                // + " | &emsp;"
             }
             return out_str;
         }
@@ -706,6 +948,47 @@ const term_out = {
             "disk-scheduling-algorithms":
             `<div class='word'>look disk-scheduling-algorithms</div>
             <div class='def'>If only Natalie had included the ability to <span style='color: blue'>look</span> at a specific dsa</div>
+            </br>`,
+            "more":
+            `</br>
+                NTerminalC version 1.0.0 release (static-web)</br> 
+                These commands are defined interally. Type 'help more' to see this explanation again.</br> </br>
+
+                Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.\n
+                This guide is designed for guests that have seldom/never used a terminal interface before.</br> </br>
+                
+                The whole website turned into a love letter of sorts (to the field && my degree) so there are references I added that may not make
+                sense to my audience without that background. 
+                However, I have done my best to make the main content accessible through this guide, and provided (hopefully!!) enough to find out more!</br> </br>
+
+                If, after reading this guide you are still confused, or have some feedback about what could be done better - please reach out! 
+                With that out of the way, lets begin!</br> </br>
+
+                We'll be looking at the following commands. You may notice that some of them have values in brackets '[]' after - what's all that about? </br>
+
+                <div class='col-text'>
+                    <div class='col-text l'>
+                    cd [dir| ]</br>
+                    help [name| ]</br>
+                    list [dir| ]</br>
+                    look [value]</br>
+                    </div>
+                    <div class='col-text r'>
+                    quit</br>
+                    run [name]</br>
+                    show[name]</br>
+                    tree[dir| ]</br>
+                    </div>
+                </div> </br>
+
+                Please type in 'more' to proceed to the next section...
+
+            </br>`,
+            "more_0":
+            `</br>
+            </br>`,
+            "more_1":
+            `</br>
             </br>`,
             "quit":
             `<div class='word'>quit</div>
@@ -2315,4 +2598,4 @@ const daily_songs = {
 
 var navbar = new Navbar();
 var term = new Terminal();
-var ducks = new DucktopBuddy();
+// var ducks = new DucktopBuddy();
