@@ -63,6 +63,7 @@ Secrets.txt file
 - term prog
 - term game content
 - file and project content - ~~include the link to the libre office themes!~~
-- music rec the daily looks like a mp3 player type interface where its likew the daily in the center, then rewind, back, (dis for curr. day) forward, skip so users can puruse the previous recommended tracks? IDK that is def a stretch goal and not goin in release 1.0.0
+- links open new tabs
+- music rec the daily looks like a mp3 player type interface where its like the daily in the center, then rewind, back, (dis for curr. day) forward, skip so users can puruse the previous recommended tracks? IDK that is def a stretch goal and not goin in release 1.0.0
 
 <sup>1</sup> 

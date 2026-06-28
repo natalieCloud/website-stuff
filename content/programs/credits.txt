@@ -2,8 +2,11 @@ Through the Looking Terminal
 
     Developer: Natalie Chmura
     Writer: Natalie Chmura
-    Website Art/Graphics: Natalie Chmura
+    Website Pixel Art/Graphics: Natalie Chmura
     Text-to-ASCII: https://patorjk.com/software/taag/#p=testall&f=Four+Tops&t=+++Through+The%0ALooking+Terminal&x=none&v=4&h=4&w=80&we=false
+    Site-Welcome Backround: https://pixelmoondust.neocities.org/archives/archivedtiles/backgroundsindex
+    Site-Welcome Gifs: https://99gifshop.neocities.org/
+
     Producer: Natalie Chmura
     Creative Director: Natalie Chmura
     Craft Services: Natalie Chmura

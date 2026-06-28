@@ -11,6 +11,7 @@ class Navbar {
             "music-program": { "shown": false, "max": false, "min": false },
             "plant-program": { "shown": false, "max": false, "min": false },
             "terminal-program": { "shown": false, "max": false, "min": false },
+            "site-header-program": { "shown": false, "max": false, "min": false },
             "trash-program": { "shown": false, "max": false, "min": false },
             "art.txt-program": { "shown": false, "max": false, "min": false },
             "credits.txt-program": { "shown": false, "max": false, "min": false },
@@ -799,7 +800,9 @@ class Terminal {
 
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
+    navbar.toggle_show('site-header-program')
 })
+
 
 const term_out = {
     alias: {
@@ -954,7 +957,7 @@ const term_out = {
                 NTerminalC version 1.0.0 release (static-web)</br> 
                 These commands are defined interally. Type 'help more' to see this explanation again.</br> </br>
 
-                Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.\n
+                Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.
                 This guide is designed for guests that have seldom/never used a terminal interface before.</br> </br>
                 
                 The whole website turned into a love letter of sorts (to the field && my degree) so there are references I added that may not make
@@ -986,6 +989,14 @@ const term_out = {
             </br>`,
             "more_0":
             `</br>
+                So, for each command in the list you will see its name, followed by its arguments. You can think of the arguments as though they are the variables
+                in a math equation: </br> 
+                2x + 6y cannot be solved if you don't know what x and y are*! So, the values in brackets represent what can be plugged in for that x and y.
+                For simplicities sake, 
+                  
+
+
+                * It cannot be solved mathmatically either - the '=' was omitted for this reason
             </br>`,
             "more_1":
             `</br>
