@@ -65,5 +65,6 @@ Secrets.txt file
 - file and project content - ~~include the link to the libre office themes!~~
 - links open new tabs
 - music rec the daily looks like a mp3 player type interface where its like the daily in the center, then rewind, back, (dis for curr. day) forward, skip so users can puruse the previous recommended tracks? IDK that is def a stretch goal and not goin in release 1.0.0
+- Make it so site header pops up on no js AND has a please enable javascript message!
 
 <sup>1</sup> 

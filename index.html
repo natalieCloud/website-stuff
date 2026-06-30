@@ -54,7 +54,7 @@
               <div class="licon art"></div>
               <span class="lspan">art projects</span>
             </li>
-            <li class="styling a" onclick="navbar.toggle_show('cv-program')">
+            <li class="styling a" onclick="navbar.show_file('cv', 'Natalie_Chmura_CV.pdf')">
               <div class="licon cv"></div>
               <span class="lspan">curriculum vitae</span>
             </li>
@@ -88,27 +88,27 @@
           <span class="info-span" style="align-self: center;">Web Links</span>
           <div class="line"></div>
           <ul class="styling"> <!-- Social Media -->
-            <li class="styling a" onclick="location.href = 'https://github.com/natalieCloud';">
+            <li class="styling a" onclick="window.open('https://github.com/natalieCloud', '_blank')">
               <div class="licon github"></div>
               <span class="lspan">github</span>
             </li>
-            <li class="styling a" onclick="location.href = 'https://www.instagram.com/natalie_chmura';">
+            <li class="styling a" onclick="window.open('https://www.instagram.com/natalie_chmura', '_blank')">
               <div class="licon instagram"></div>
               <span class="lspan">instagram</span>
             </li>
-            <li class="styling a" onclick="location.href = 'https://www.linkedin.com/in/nataliechmura34224/';">
+            <li class="styling a" onclick="window.open('https://www.linkedin.com/in/nataliechmura34224/', '_blank')">
               <div class="licon linkedin"></div>
               <span class="lspan">linkedin</span>
             </li>
-            <li class="styling a" onclick="location.href = 'https://pixelfed.social/Chmura';">
+            <li class="styling a" onclick="window.open('https://pixelfed.social/Chmura', '_blank')">
               <div class="licon pixelfed"></div>
               <span class="lspan">pixelfed</span>
             </li>
             <li class="styling a" onclick="navbar.sendEmail()">
               <div class="licon email"></div>
-              <span class="lspan">email program</span>
+              <span class="lspan" style="font-size: small;">ntchmura[@]proton.me</span>
             </li>
-            <li class="styling a" onclick="location.href = 'http://www.nataliechmura.com';">
+            <li class="styling a" onclick="window.open('http://www.nataliechmura.com', '_blank')">
               <div class="licon website"></div>
               <span class="lspan">website</span>
             </li>
@@ -121,7 +121,7 @@
         <div class="desktop-icon-text">Art</div>
       </div>
       <div id="cv-program-icon" class="desktop-full" style="left: 1rem; top: 10rem;"
-        onclick="navbar.toggle_show('cv-program')">
+        onclick="navbar.show_file('cv', 'Natalie_Chmura_CV.pdf')">
         <div class="desktop-icon cv"></div>
         <div class="desktop-icon-text">CV</div>
       </div>
@@ -424,26 +424,6 @@
           </div>
         </div>
       </div>
-      <div id="cv-program" class="running-prog">
-        <div class="common head">
-          <div class="pic-head" style="content: url(./content/icons/cv_24.png);"></div>
-          <span class="span-title">CV</span>
-          <form method="get" action="./content/Natalie_Chmura_CV.pdf">
-            <button class="button-head download" type="submit"></button>
-          </form>
-          <button class="button-head min" onclick="navbar.toggle_min('cv-program')"></button>
-          <button class="button-head max" onclick="navbar.toggle_max('cv-program')"></button>
-          <button class="button-head close" onclick="navbar.toggle_close('cv-program')"></button>
-        </div>
-        <div class="content">
-          <object data="./content/Natalie_Chmura_CV.pdf" type="application/pdf" width="100%" height="100%"
-            style="min-height: 454px;">
-            <p>
-              Your browser does not support PDFs. [Download the file using the download button below]
-            </p>
-          </object>
-        </div>
-      </div>
       <div id="duck-program" class="running-prog">
         <div class="common head">
           <div class="pic-head" style="content: url(./content/icons/duck_24.png);"></div>
@@ -632,26 +612,26 @@
           <button class="button-head close" onclick="navbar.toggle_close('file-program')"></button>
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
-          <div class="file-entry highlight" onclick="">
+          <div class="file-entry highlight" onclick="navbar.show_file('mpi_benchmarking.pdf', 'Benchmark Automation.pdf')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">MPI Benchmark Automation in High Performance
               Computing</h4>
           </div>
           <div class="file-entry highlight"
-            onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99336'">
+            onclick=" window.open('https://extensions.libreoffice.org/en/extensions/show/99336', '_blank')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Block Game Theme</h4>
           </div>
           <div class="file-entry highlight"
-            onclick="location.href = 'https://extensions.libreoffice.org/en/extensions/show/99337'">
+            onclick=" window.open('https://extensions.libreoffice.org/en/extensions/show/99337', '_blank')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">LibreOffice Impress Strawberry Milk Theme
             </h4>
           </div>
-          <div class="file-entry highlight" onclick="">
+          <div class="file-entry highlight" onclick="navbar.show_file('rsa_number_theory.pdf', 'RSA_Num_Theory_Cryptography.pdf')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">RSA Number Theory</h4>
           </div>
-          <div class="file-entry highlight" onclick="">
+          <a class="file-entry highlight" onclick=" window.open('https://github.com/natalieCloud/Polyomino-Generation', '_blank')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Polyominos Project</h4>
-          </div>
-          <div class="file-entry highlight" onclick="">
+          </a>
+          <div class="file-entry highlight" onclick=" window.open('https://github.com/natalieCloud/arp_reach', '_blank')">
             <h4 style="display: flexbox; flex-grow: 1; margin-left: 10px;">Arp-Reach</h4>
           </div>
         </div>
@@ -766,7 +746,7 @@
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
         </div>
       </div>
-      <div id="site-header-program" class="running-prog">
+      <div id="site-header-program" class="running-prog" style="display: flex;">
         <div class="common head">
           <div class="pic-head" style="content: url(./content/icons/link_24.png);"></div>
           <span class="span-title">Welcome To The Site!!!!</span>
@@ -794,6 +774,7 @@
               <img src="content/from_online/hamsterfinal.gif" style="display: inline-block; size: 90px; margin-bottom: -5px;">
               <p style="text-align: center; display: inline-block; margin-bottom: 20px;">Hello! Thanks for stopping by!!!</p>
               <div class="line"></div>
+              <p style="color: crimson; font-weight: 900;">Alert! I need you to have Javascript enabled!</p>
               <p>This is primarily to <span style="color: blue;">house</span> 
                 a catalog of some of the projects/art things I’ve worked on and want to shout into the void about.</p>
               <p>
@@ -844,7 +825,7 @@
               <img src="content/from_online/kao039.gif">
             </div>
             <div class="home5">
-              <p>Here are some projects I like && think are really cool:</p>
+              <h3 style="font-size: medium; font-weight: 900;">Here are some projects I like && think are really cool:</h3>
               <div style="display: flex; justify-content: center;">
               <div style="flex-grow: 1;">
                 <a style="color:crimson;" target="_blank" href="https://99gifshop.neocities.org/">99gifshop</a>
@@ -892,7 +873,9 @@
         <div class="home-container">
           <button class="home-button" onclick="navbar.toggle_popup()"></button>
         </div>
-        <div id="task-buttons" class="task-container"></div>
+        <div id="task-buttons" class="task-container">
+          <button class="running-icons site-header", id="site-header-icon" onclick="navbar.toggle_min('site-header-program')"></button>
+        </div>
         <div class="time-container" id="clock"></div>
       </nav>
     </div>

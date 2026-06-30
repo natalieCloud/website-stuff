@@ -948,8 +948,10 @@ h1 {
 }
 
 .home5 {
-    grid-area: 5 / 1 / 6 / 31;
+    grid-area: 5 / 2 / 6 / 30;
     text-align: center;
+    background-image: url(content/from_online/sora5.gif);
+    border: 2px solid ;
 }
 
 .home6 {
@@ -957,6 +959,7 @@ h1 {
     padding: 15px;
     padding-top: 60px;
     text-align: center;
+    
 }
 
 .gif1 {

@@ -11,7 +11,7 @@ class Navbar {
             "music-program": { "shown": false, "max": false, "min": false },
             "plant-program": { "shown": false, "max": false, "min": false },
             "terminal-program": { "shown": false, "max": false, "min": false },
-            "site-header-program": { "shown": false, "max": false, "min": false },
+            "site-header-program": { "shown": true, "max": false, "min": true },
             "trash-program": { "shown": false, "max": false, "min": false },
             "art.txt-program": { "shown": false, "max": false, "min": false },
             "credits.txt-program": { "shown": false, "max": false, "min": false },
@@ -138,6 +138,44 @@ class Navbar {
         }
     }
 
+    show_file(id_root, file_name) {
+
+        var downloadable = '';
+        var id = `${id_root}-program`
+
+        if (id === 'cv') {
+            downloadable = 
+            `<form method="get" action="./content/Natalie_Chmura_CV.pdf">
+                <button class="button-head download" type="submit"></button>
+            </form>`;
+        }
+
+        var leaf = document.createElement('div');
+        leaf.setAttribute("class", "running-prog");
+        leaf.setAttribute("id", id);
+        leaf.innerHTML = `
+            <div class="common head">
+                <div class="pic-head" style="content: url(./content/icons/${id_root}_24.png);"></div>
+                <span class="span-title">${file_name}</span>
+                ${downloadable}
+                <button class="button-head min" onclick="navbar.toggle_min('${id}')"></button>
+                <button class="button-head max" onclick="navbar.toggle_max('${id}')"></button>
+                <button class="button-head close" onclick="navbar.toggle_close('${id}')"></button>
+            </div>
+            <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+                <object data="./content/${file_name}" type="application/pdf" width="100%" height="100%"
+                    style="min-height: 454px;">
+                    <p>
+                        Your browser does not support PDFs.
+                    </p>
+                </object>
+            </div>
+            `;
+        document.getElementById("desktop-space").appendChild(leaf);
+    
+        navbar.toggle_show(id);
+    }
+
     toggle_show(icon_name) {
         let prog = document.getElementById(icon_name);
         let p = this.prog_map[icon_name];
@@ -163,6 +201,8 @@ class Navbar {
             }
             else if (icon_name === 'duck-program') {
                 var duck = new DucktopBuddy();
+            } else if (icon_name === 'cv_program') {
+                this.show_file('cv-program', 'Natalie_Chmura_CV.pdf')
             }
 
         }
@@ -293,7 +333,7 @@ class Navbar {
     }
 }
 
-const pleasedontlookatthecodebeneththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
+const pleasedontlookatthecodebeneaththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
 
 
 const State = {
@@ -704,6 +744,9 @@ class Terminal {
         }
         var id = file_name + "-program";
 
+        // TODO post launch - refactor this method to work with the navbar version
+        // in cause I forgot - that one was made second
+
         var leaf = document.createElement('div');
         leaf.setAttribute("class", "running-prog");
         leaf.setAttribute("id", id);
@@ -730,6 +773,7 @@ class Terminal {
         return `opened ${file_name}`;
     }
 
+    // TODO Refactor for the CV prog!!
     run_program(exe_name) {
         let name = exe_name.split(".");
         if (name[1] !== "exe") {
@@ -813,7 +857,7 @@ class Terminal {
 
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
-    navbar.toggle_show('site-header-program')
+    // navbar.toggle_show('site-header-program')
 })
 
 
