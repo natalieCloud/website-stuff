@@ -497,9 +497,11 @@ h1 {
 
     }
     &.next {
+        display: inline-block;
         background-image: url("content/icons/next_16.png");
     }
     &.prev {
+        display: inline-block;
         background-image: url("content/icons/next_16.png");
         transform: scaleX(-1);
     }
@@ -647,6 +649,7 @@ h1 {
     flex-grow: 1;
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: rgb(245, 224, 250);
 }
 
 .term .content {
@@ -838,7 +841,6 @@ h1 {
     width: 30%;
     display: flexbox;
     padding-left: 10px;
-    /* margin: 0; */
 }
 
 .file-entry {
@@ -913,25 +915,32 @@ h1 {
     grid-template-columns: repeat(30, 1fr);
     grid-template-rows: repeat(5, .5fr);
     margin: 10px;
+    row-gap: 20px;
 }
 
 .home1 {
-    grid-area: 1 / 1 / 2 / 27;
+    grid-area: 1 / 2 / 2 / 24;
 }
 
 .home2 {
-    grid-area: 2 / 7 / 3 / 31;
+    grid-area: 2 / 5 / 3 / 27;
     text-align: center;
+    background-color: aquamarine;
+    border: 2px solid teal;
 }
 
 .home3 {
-    grid-area: 3 / 2 / 5 / 14;
-    border: 2px solid gray;
+    grid-area: 3 / 2 / 4 / 14;
+    border: 2px solid chartreuse;
+    padding: 10px;
     text-align: center;
+    vertical-align: middle;
+    color: white;
+    background-color: black;
 }
 
 .home4 {
-    grid-area: 3 / 15 / 5 / 31;
+    grid-area: 4 / 6 / 5 / 25;
     padding: 15px;
     padding-top: 60px;
     text-align: center;
@@ -939,23 +948,75 @@ h1 {
 }
 
 .home5 {
-    grid-area: 6 / 1 / 6 / 31;
+    grid-area: 5 / 1 / 6 / 31;
+    text-align: center;
+}
+
+.home6 {
+    grid-area: 3 / 15 / 4 / 31;
+    padding: 15px;
+    padding-top: 60px;
     text-align: center;
 }
 
 .gif1 {
-    grid-area: 1 / 28 / 2 / 30;
-    justify-content: center;
+    grid-area: 1 / 25 / 2 / 30;
+    padding: 10%;
+    padding-top: 20%;
 }
 
 .gif2 {
-    grid-area: 2 / 1 / 3 / 7;
-    padding: 10px;
+    grid-area: 2 / 2 / 3 / 4;
+
 }
 
 .gif3 {
     grid-area: 4 / 15 / 5 / 31;
 }
 
+.gif4 {
+    grid-area: 2 / 28 / 3 / 30;
 
+}
 
+.gif5 {
+    grid-area: 4 / 2 / 5 / 6;
+    padding-top: 60%;
+    padding-left: 10%;
+}
+
+.gif6 {
+    grid-area: 4 / 25 / 5 / 31;
+    padding-top: 40%;
+    padding-right: 10%;
+}
+
+.build {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(245, 224, 250);
+    flex-grow: 1;
+    overflow-x: hidden;
+    background-image: url(content/background_moulding.png), url(content/background_moulding.png);
+    background-size: 60% 20%, 256px 64px;
+    background-position: bottom, top;
+    background-repeat: repeat-x, repeat-x;
+}
+
+.small_bk_a {
+    display: inline-block;
+    border: 3px white solid;
+    content: url(content/Desktop.png);
+    width: 55%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.small_bk_b {
+    display: inline-block;
+    border: 3px white solid;
+    content: url(content/Mobile.png);
+    width: 25%;
+    height: auto;
+}

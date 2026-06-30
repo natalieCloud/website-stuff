@@ -28,6 +28,7 @@ class Navbar {
             "mpi_benchmarking.pdf-program": { "shown": false, "max": false, "min": false },
         }
         this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
+        this.num = [2,9,1,0,0,0,3,6,5,6,4,2,3,9]
         this.modulo = 14;
         this.day = new Date();
         this.day.setHours(0, 0, 0, 0);
@@ -155,6 +156,7 @@ class Navbar {
             }
             else if (icon_name === 'art-program') {
                 document.getElementById("jupiter").style.display = "flex";
+                document.getElementById("build").style.backgroundImage = "url(content/floor_2.png)";
             }
             else if (icon_name === 'music-program') {
                 this.change_song(this.day);
@@ -196,7 +198,7 @@ class Navbar {
         } else {
             prog.style.width = "700px";
             prog.style.height = "500px";
-            prog.style.zIndex = "90";
+            prog.style.zIndex = "91";
             console.log("un-maximized " + icon_name);
         }
     }
@@ -246,24 +248,35 @@ class Navbar {
 
     go_prev(idx) {
         var prev;
+        var my_num;
         let me = this.art[idx];
+
         if (idx === 0) {
             prev = this.art[13];
+            my_num = this.num[13];
         } else {
             prev = this.art[idx - 1];
+            my_num = this.num[idx - 1];
         }
+        var temp_content = `url(content/floor_${my_num}.png)`;
+        document.getElementById("build").style.backgroundImage = temp_content;
         document.getElementById(me).style.display = "none";
         document.getElementById(prev).style.display = "flex";
     }
 
     go_next(idx) {
         var prev;
+        var my_num;
         let me = this.art[idx];
         if (idx === 13) {
             prev = this.art[0];
+            my_num = this.num[0];
         } else {
             prev = this.art[idx + 1];
+            my_num = this.num[idx + 1];
         }
+        var temp_content = `url(content/floor_${my_num}.png)`;
+        document.getElementById("build").style.backgroundImage = temp_content;
         document.getElementById(me).style.display = "none";
         document.getElementById(prev).style.display = "flex";
     }
@@ -2610,3 +2623,4 @@ const daily_songs = {
 var navbar = new Navbar();
 var term = new Terminal();
 // var ducks = new DucktopBuddy();
+

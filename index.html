@@ -172,249 +172,254 @@
           <button class="button-head max" onclick="navbar.toggle_max('art-program')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('art-program')"></button>
         </div>
-        <div class="content">
-          <div id="jupiter" class="art-page">
-            <img src="./content/art/jupiter.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Stained Glass Light Catcher, Jupiter</h3>
-              <p class="art-talk">
-                Made in a crafts class I took in high-school. The first time I used a soldering iron!
-              </p>
+        <div class="build" id="build">
+
+          <div class="content" style="background-color: transparent;">
+            <div id="jupiter" class="art-page">
+              <img src="./content/art/jupiter.jpg" class="art-img" style="border: 3px saddlebrown solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Stained Glass Light Catcher, Jupiter</h3>
+                <p class="art-talk">
+                  Made in a crafts class I took in high-school. The first time I used a soldering iron!
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(0)"></button>
+                <button class="button-head next" onclick="navbar.go_next(0)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(0)"></button>
-              <button class="button-head next" onclick="navbar.go_next(0)"></button>
+            <div id="jfsp" class="art-page" >
+              <img src="./content/art/jfsp.jpg" class="art-img" style="border: 5px black solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Jun Fukamachi Second Phase, Painted</h3>
+                <p class="art-talk">
+                  This is the piece that actually got me started in album cover painting! I enjoyed aesthetic
+                  but couldn't afford to/wasn't into collecting records. Absolute banger of an album - would highly
+                  recommend!
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(1)"></button>
+                <button class="button-head next" onclick="navbar.go_next(1)"></button>
+              </div>
             </div>
-          </div>
-          <div id="jfsp" class="art-page">
-            <img src="./content/art/jfsp.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Jun Fukamachi Second Phase, Painted</h3>
-              <p class="art-talk">
-                This is the piece that actually got me started in album cover painting! I enjoyed aesthetic
-                but couldn't afford to/wasn't into collecting records. Absolute banger of an album - would highly
-                recommend!
+            <div id="reigen" class="art-page">
+              <img src="./content/art/ar.jpg" class="art-img" style="border: 3px purple solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Arataka Reigen Poster, Painted</h3>
+                <p class="art-talk">From the series Mob Psycho 100! Had a 2 year gap inbetween sketching it
+                  and painting it... before I brought my paints to school with me these types of gaps were not uncomman.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(2)"></button>
+                <button class="button-head next" onclick="navbar.go_next(2)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(1)"></button>
-              <button class="button-head next" onclick="navbar.go_next(1)"></button>
+            <div id="ram" class="art-page">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <img src="./content/art/ram.jpg" class="art-img" style="align-content: center; border: 5px goldenrod solid;">
+                <h3 class="art-title">Random Access Memories, Painted</h3>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  This album was done during undergrad! Unknown before now - I chose this album for two reasons.
+                  Surprisingly, it's not because it's my favorite (that'd have to be Discovery).
+                  I knew I needed tone and underpainting practice for a <a
+                    href="https://www.youtube.com/watch?v=JxIej2PMA9A&list=RDJxIej2PMA9A&start_radio=1">current wip</a>
+                  and the slight difference in the blacks of Thomas' and Guy-Man's masks were incredibly nice for that.
+                  The second being that I struggled with painting letters - still not my favorite tbh.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(3)"></button>
+                <button class="button-head next" onclick="navbar.go_next(3)"></button>
+              </div>
             </div>
-          </div>
-          <div id="reigen" class="art-page">
-            <img src="./content/art/ar.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Arataka Reigen Poster, Painted</h3>
-              <p class="art-talk">From the series Mob Psycho 100!</p>
+            <div id="mmask" class="art-page">
+              <div style="content: url(./content/art/mmart.png)" class="art-img"></div>
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Majora's Mask Pixel Art</h3>
+                <p class="art-talk">
+                  After making a couple sprites for extra content in my group game dev project, I
+                  kinda fell in love with making pixel art. Made this as my first non class
+                  related piece. (Just like the rest of the pixel art and icons on this website!)
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(4)"></button>
+                <button class="button-head next" onclick="navbar.go_next(4)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(2)"></button>
-              <button class="button-head next" onclick="navbar.go_next(2)"></button>
+            <div id="musik" class="art-page">
+              <div style="display: flex; flex-flow: column; width: 50%;">
+                <img src="./content/art/musiks_cube.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <h4>cube exterior</h4>
+                <img src="./content/art/cube_inner.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <h4>interior unlined</h4>
+                <img src="./content/art/lining.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <h4>interior lined</h4>
+              </div>
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
+                <h3 class="art-title">Musiks Cube, C2C Crochet</h3>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  For this bag, my goal was to have something that fit my center console and was easy
+                  to take in and out of the house - so I added a lining and bottom piece for support.
+                  The rest of this page is going to detail the process for any interested crocheters.
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;"> 
+                  Yarn Weight: Worsted (I used Acrylic) Hook: US H (500 mm)
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  Start by making the six panels. Each sub cube side consists of a 3x3 c2c crochet square - if you
+                  want to make a solved cube, you can make a solid 9x9 square and stich the seams on after, like I did.
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  On each panel, you're going to want to use the surface slip stich pattern to create a tic-tac-toe
+                  pattern.
+                  For the embroidering route, you'll want to use the chain stitch. (For scrambled cube - joining the
+                  squares in black by sc through the layers - ridge facing up)
+                  Then, using black - do 1 round of sc around each of the panels ~120 if you do 3 sc per c2c square and
+                  each corner.
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  The sides can then be joined however for the actual bag construction - I like using the mattress stitch
+                  but it really depends on what vibe you want to go for!
+                  For the top embroidery part I tried to replicate the "rubik's" but as "musik's" (for the CDs
+                  ba-dum-tssshh). Not great at embroidering letters on crochet so
+                  I don't have any tips. (sorry lol)
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  The lining was sewn into a box and then joined to the rim of the opening and lid with some spare rings
+                  sandwiched in between.
+                  To get bottom support I cut a sqare from a lettuce tub and put it between the crochet and lining layers.
+                  There is definatley room for a zipper or other closing mechanism, I opted to leave it off for now.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(5)"></button>
+                <button class="button-head next" onclick="navbar.go_next(5)"></button>
+              </div>
             </div>
-          </div>
-          <div id="ram" class="art-page">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <img src="./content/art/ram.jpg" class="art-img" style="align-content: center;">
-              <h3 class="art-title">Random Access Memories, Painted</h3>
-              <p class="art-talk">
-                This album was done during undergrad! Unknown before now - I chose this album for two reasons.
-                Surprisingly, it's not because it's my favorite (that'd have to be Discovery).
-                I knew I needed tone and underpainting practice for a <a
-                  href="https://www.youtube.com/watch?v=JxIej2PMA9A&list=RDJxIej2PMA9A&start_radio=1">current wip</a>
-                and the slight difference in the blacks of Thomas' and Guy-Man's masks were incredibly nice for that.
-                The second being that I struggled with painting letters - still not my favorite tbh.
-              </p>
+            <div id="gsnk" class="art-page">
+              <img src="./content/art/gsnk.jpg" class="art-img" style="border: 3px rgb(110, 29, 29) solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Monthly Girl's Nozaki Kun, A Funny Scene</h3>
+                <p class="art-talk">
+                  Probably one of my all-time favorite series! I wanted to do a scene from this show,
+                  and felt like this moment captured its vibe pretty well hahaha
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(6)"></button>
+                <button class="button-head next" onclick="navbar.go_next(6)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(3)"></button>
-              <button class="button-head next" onclick="navbar.go_next(3)"></button>
+            <div id="hmc" class="art-page">
+              <img src="./content/art/hmc.jpg" class="art-img" style="border: 4px palevioletred solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Howl's Face Took So Long, Painted</h3>
+                <p class="art-talk">
+                  Legitimately took as long as the rest of the painting I had to redo it so many times.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(7)"></button>
+                <button class="button-head next" onclick="navbar.go_next(7)"></button>
+              </div>
             </div>
-          </div>
-          <div id="mmask" class="art-page">
-            <div style="content: url(./content/art/mmart.png)" class="art-img"></div>
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Majora's Mask Pixel Art</h3>
-              <p class="art-talk">
-                After making a couple sprites for extra content in my group game dev project, I
-                kinda fell in love with making pixel art. Made this as my first non class
-                related piece. (Just like the rest of the pixel art and icons on this website!)
-              </p>
+            <div id="collection" class="art-page">
+              <img src="./content/art/collection.jpg" class="art-img" style="border: 2px green solid; height: 80%;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Painted @ Alyssa's & ACMW, A Series</h3>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  One of the best party ideas (that I immediatley started using myself) was to have a second quieter
+                  activity room
+                  away from the main event. The largest and smaller three were all done at the same party!
+                </p>
+                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                  The second mountain was from an ACMW Bob Ross painting social. Haven't had the opportunity to talk much
+                  about them on this site otherwise - and given
+                  this was meant to incorperate the things that made me fall in love with my CS degree - I can't not
+                  mention them! Without ACMW I don't know
+                  if I would have made it through my undergrad. Words cannot express how much my time there has impacted
+                  me :)
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(8)"></button>
+                <button class="button-head next" onclick="navbar.go_next(8)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(4)"></button>
-              <button class="button-head next" onclick="navbar.go_next(4)"></button>
+            <div id="vest" class="art-page">
+              <img src="./content/art/vest.jpg" class="art-img" style="border: 5px rebeccapurple solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Knit Sweater Vest</h3>
+                <p class="art-talk">
+                  This pattern was whispered to me by the yarn like it was the green goblin mask. I heeded the call and
+                  got
+                  a banging sweater vest.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(9)"></button>
+                <button class="button-head next" onclick="navbar.go_next(9)"></button>
+              </div>
             </div>
-          </div>
-          <div id="musik" class="art-page">
-            <div style="display: flex; flex-flow: column; width: 50%;">
-              <img src="./content/art/musiks_cube.jpg" class="art-img" style="width: 100%;">
-              <h4>cube exterior</h4>
-              <img src="./content/art/cube_inner.jpg" class="art-img" style="width: 100%;">
-              <h4>interior unlined</h4>
-              <img src="./content/art/lining.jpg" class="art-img" style="width: 100%;">
-              <h4>interior lined</h4>
+            <div id="mtg" class="art-page">
+              <div style="display: flex; flex-flow: column; width: 50%;">
+                <img src="./content/art/grtk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;">
+                <h4>MTG Tokens</h4>
+                <img src="./content/art/stk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;">
+                <h4>Treasure Token</h4>
+              </div>
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
+                <h3 class="art-title">Painted MTG Tokens</h3>
+                <p class="art-talk">
+                  Made some custom tokens for my proxied commander deck! (Nethroi, Apex of Death)
+                  I like having the smaller size so I can keep my zones from getting too card heavy.
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(10)"></button>
+                <button class="button-head next" onclick="navbar.go_next(10)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
-              <h3 class="art-title">Musiks Cube, C2C Crochet</h3>
-              <p class="art-talk">
-                For this bag, my goal was to have something that fit my center console and was easy
-                to take in and out of the house - so I added a lining and bottom piece for support.
-                The rest of this page is going to detail the process for any interested crocheters.
-              </p>
-              <p class="art-talk">
-                Yarn Weight: Worsted (I used Acrylic) Hook: US H (500 mm)
-              </p>
-              <p class="art-talk">
-                Start by making the six panels. Each sub cube side consists of a 3x3 c2c crochet square - if you
-                want to make a solved cube, you can make a solid 9x9 square and stich the seams on after, like I did.
-              </p>
-              <p class="art-talk">
-                On each panel, you're going to want to use the surface slip stich pattern to create a tic-tac-toe
-                pattern.
-                For the embroidering route, you'll want to use the chain stitch. (For scrambled cube - joining the
-                squares in black by sc through the layers - ridge facing up)
-                Then, using black - do 1 round of sc around each of the panels ~120 if you do 3 sc per c2c square and
-                each corner.
-              </p>
-              <p class="art-talk">
-                The sides can then be joined however for the actual bag construction - I like using the mattress stitch
-                but it really depends on what vibe you want to go for!
-                For the top embroidery part I tried to replicate the "rubik's" but as "musik's" (for the CDs
-                ba-dum-tssshh). Not great at embroidering letters on crochet so
-                I don't have any tips. (sorry lol)
-              </p>
-              <p class="art-talk">
-                The lining was sewn into a box and then joined to the rim of the opening and lid with some spare rings
-                sandwiched in between.
-                To get bottom support I cut a sqare from a lettuce tub and put it between the crochet and lining layers.
-                There is definatley room for a zipper or other closing mechanism, I opted to leave it off for now.
-              </p>
+            <div id="saiki" class="art-page">
+              <img src="./content/art/saiki.jpg" class="art-img" style="border: 5px #b00b69 solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Saiki K, Snacking</h3>
+                <p class="art-talk">First anime styled painting I did!</p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(11)"></button>
+                <button class="button-head next" onclick="navbar.go_next(11)"></button>
+              </div>
             </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(5)"></button>
-              <button class="button-head next" onclick="navbar.go_next(5)"></button>
+            <div id="hs" class="art-page">
+              <img src="./content/art/hs.jpg" class="art-img" style="border: 3px tomato solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Tangerine Hair Scarf, Crochet & Embroidery</h3>
+                <p class="art-talk">
+                  Made a tangerine themed granny sqare head scarf. (can really be any of the orange adjacent fruits)
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(12)"></button>
+                <button class="button-head next" onclick="navbar.go_next(12)"></button>
+              </div>
             </div>
-          </div>
-          <div id="gsnk" class="art-page">
-            <img src="./content/art/gsnk.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Monthly Girl's Nozaki Kun, A Funny Scene</h3>
-              <p class="art-talk">
-                Probably one of my all-time favorite series! I wanted to do a scene from this show,
-                and felt like this moment captured its vibe pretty well hahaha
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(6)"></button>
-              <button class="button-head next" onclick="navbar.go_next(6)"></button>
-            </div>
-          </div>
-          <div id="hmc" class="art-page">
-            <img src="./content/art/hmc.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Howl's Face Took So Long, Painted</h3>
-              <p class="art-talk">
-                Legitemately took as long as the rest of the painting I had to redo it so many times.
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(7)"></button>
-              <button class="button-head next" onclick="navbar.go_next(7)"></button>
-            </div>
-          </div>
-          <div id="collection" class="art-page">
-            <img src="./content/art/collection.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Painted @ Alyssa's & ACMW, A Series</h3>
-              <p class="art-talk">
-                One of the best party ideas (that I immediatley started using myself) was to have a second quieter
-                activity room
-                away from the main event. The largest and smaller three were all done at the same party!
-              </p>
-              <p class="art-talk">
-                The second mountain was from an ACMW Bob Ross painting social. Haven't had the opportunity to talk much
-                about them on this site otherwise - and given
-                this was meant to incorperate the things that made me fall in love with my CS degree - I can't not
-                mention them! Without ACMW I don't know
-                if I would have made it through my undergrad. Words cannot express how much my time there has impacted
-                me :)
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(8)"></button>
-              <button class="button-head next" onclick="navbar.go_next(8)"></button>
-            </div>
-          </div>
-          <div id="vest" class="art-page">
-            <img src="./content/art/vest.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Knit Sweater Vest</h3>
-              <p class="art-talk">
-                This pattern was whispered to me by the yarn like it was the green goblin mask. I heeded the call and
-                got
-                a banging sweater vest.
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(9)"></button>
-              <button class="button-head next" onclick="navbar.go_next(9)"></button>
-            </div>
-          </div>
-          <div id="mtg" class="art-page">
-            <div style="display: flex; flex-flow: column; width: 50%;">
-              <img src="./content/art/grtk.jpg" class="art-img" style="width: 100%;">
-              <h4>MTG Tokens</h4>
-              <img src="./content/art/stk.jpg" class="art-img" style="width: 100%;">
-              <h4>Treasure Token</h4>
-            </div>
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
-              <h3 class="art-title">Painted MTG Tokens</h3>
-              <p class="art-talk">
-                Made some custom tokens for my proxied commander deck! (Nethroi, Apex of Death)
-                I like having the smaller size so I can keep my zones from getting too card heavy.
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(10)"></button>
-              <button class="button-head next" onclick="navbar.go_next(10)"></button>
-            </div>
-          </div>
-          <div id="saiki" class="art-page">
-            <img src="./content/art/saiki.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Saiki K, Snacking</h3>
-              <p class="art-talk">First anime styled painting I did!</p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(11)"></button>
-              <button class="button-head next" onclick="navbar.go_next(11)"></button>
-            </div>
-          </div>
-          <div id="hs" class="art-page">
-            <img src="./content/art/hs.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Tangerine Hair Scarf, Crochet & Embroidery</h3>
-              <p class="art-talk">
-                Made a tangerine themed granny sqare head scarf. (can really be any of the orange adjacent fruits)
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(12)"></button>
-              <button class="button-head next" onclick="navbar.go_next(12)"></button>
-            </div>
-          </div>
-          <div id="ssb" class="art-page">
-            <img src="./content/art/ssb.jpg" class="art-img">
-            <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-              <h3 class="art-title">Infant SunStalker from Kingdom Death Monster, Crochet</h3>
-              <p class="art-talk">
-                This was a gift/comission for a cousin. The Rainbow vomit can be stuffed in the stomach with plenty of
-                left over
-                room to use for dice storage!
-              </p>
-            </div>
-            <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
-              <button class="button-head prev" onclick="navbar.go_prev(13)"></button>
-              <button class="button-head next" onclick="navbar.go_next(13)"></button>
+            <div id="ssb" class="art-page">
+              <img src="./content/art/ssb.jpg" class="art-img" style="border: 5px white solid;">
+              <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
+                <h3 class="art-title">Infant SunStalker from Kingdom Death Monster, Crochet</h3>
+                <p class="art-talk">
+                  This was a gift/comission for a cousin. The Rainbow vomit can be stuffed in the stomach with plenty of
+                  left over
+                  room to use for dice storage!
+                </p>
+              </div>
+              <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
+                <button class="button-head prev" onclick="navbar.go_prev(13)"></button>
+                <button class="button-head next" onclick="navbar.go_next(13)"></button>
+              </div>
             </div>
           </div>
         </div>
@@ -786,23 +791,49 @@
             </div>
             <div class="site-home-stuff">
             <div class="home1">
+              <img src="content/from_online/hamsterfinal.gif" style="display: inline-block; size: 90px; margin-bottom: -5px;">
+              <p style="text-align: center; display: inline-block; margin-bottom: 20px;">Hello! Thanks for stopping by!!!</p>
+              <div class="line"></div>
               <p>This is primarily to <span style="color: blue;">house</span> 
-                a catalog of some of the projects/art things I’ve worked on and want to shout into the void about.
+                a catalog of some of the projects/art things I’ve worked on and want to shout into the void about.</p>
+              <p>
+                I say shout into the void but in all reality it'll mostly be - "I did this thing and think it's cool" or
+                "I learnt this thing and want to talk about it" 
               </p>
             </div>
             <div class="home2">
-              <p>I also have stuff related to work. If you are curious about all that check out my CV or the projects
+              <p>I have stuff related to past and current work in CompSci! If you are curious about it check out my CV or the projects
                 folder!
+              </p>
+            </br>
+              <p>
+                I'm planning on dropping more LibreOffice impress templates soon, but they'll be on my own 
+                account instead of the Open Source Club @OSU's account. It will all be linked here as well though!!
               </p>
             </div>
             <div class="home3">
               <p>
-                This website was made with pure HTML, CSS, and JavaScript!</br>
-                The source code is available on Github.</br>
-                (<span style="color: red">SPOILER WARNING</span> there’s some things I hid around this website so avoid looking there for answers please!)</br> </br>
-                 Also, besides the .gifs
-                in this window (link below) I did all the art myself!
+                This website was made with pure HTML, CSS, and JavaScript!
               </p>
+              <p>
+                There might be some real "test-in-prod" events ahead of use here- appreciate your patience as I iron those out.
+              </p>
+              <p>
+                Source code available on Github.
+              </p>
+              <p>
+                <span style="color: red">SPOILER WARNING</span> there’s some things I hid around this website so avoid looking there for answers please!</br> </br>
+                 Also, besides the .gifs
+                in this window (link can be found below) I did all the art myself!
+              </p>
+            </div>
+            <div class="home6">
+              <img src="content/from_online/line29.gif" style="width: 90%; margin-bottom: 20px;">
+              <h3 style="color: #090b50;">Like the backgrounds? </br> They're just <span style="color: red;">ONE</span> click away!:</br></h3>
+              <a href="content/Desktop.png" download><div class="small_bk_a" ></div></a>
+              <a href="content/Mobile.png" download><div class="small_bk_b"></div></a>
+              <p>desktop and mobile - ripe for the clicking!</p>
+              <img src="content/from_online/line29.gif" style="width: 90%; margin-top: 20px;">
             </div>
             <div class="home4">
               <div class="line"></div>
@@ -828,12 +859,28 @@
               </div>
             </div>
             </div>
-            <div class="gif1">
+            <div class="gif2">
+              <img src="content/from_online/spinningcd.gif">
+              <img src="content/from_online/spinningcd.gif">
               <img src="content/from_online/spinningcd.gif">
               <img src="content/from_online/spinningcd.gif">
             </div>
-            <div class="gif2">
+            <div class="gif4">
+              <img src="content/from_online/spinningcd.gif">
+              <img src="content/from_online/spinningcd.gif">
+              <img src="content/from_online/spinningcd.gif">
+              <img src="content/from_online/spinningcd.gif">
+            </div>
+            <div class="gif1">
               <img src="content/from_online/pikachuuu.webp">
+              <h5 style="text-align: center;">my new favorite render of pikachu</h5>
+            </div>
+            <div class="gif5">
+              <img src="content/from_online/kitty.gif" style="position: absolute; transform: translateY(-70px);">
+              <img src="content/from_online/Amonitor.gif">
+            </div>
+            <div class="gif6">
+              <img src="content/from_online/gif.gif" style="width: 100%;">
             </div>
             </div>
           </div>
