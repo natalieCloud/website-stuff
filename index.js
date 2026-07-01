@@ -200,6 +200,7 @@ class Navbar {
                 this.change_song(this.day);
             }
             else if (icon_name === 'duck-program') {
+                this.register_ducks()
                 var duck = new DucktopBuddy();
             } else if (icon_name === 'cv_program') {
                 this.show_file('cv-program', 'Natalie_Chmura_CV.pdf')
@@ -331,6 +332,25 @@ class Navbar {
         let t_c = child_to_abort.parentNode
         t_c.removeChild(child_to_abort);
     }
+
+
+    register_ducks() {
+        var radioButtons = document.querySelectorAll('input[name="duck-radio"]');
+        console.log(radioButtons);
+
+        radioButtons.forEach(radio => {
+            console.log("hi");
+
+            radio.addEventListener('click', function() {
+            if (this.checked) {
+                var duckname = this.value;
+                console.log(duckname);
+                document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
+            }
+
+            });
+        });
+    }
 }
 
 const pleasedontlookatthecodebeneaththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
@@ -394,24 +414,6 @@ class DuckBehavior {
 
         this.get_target();
     }
-
-    // head
-    // get_target
-    // get_path
-    // move
-    // selector
-    // selector
-
-    // c\r 0 1 4 7
-    // 0   1 2 5 8 
-    // 1   0 2 5 8 
-    // 4   0 1 5 8
-    // 8   0 1 4 7
-
-    // 6 0 1 2 3 4 5 7 8
-    // 7 0 1 2 3 4 5 6 8
-    // 8 0 1 2 3 4 5 6 7
-    
 
     get_target() {
         var rdm = Math.floor(Math.random() * 8);
@@ -523,11 +525,8 @@ class DuckBehavior {
             } else {
                 return 16 + this.current_loc - this.current_tar;
             }
-            
-
         }
     }
-
 
 
     move() {
@@ -854,6 +853,7 @@ class Terminal {
         return out_str + "</div>";
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();

@@ -913,13 +913,13 @@ h1 {
     position: relative;
     display: grid;
     grid-template-columns: repeat(30, 1fr);
-    grid-template-rows: repeat(5, .5fr);
+    grid-template-rows: repeat(6, .5fr);
     margin: 10px;
     row-gap: 20px;
 }
 
 .home1 {
-    grid-area: 1 / 2 / 2 / 24;
+    grid-area: 1 / 2 / 2 / 22;
 }
 
 .home2 {
@@ -930,17 +930,23 @@ h1 {
 }
 
 .home3 {
-    grid-area: 3 / 2 / 4 / 14;
+    grid-area: 3 / 2 / 5 / 14;
+    vertical-align: middle;
+}
+
+.home3-style {
+    grid-area: 3 / 2 / 5 / 14;
     border: 2px solid chartreuse;
     padding: 10px;
     text-align: center;
     vertical-align: middle;
     color: white;
     background-color: black;
+    margin-top: 20%;
 }
 
 .home4 {
-    grid-area: 4 / 6 / 5 / 25;
+    grid-area: 5 / 6 / 6 / 25;
     padding: 15px;
     padding-top: 60px;
     text-align: center;
@@ -948,7 +954,7 @@ h1 {
 }
 
 .home5 {
-    grid-area: 5 / 2 / 6 / 30;
+    grid-area: 6 / 2 / 7 / 30;
     text-align: center;
     background-image: url(content/from_online/sora5.gif);
     border: 2px solid ;
@@ -962,34 +968,57 @@ h1 {
     
 }
 
+.home7 {
+    grid-area: 4 / 16 / 5 / 30;
+}
+
+.home7-style {
+    display: flexbox;
+    grid-area: 4 / 16 / 5 / 27;
+    text-align: center;  
+    margin: 10px;
+    padding: 10px;
+
+    background-image: url(content/from_online/purp027.jpg);    
+    border: 2px solid palevioletred;
+}
+
+.gif7 {
+    padding-top: 50px;
+    grid-area: 4 / 27 / 5 / 31;
+    display: flexbox;
+    right: 0;
+}
+
+
 .gif1 {
-    grid-area: 1 / 25 / 2 / 30;
-    padding: 10%;
-    padding-top: 20%;
+    grid-area: 1 / 24 / 2 / 30;
+    /* padding: 10%; */
 }
 
 .gif2 {
     grid-area: 2 / 2 / 3 / 4;
-
+    padding-top: 50%;
 }
 
 .gif3 {
     grid-area: 4 / 15 / 5 / 31;
+    
 }
 
 .gif4 {
     grid-area: 2 / 28 / 3 / 30;
-
+    padding-top: 50%;
 }
 
 .gif5 {
-    grid-area: 4 / 2 / 5 / 6;
+    grid-area: 5 / 2 / 6 / 6;
     padding-top: 60%;
     padding-left: 10%;
 }
 
 .gif6 {
-    grid-area: 4 / 25 / 5 / 31;
+    grid-area: 5 / 25 / 6 / 31;
     padding-top: 40%;
     padding-right: 10%;
 }
