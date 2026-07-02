@@ -461,7 +461,8 @@ h1 {
     flex-flow: row;
     position: sticky;
     &.common{
-    background-color: hsla(322, 93%, 82%, 0.67);
+    /* background-color: hsla(322, 93%, 82%, 0.67); */
+    background-color: rgb(146, 224, 255);
     border-bottom: 2px solid hsl(321, 17%, 56%);
     }
     &.term {
@@ -919,7 +920,7 @@ h1 {
 }
 
 .home1 {
-    grid-area: 1 / 2 / 2 / 22;
+    grid-area: 1 / 2 / 2 / 21;
 }
 
 .home2 {
@@ -1051,4 +1052,11 @@ h1 {
     content: url(content/Mobile.png);
     width: 25%;
     height: auto;
+}
+
+.boarder {
+    width: 100%;
+    background-image: url(content/from_online/19.gif);
+    background-repeat: repeat-x;
+    height: 80px;
 }

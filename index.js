@@ -334,22 +334,10 @@ class Navbar {
     }
 
 
-    register_ducks() {
-        var radioButtons = document.querySelectorAll('input[name="duck-radio"]');
-        console.log(radioButtons);
-
-        radioButtons.forEach(radio => {
-            console.log("hi");
-
-            radio.addEventListener('click', function() {
-            if (this.checked) {
-                var duckname = this.value;
-                console.log(duckname);
-                document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
-            }
-
-            });
-        });
+    change_val(id, duckname) {
+        if (document.getElementById(id).checked) {
+            document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
+        }
     }
 }
 

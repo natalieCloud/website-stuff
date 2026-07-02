@@ -464,7 +464,7 @@
           </div>
           <form action="submit" method="">
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="higgs" name="duck-choice" value="higgs">
+              <input type="radio" class="duck-radio" id="higgs" name="duck-choice" value="higgs" onchange="navbar.change_val('higgs', 'Higgs Boson')">
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(117, 86, 6);">Higgs Boson</h3>
                 <h4>Birthday: 10/27/20</h3>
@@ -479,7 +479,7 @@
               <div class="duck-icon higgs"></div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="napstar" name="duck-choice" value="napstar">
+              <input type="radio" class="duck-radio" id="napstar" name="duck-choice" value="napstar" onchange="navbar.change_val('napstar', 'Napstar')">
               <div class="duck-icon napstar"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(111, 22, 194);">Napstar</h3>
@@ -492,7 +492,7 @@
               </div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="timmy" name="duck-choice" value="timmy">
+              <input type="radio" class="duck-radio" id="timmy" name="duck-choice" value="timmy" onchange="navbar.change_val('timmy', 'Timmy')">
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(42, 165, 18);">Timmy</h3>
                 <h4>Birthday: 8/31/23</h3>
@@ -504,7 +504,7 @@
               <div class="duck-icon timmy"></div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="tommy" name="duck-choice" value="tommy">
+              <input type="radio" class="duck-radio" id="tommy" name="duck-choice" value="tommy" onchange="navbar.change_val('tommy', 'Tommy')">
               <div class="duck-icon tommy"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(18, 52, 165);">Tommy</h3>
@@ -516,7 +516,7 @@
               </div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="nami" name="duck-choice" value="nami">
+              <input type="radio" class="duck-radio" id="nami" name="duck-choice" value="nami" onchange="navbar.change_val('nami', 'Nami')">
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(146, 94, 15);">Nami</h3>
                 <h4>Birthday: 10/18/23</h3>
@@ -529,7 +529,7 @@
               <div class="duck-icon nami"></div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="nimda" name="duck-choice" value="nimda">
+              <input type="radio" class="duck-radio" id="nimda" name="duck-choice" value="nimda" onchange="navbar.change_val('nimda', 'Nimda')">
               <div class="duck-icon nimda"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(138, 28, 13);">Nimda</h3>
@@ -546,7 +546,7 @@
               </div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="brock" name="duck-choice" value="brock">
+              <input type="radio" class="duck-radio" id="brock" name="duck-choice" value="brock" onchange="navbar.change_val('brock', 'Brock')">
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(15, 59, 6);">Brock</h3>
                 <h4>Birthday: ?/??/??</h3>
@@ -563,7 +563,7 @@
               <div class="duck-icon brock"></div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="guy" name="duck-choice" value="guy">
+              <input type="radio" class="duck-radio" id="guy" name="duck-choice" value="guy" onchange="navbar.change_val('guy', 'Guy')">
               <div class="duck-icon guy"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(141, 15, 135);">Guy</h3>
@@ -578,7 +578,7 @@
               </div>
             </div>
             <div class="duck-bio">
-              <input type="radio" class="duck-radio" id="shaduck" name="duck-choice" value="shaduck">
+              <input type="radio" class="duck-radio" id="shaduck" name="duck-choice" value="shaduck" onchange="navbar.change_val('shaduck', 'Shaduck')">
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(0, 0, 0);">Shaduck the Hedgehog</h3>
                 <h4>Birthday: 2/1/25</h3>
@@ -594,7 +594,7 @@
         </div>
         <div class="sticky-footer">
           <span style="width: 100%; line-height: 40px; height: 40px;">
-            <div id="choice-duck"></div>
+            <div id="choice-duck" style="display: inline-flex; left: 3%; position: relative;"></div>
               <button class="submit-duck" onclick="ducktop.launch()">
                 Launch
               </button>
@@ -746,8 +746,8 @@
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
         </div>
       </div>
-      <div id="site-header-program" class="running-prog" style="display: flex;">
-        <div class="common head">
+      <div id="site-header-program" class="running-prog" style="display: flex; border-color: rgb(46, 85, 8);">
+        <div class="common head" style="background-color: rgb(80, 35, 122); color: white;">
           <div class="pic-head" style="content: url(./content/icons/link_24.png);"></div>
           <span class="span-title">Welcome To The Site!!!!</span>
           <button class="button-head min" onclick="navbar.toggle_min('site-header-program')"></button>
@@ -757,13 +757,15 @@
         <div class="content"
           style="font-family: 'Courier New', Courier, monospace; background-image: url(content/from_online/shadow_relm_ass_background.jpeg); display: flex; justify-content: center;">
           <div class="displaying" style="overflow-y: scroll;" >
-            <div style="width: 100%; display: flex; justify-content: center;">
+            <div style="width: 100%; display: flex; justify-content: center;">              
               <div
                 style="height: fit-content; background-color: rgb(24, 24, 31); display: flex; margin: 6px; padding: 10px; border: 2px solid chartreuse;">
+                
+                <img src="content/100Human.png" style="width: 100px; position: relative; margin: 15px;">
                 <h4 style="text-align: center; color: deeppink; flex-grow: 1; font-size: 110%;">
-                  Hi! Welcome to my site on the WORLD WIDE WEB!!! ^-^</h4>
+                  Hi! Welcome to my site on the</br>WORLD WIDE WEB!!! ^-^</h4>
                 <img src="content/from_online/color_earth.gif"
-                  style="height: 60px; width: 60px; display: flexbox; position: relative; margin-left: 15px;">
+                  style="height: 60px; width: 60px; display: flexbox; position: relative; margin: 15px;">
               </div>
             </div>
             <div style=" width: 100%; display: flex; justify-content: center; padding: 3px;">
@@ -772,15 +774,15 @@
             <div class="site-home-stuff">
               <div class="home1">
                 <img src="content/from_online/hamsterfinal.gif" style="display: inline; size: 80px; margin-bottom: -5px;">
-                <p style="text-align: center; display: inline; margin-bottom: 20px;">Hello! Thanks for stopping by!</p>
+                <p style="text-align: center; display: inline; margin-bottom: 20px;">Thanks for stopping by!</p>
                 <div class="line"></div>
-                <p style="color: crimson; font-weight: 900;">Alert! I need you to have Javascript enabled!</p>
+                <p style="color: crimson;"> <strong>Alert!</strong> This site needs Javascript enabled!</p>
                 <p>This is primarily to <span style="color: blue;">house</span> 
                   a catalog of some of the projects/art things I’ve worked on and want to shout into the void about.</p>
-                <p>
+                <!-- <p>
                   I say shout into the void but in all reality it'll mostly be - "I did this thing and think it's cool" or
                   "I learnt this thing and want to talk about it" 
-                </p>
+                </p> -->
               </div>
               <div class="home2">
                 <p>I have stuff related to past and current work in CompSci! If you are curious about it check out my CV or the projects
@@ -808,19 +810,20 @@
                   Source code available on Github.
                 </p>
                 <p>
-                  <span style="color: red">SPOILER WARNING</span> there’s some things I hid around this website so avoid looking there for answers please!</br> </br>
+                  <span style="color: red">SPOILER WARNING</span> there’s some things I hid around this website so avoid looking at the code for answers please!</br> </br>
                   Also, besides the .gifs
-                  in this window (link can be found below) I did all the art myself!
+                  in this window (link can be found on the right) I did all the art myself!
                 </p>
                 </div>
-                <img src="content/from_online/Vlvbtyshck.gif" style="margin-top: 50px;">
+                <div class="boarder"></div>
+                <img src="content/from_online/Vlvbtyshck.gif" style="margin-top: 30px;">
               </div>
               <div class="home6">
                 <img src="content/from_online/line29.gif" style="width: 90%; margin-bottom: 20px;">
                 <h3 style="color: #090b50;">Like the backgrounds? </br> They're just <span style="color: red;">ONE</span> click away!:</br></h3>
                 <a href="content/Desktop.png" download><div class="small_bk_a" ></div></a>
                 <a href="content/Mobile.png" download><div class="small_bk_b"></div></a>
-                <p>desktop and mobile - ripe for the clicking!</p>
+                <p>desktop and mobile </br> ripe for the clicking!</p>
                 <img src="content/from_online/line29.gif" style="width: 90%; margin-top: 20px;">
               </div>
               <div class="home4">
@@ -896,14 +899,24 @@
                   <img src="content/from_online/cat 226.gif" style="margin-top: 30px;">
               </div>
               <img src="content/from_online/flower 142.gif" style="height: 80px; position: absolute; right: 23%">
-              <img src="content/from_online/purin3.gif" style="height: 70px; position: absolute; right: 23%; top: 11%">
-              <img src="content/from_online/frog 83.gif" style="height: 60px; position: absolute; right: 34%; top: 12%">
-
+              <img src="content/from_online/purin3.gif" style="height: 70px; position: absolute; left: 0%; bottom: 4%">
+              <img src="content/from_online/frog 83.gif" style="height: 60px; position: absolute; right: 12%; bottom: 12%">
               <img src="content/from_online/luckycat2.gif" style="height: 80px; position: absolute; left: 5%; top: 30%">
-              <img src="content/from_online/turtle 17.gif" style="height: 20px; position: absolute; right: 35%; top: 57%">
+              <img src="content/from_online/turtle 17.gif" style="height: 40px; position: absolute; right: 38%; top: 69%; transform: scale(-1, 1);">
               <img src="content/from_online/coffee 30.gif" style="height: 70px; position: absolute; left: 15%; top: 78%">
               <img src="content/from_online/rubiks cube 3.gif" style="height: 60px; position: absolute; left: 0; top: 81%">
-              <img src="content/from_online/blimp 3.gif" style="height: 60px; position: absolute; right: 6%; top: 81%">
+              <img src="content/from_online/blimp 3.gif" style="height: 60px; position: absolute; left: 37%; top: 32%">
+              <img src="content/from_online/chao.gif" style="height: 60px; position: absolute; right: 14%; top: 68%">
+              <img src="content/from_online/cat_thing.gif" style="height: 60px; position: absolute; right: 4%; top: 51%">
+              <img src="content/from_online/137.gif" style="width: 80px; position: absolute; right: 41%; top: 56%">
+              <img src="content/from_online/portal2.png" style="width: 80px; position: absolute; right: 4%; top: 83%">
+              <img src="content/from_online/continue_anyway_by_kicked_in_teeth-dbvqsb1.png" style="height: 50px; position: absolute; right: 12%; bottom: 17%">
+              <img src="content/from_online/portal1.png" style="width: 80px; position: absolute; right: 23%; top: 6%;">
+              <img src="content/from_online/chao-read.gif" style="width: 90px; position: absolute; right: 8%; top: 26%;">
+              <img src="content/from_online/sparkles5.gif" style="height: 20px; position: absolute; left: 2%; top: 10%;">
+              <img src="content/from_online/Miso.gif" style="width: 90px; position: absolute; left: 6%; top: 9%; border: #090b50 solid 3px;">
+              <img src="content/from_online/catamari.gif" style="width: 70px; position: absolute; left: 26%; top: 9%; border: #090b50 solid 3px;">
+              <img src="content/from_online/wuddup.gif" style="width: 90px; position: absolute; left: 42%; top: 9%; border: #090b50 solid 3px;">
             </div>
           </div>
         </div>
