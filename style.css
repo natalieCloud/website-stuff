@@ -126,6 +126,7 @@ h1 {
     background-color: hsl(299, 17%, 48%);
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
+    transition-delay: 300ms;
 }
 
 .pfp-zone {
@@ -1060,3 +1061,107 @@ h1 {
     background-repeat: repeat-x;
     height: 80px;
 }
+
+.duck-space {
+    width: 216px;
+    height: 150px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 2px solid chartreuse;
+}
+
+@keyframes duck1r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(24px);}
+}
+
+@keyframes duck2r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(48px);}
+}
+
+@keyframes duck3r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(72px);}
+}
+
+@keyframes duck4r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(96px);}
+}
+
+@keyframes duck5r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(120px);}
+}
+
+@keyframes duck6r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(144px);}
+}
+
+@keyframes duck7r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(168px);}
+}
+
+@keyframes duck8r {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(192px);}
+}
+
+@keyframes duck1l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-24px);}
+}
+
+@keyframes duck2l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-48px);}
+}
+
+@keyframes duck3l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-72px);}
+}
+
+@keyframes duck4l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-96px);}
+}
+
+@keyframes duck5l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-120px);}
+}
+
+@keyframes duck6l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-144px);}
+}
+
+@keyframes duck7l{
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-168px);}
+}
+
+@keyframes duck8l {
+    0% {transform: translateX(0px);}
+    100% {transform: translateX(-192px);}
+}
+
+.duck-buddy {
+    width: 24px;
+    height: 24px;
+    bottom: 0;
+    border: 1px solid cornflowerblue;
+    content: url(content/icons/missing_24.png);
+    position: absolute;
+    display: flexbox;
+    animation-timing-function: linear;
+    animation-delay: 10ms;
+}
+
+

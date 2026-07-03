@@ -11,7 +11,6 @@ class Navbar {
             "music-program": { "shown": false, "max": false, "min": false },
             "plant-program": { "shown": false, "max": false, "min": false },
             "terminal-program": { "shown": false, "max": false, "min": false },
-            "site-header-program": { "shown": true, "max": false, "min": true },
             "trash-program": { "shown": false, "max": false, "min": false },
             "art.txt-program": { "shown": false, "max": false, "min": false },
             "credits.txt-program": { "shown": false, "max": false, "min": false },
@@ -26,17 +25,20 @@ class Navbar {
             "Natalie_Chmura_CV.pdf-program": { "shown": false, "max": false, "min": false },
             "rsa_number_theory.pdf-program": { "shown": false, "max": false, "min": false },
             "mpi_benchmarking.pdf-program": { "shown": false, "max": false, "min": false },
+            "site-header-program": { "shown": true, "max": false, "min": true }
         }
         this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
-        this.num = [2,9,1,0,0,0,3,6,5,6,4,2,3,9]
+        this.num = [2, 9, 1, 0, 0, 0, 3, 6, 5, 6, 4, 2, 3, 9];
         this.modulo = 14;
         this.day = new Date();
         this.day.setHours(0, 0, 0, 0);
+        this.DUCKTOP = null;
     }
 
     log() {
         console.log('Add Popup');
     }
+
     toggle_popup() {
         this.toggled = !this.toggled;
         let menu = document.getElementById("menu-container");
@@ -95,7 +97,7 @@ class Navbar {
         if (this.day > date.setHours(0, 0, 0, 0)) {
             this.day = date;
             this.change_song();
-        } ;
+        };
         let t = setTimeout('navbar.time_function()', 10000);
     }
 
@@ -144,8 +146,8 @@ class Navbar {
         var id = `${id_root}-program`
 
         if (id === 'cv') {
-            downloadable = 
-            `<form method="get" action="./content/Natalie_Chmura_CV.pdf">
+            downloadable =
+                `<form method="get" action="./content/Natalie_Chmura_CV.pdf">
                 <button class="button-head download" type="submit"></button>
             </form>`;
         }
@@ -172,7 +174,7 @@ class Navbar {
             </div>
             `;
         document.getElementById("desktop-space").appendChild(leaf);
-    
+
         navbar.toggle_show(id);
     }
 
@@ -200,8 +202,8 @@ class Navbar {
                 this.change_song(this.day);
             }
             else if (icon_name === 'duck-program') {
-                this.register_ducks()
-                var duck = new DucktopBuddy();
+                // this.register_ducks()
+                this.DUCKTOP = new DuckBehavior();
             } else if (icon_name === 'cv_program') {
                 this.show_file('cv-program', 'Natalie_Chmura_CV.pdf')
             }
@@ -279,8 +281,8 @@ class Navbar {
     }
 
     change_song(up_date) {
-        let month_key = up_date.toLocaleString('en-US', {month: 'long'}).toLowerCase();
-        let day_key = up_date.toLocaleString('en-US', {day: 'numeric'});
+        let month_key = up_date.toLocaleString('en-US', { month: 'long' }).toLowerCase();
+        let day_key = up_date.toLocaleString('en-US', { day: 'numeric' });
         console.log(day_key)
         let artist = daily_songs["daily song recs"][month_key][day_key]["artist"];
         let title = daily_songs["daily song recs"][month_key][day_key]["title"];
@@ -333,16 +335,13 @@ class Navbar {
         t_c.removeChild(child_to_abort);
     }
 
-
     change_val(id, duckname) {
         if (document.getElementById(id).checked) {
             document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
         }
     }
+
 }
-
-const pleasedontlookatthecodebeneaththisbecauseofspoilers="Please and thank you so much after you discover everything then feel free to look around.";
-
 
 const State = {
     FacingR: "FacingR",
@@ -351,15 +350,6 @@ const State = {
     Idle: "Idle",
     Blink: "Blink",
     Quack: "Quack"
-}
-
-const Targets = {
-    /**
-     *  |---------------------|
-     *  0 5  3  6  2  7  4  8 1
-     */
-    eighth: "eighth"
-
 }
 
 const Paths = {
@@ -372,16 +362,14 @@ const Paths = {
      *         <-------------/ 
      */
     direct: "direct",
-    dir_one_b: "dir_one_b",
-    dir_two_b: "dir_two_b",
-    opp_one_b: "opp_one_b",
-    opp_two_b: "",
+    one_b: "one_b",
+    two_b: "two_b",
 }
 
+
+// TODO refactor
 class DuckBehavior {
     constructor() {
-        this.current_tar = 0;
-        this.current_loc = 0;
         this.current_path = Paths.direct;
         this.stopped = false;
         this.facing = true; // true left false right
@@ -394,142 +382,197 @@ class DuckBehavior {
         this.path_p = {
             0: Paths.direct,
             1: Paths.direct,
-            2: Paths.dir_one_b,
-            3: Paths.dir_two_b,
-            4: Paths.opp_one_b,
-            5: Paths.opp_two_b,
+            2: Paths.one_b,
+            3: Paths.two_b,
+            4: Paths.one_b,
         }
+        this.start = 0;
+        this.bouncea = 0;
+        this.bounceb = 0;
+        this.end = 0;
+    }
 
-        this.get_target();
+    bounce_dir(bool_val) {
+        return (bool_val ? 0 : 8);
     }
 
     get_target() {
         var rdm = Math.floor(Math.random() * 8);
 
-        if (rdm >= this.current_tar) {
+        if (rdm >= this.end) {
             rdm = rdm + 1;
-            this.facing = false;
-        } else {
-            this.facing = true;
         }
 
-        this.current_tar = rdm;
+        this.end = rdm;
+        console.log(`New target: ${this.end}`)
         this.get_path();
     }
 
     get_path() {
         var rdm = Math.floor(Math.random() * 5);
-        
+
         this.current_path = this.path_p[rdm];
 
-        // Maybe move this?
-        if (this.current_path === Paths.dir_one_b || this.current_path === Paths.opp_two_b) {
-            this.facing = !this.facing;
+        if (this.current_path == Paths.one_b) {
+            this.bouncea = this.bounce_dir(this.facing);
+        } else if (this.current_path == Paths.two_b) {
+            this.bouncea = this.bounce_dir(this.facing);
+            this.bounceb = this.bounce_dir(!this.facing);
         }
-        var me = this;
 
-        let t = setTimeout(function() { me.move(); }, 10000);
+        console.log(`New path: ${this.current_path}`)
 
-        // this.move();
+        this.movestart();
     }
 
-    /**
-     * 
-     *  srt =/= end
-     * 
-     *  0  1  2  3  4  5  6  7  8
-     *  |--|--|--|--|--|--|--|--|
-     * 
-     *  start < end
-     * 
-     *  r:
-     *      d: end - srt
-     *     1s: 16 - srt - end
-     *     2s: 16 - srt + end
-     *     1o: srt + end
-     *     2o: 16 + srt - end
-     * 
-     *  l:
-     * 
-     *      d: X
-     *     1s: srt + end
-     *     2s: 16 + srt - end
-     *     1o: 16 - srt - end
-     *     2o: 16 - srt + end
-     * 
-     *  start > end
-     *  
-     *  r:
-     *      d: X
-     *     1s: 16 - srt - end
-     *     2s: 16 - srt + end
-     *     1o: srt + end
-     *     2o: 16 + srt - end
-     * 
-     *  l:
-    *       d: srt - end
-    *      1s: srt + end
-    *      2s: 16 + srt - end
-    *      1o: 16 - srt - end
-    *      2o: 16 - srt + end
-     */
+    launch() {
+        this.movestart();
+    }
 
-    sq_cnt() {
-        
-        var mvdir = true; // true left false right
-
-        if (this.current_loc - this.current_tar < 0) {
-            mvdir = false;
-        }
+    movestart() {
+        console.log(`Start: ${this.start}`);
 
         if (this.facing) {
-            if (this.current_path === Paths.direct && mvdir)  {
-                return this.current_loc - this.current_tar;
-            } else if (this.current_path === Paths.direct) {
-                return -1;
-            } else if (this.current_path === Paths.dir_one_b) {
-                return this.current_loc + this.current_tar;
-            } else if (this.current_path === Paths.dir_two_b) {
-                return 16 + this.current_loc - this.current_tar;
-            } else if (this.current_path === Paths.opp_one_b) {
-                return 16 - this.current_loc - this.current_tar;
-            } else {
-                return 16 - this.current_loc + this.current_tar;
-            }
-            
-
+            console.log('Facing left');
         } else {
-
-            if (this.current_path === Paths.direct && !mvdir)  {
-                return this.current_tar - this.current_loc;
-            } else if (this.current_path === Paths.direct) {
-                return -1;
-            } else if (this.current_path === Paths.dir_one_b) {
-                return 16 - this.current_loc - this.current_tar;
-            } else if (this.current_path === Paths.dir_two_b) {
-                return 16 - this.current_loc + this.current_tar;
-            } else if (this.current_path === Paths.opp_one_b) {
-                return this.current_loc + this.current_tar;
-            } else {
-                return 16 + this.current_loc - this.current_tar;
-            }
+            console.log('Facing right');
         }
+
+        if (this.current_path == Paths.direct) {
+            var dur = Math.abs(this.end - this.start);
+            var time = dur * 4;
+
+            if (this.start >= this.end) {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+            } else {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+            }
+
+            document.getElementById("duck-buddy").style.animationDuration = `${time}s`
+            var me = this;
+ 
+            console.log(`Moving from ${this.start} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
+
+            let t = setTimeout(function () { me.moveend(); }, time * 1000);
+        } else {
+            var dur = Math.abs(this.bouncea - this.start);
+            var time = dur * 4;
+
+            if (this.start >= this.bouncea) {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+            } else {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+            }
+
+            document.getElementById("duck-buddy").style.animationDuration = `${time}s`
+            var me = this;
+
+            console.log(`Moving from ${this.start} to ${this.bouncea} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
+            let t = setTimeout(function () { me.bounce1(); }, time * 1000);
+        }
+
+
+
     }
 
+    bounce1() {
 
-    move() {
+        this.facing = !this.facing;
 
-        console.log(`Move to ${this.current_tar} with path ${this.current_path}`)
 
-        console.log(`Move length: ${this.sq_cnt()}`)
+        if (this.facing) {
+            console.log('Facing left');
+        } else {
+            console.log('Facing right');
+        }
+
+        document.getElementById("duck-buddy").style.position = 'absolute';
+        document.getElementById("duck-buddy").style.left = `${24 * this.bouncea}px`;
+
+        if (this.current_path == Paths.one_b) {
+            var dur = Math.abs(this.end - this.bouncea);
+            var time = dur * 4;
+
+
+            if (this.bouncea >= this.end) {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+            } else {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+            }
+
+            document.getElementById("duck-buddy").style.animationDuration = `${time}s`
+            var me = this;
+
+            console.log(`Moving from ${this.bouncea} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
+
+
+            let t = setTimeout(function () { me.moveend(); }, time * 1000);
+        } else {
+            var dur = Math.abs(this.bounceb - this.bouncea);
+            var time = dur * 4;
+
+
+            if (this.bouncea >= this.bounceb) {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+            } else {
+                document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+            }
+
+            document.getElementById("duck-buddy").style.animationDuration = `${time}s`
+            var me = this;
+            
+            console.log(`Moving from ${this.bouncea} to ${this.bounceb} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
+
+
+            let t = setTimeout(function () { me.bounce2(); }, time * 1000);
+        }
+
+
+    }
+
+    bounce2() {
+        this.facing = !this.facing;
+
+        if (this.facing) {
+            console.log('Facing left');
+        } else {
+            console.log('Facing right');
+        }
+
+        document.getElementById("duck-buddy").style.position = 'absolute';
+        document.getElementById("duck-buddy").style.left = `${24 * this.bounceb}px`;
+
+
+
+        var dur = Math.abs(this.end - this.bounceb);
+        var time = dur * 4;
         
+
+        if (this.bounceb >= this.end) {
+            document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+        } else {
+            document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+        }
+
+        document.getElementById("duck-buddy").style.animationDuration = `${time}s`
+        var me = this;
+
+        console.log(`Moving from ${this.bounceb} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
+
+
+        let t = setTimeout(function () { me.moveend(); }, time * 1000);
+    }
+
+    moveend() {
+
         if (this.facing) {
             console.log('Now facing left');
         } else {
             console.log('Now facing right');
         }
-
-        this.current_loc = this.current_tar;
+        document.getElementById("duck-buddy").style.position = 'absolute';
+        document.getElementById("duck-buddy").style.left = `${24 * this.end}px`;
+        this.start = this.end;
 
         this.quack_seq();
     }
@@ -563,72 +606,18 @@ class DuckBehavior {
     }
 
     check_stop() {
+
+        console.log("Checking stop")
+
         if (!this.stopped) {
             this.get_target()
         }
     }
-}
 
-class DucktopBuddy {
-    constructor() {
-        this.state = State.IdleL;
-        this.duckDraw = this.loadContent();
 
-        this.tree = {
-            get_target: this.get_target,
-            get_path: this.get_path,
-            movement: this.move,
-            quack_sel: this.quack_sel,
-            blink_sel: this.blink_sel,
-        }
-
-        this.duck_mind = new DuckBehavior();
-        this.duck_mind
+    stop() {
+        this.stopped = true;
     }
-
-
-    loadContent() { }
-
-    swim() { }
-
-    idle() { }
-
-    quack() { }
-
-    blink() { }
-
-    runClean() { }
-
-    runInterrupt() { }
-
-    update() { 
-        var mvidl = Math.floor(Math.random() * 4);
-        var dur = Math.floor(Math.random() * 8);
-        var intr = Math.floor(Math.random() * 10);
-
-        if (mvidl === 0){
-            if (intr === 0) {
-                this.runInterrupt(this.idle, dur, this.blink)
-            } else if (intr === 9) {
-                this.runInterrupt(this.idle, dur, this.quack)
-            } else {
-                this.runClean(this.idle, dur)
-            }
-        } else {
-            if (intr === 0) {
-                this.runInterrupt(this.move, dur, this.blink)
-            } else if (intr === 9) {
-                this.runInterrupt(this.move, dur, this.quack)
-            } else {
-                this.runClean(this.move, dur)
-            }
-        }
-
-        this.draw();
-        let t = setTimeout('navbar.time_function()', 10000);
-    }
-
-    draw() { }
 }
 
 class Terminal {
@@ -690,9 +679,9 @@ class Terminal {
         if (remaining.length === 0) {
             if (input === "list") {
                 leaf.innerHTML = this.print_list(this.location);
-            } else if (input === "tree"){
+            } else if (input === "tree") {
                 leaf.innerHTML = this.print_tree("", 0, this.location);
-            } else if (input === "help"){
+            } else if (input === "help") {
                 leaf.innerHTML = term_out.terminal["help"][""];
             }
         }
@@ -700,7 +689,7 @@ class Terminal {
             if (input === "help" && term_out.terminal["help"][remaining]) {
                 leaf.innerHTML = term_out.terminal["help"][remaining];
             } else if (input === "cd") {
-                leaf.innerHTML = this.change_dir(remaining) 
+                leaf.innerHTML = this.change_dir(remaining)
             } else if (input === "show") {
                 leaf.innerHTML = this.show_file(remaining);
             } else if (input === "run") {
@@ -723,7 +712,7 @@ class Terminal {
             var obj_l = `<object data="./content/${file_name}" type="application/pdf" width="100%" height="100%"
             style="min-height: 454px;">`;
             icon = "pdf_24.png";
-        
+
         } else {
             var obj_l = `<object data="./content/programs/${file_name}" type="text/plain" width="100%" height="100%"
             style="min-height: 454px;">`;
@@ -754,7 +743,7 @@ class Terminal {
             </div>
             `;
         document.getElementById("desktop-space").appendChild(leaf);
-    
+
         navbar.toggle_show(id);
 
         return `opened ${file_name}`;
@@ -787,18 +776,18 @@ class Terminal {
 
         if (Array.isArray(dir)) {
             for (var j = 0; j < dir.length; j++) {
-                out_str = out_str  + branches + ` ${dir[j]}</br>`;
+                out_str = out_str + branches + ` ${dir[j]}</br>`;
             }
             return out_str;
         }
-        
+
         out_str = out_str + branches + ` ${dir.name} </br>`;
         for (var ch in dir) {
             var child = dir[ch];
             if (typeof child === "object") {
                 console.log(child);
-                out_str = this.print_tree(out_str, level+1, child);
-            } 
+                out_str = this.print_tree(out_str, level + 1, child);
+            }
         }
         return out_str;
     }
@@ -843,10 +832,7 @@ class Terminal {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    navbar.time_function();
-    // navbar.toggle_show('site-header-program')
-})
+
 
 
 const term_out = {
@@ -857,7 +843,7 @@ const term_out = {
         "view": "look",
         "Roberta": "roberta",
         "Berta": "roberta",
-        "Roberta Williams": "roberta", 
+        "Roberta Williams": "roberta",
         "terminal": "terminal",
         "term": "terminal",
         "this": "terminal",
@@ -934,8 +920,8 @@ const term_out = {
     },
     terminal: {
         "help": {
-            "": 
-            `</br>
+            "":
+                `</br>
             NTerminalC version 1.0.0 release (static-web)</br>
             These commands are defined interally. Type 'help' to see this list.</br>
             Type 'help name' to find out more about the function 'name'</br></br>
@@ -954,7 +940,7 @@ const term_out = {
             </div>
             </div></br>`,
             "cd":
-            `<div class='word'>cd [dir| ]</div>
+                `<div class='word'>cd [dir| ]</div>
             <div class='def'>Changes the shell working directory</div>
             <div class='def'>Change the current directory to dir. The default value of dir is 
     the HOME shell vairable.</div>
@@ -965,20 +951,20 @@ const term_out = {
     will be ignored.</div>
             </br>`,
             "help":
-            `<div class='word'>help [name| ]</div>
+                `<div class='word'>help [name| ]</div>
             <div class='def'>Display information about the built in terminal commands.</div>
             <div class='def'>Displays a summary of the builtin command. If no command is
     specified, the list of potential help topics is printed.</div>
             </br>`,
             "list":
-            `<div class='word'>list [dir| ]</div>
+                `<div class='word'>list [dir| ]</div>
             <div class='def'>Prints the items in the desired directory.</div>
             <div class='def'>The default directory is the current working directoy.</div>
             <div class='def'>Aside from listing content in the HOME directory, content may only be listed in
     the current working directory.</div>
             </br>`,
             "look":
-            `<div class='word'>look [value]</div>
+                `<div class='word'>look [value]</div>
             <div class='def'>For fans of Roberta, perhaps?</div>
             <div class='def'> At the beginning, look takes three possible values. Running look with any of these
     values gives you a small description and optional links...</div>
@@ -986,19 +972,19 @@ const term_out = {
             <div class='def'>'disk-scheduling-algorithms'</br>'roberta'</br>'terminal'</br></div>
             </br>`,
             "roberta":
-            `<div class='word'>look Roberta</div>
+                `<div class='word'>look Roberta</div>
             <div class='def'>A very cool game desginer behind many of the Sierra Titles, which is how I got into parser gaming in particular.</div>
             </br>`,
             "terminal":
-            `<div class='word'>look terminal</div>
+                `<div class='word'>look terminal</div>
             <div class='def'>About text parser games</div>
             </br>`,
             "disk-scheduling-algorithms":
-            `<div class='word'>look disk-scheduling-algorithms</div>
+                `<div class='word'>look disk-scheduling-algorithms</div>
             <div class='def'>If only Natalie had included the ability to <span style='color: blue'>look</span> at a specific dsa</div>
             </br>`,
             "more":
-            `</br>
+                `</br>
                 NTerminalC version 1.0.0 release (static-web)</br> 
                 These commands are defined interally. Type 'help more' to see this explanation again.</br> </br>
 
@@ -1033,7 +1019,7 @@ const term_out = {
 
             </br>`,
             "more_0":
-            `</br>
+                `</br>
                 So, for each command in the list you will see its name, followed by its arguments. You can think of the arguments as though they are the variables
                 in a math equation: </br> 
                 2x + 6y cannot be solved if you don't know what x and y are*! So, the values in brackets represent what can be plugged in for that x and y.
@@ -1044,24 +1030,24 @@ const term_out = {
                 * It cannot be solved mathmatically either - the '=' was omitted for this reason
             </br>`,
             "more_1":
-            `</br>
+                `</br>
             </br>`,
             "quit":
-            `<div class='word'>quit</div>
+                `<div class='word'>quit</div>
             <div class='def'>Exits the currently running terminal session.</div>
             </br>`,
             "run":
-            `<div class='word'>run [name]</div>
+                `<div class='word'>run [name]</div>
             <div class='def'>Executes the program spcified by name. Must be in the current working directory
     of the program in order to launch it sucessfully. Works for any installed program.</div>
             </br>`,
             "show":
-            `<div class='word'>show [name]</div>
+                `<div class='word'>show [name]</div>
             <div class='def'>Displays the content of the file specififed by name. Must be in the current working
     directory of said file in order to launch it successfully. Works for any .txt extension.</div>
             </br>`,
             "tree":
-            `<div class='word'>tree [dir| ]</div>
+                `<div class='word'>tree [dir| ]</div>
             <div class='def'>Displays the structure of the subdirectories and files nested within the specified
     directory. By default uses the current working directory, but can take HOME as another
     value.</div>
@@ -1228,7 +1214,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1353,7 +1340,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1470,7 +1458,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1595,7 +1584,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1716,7 +1706,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1841,7 +1832,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -1962,7 +1954,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2087,7 +2080,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2212,7 +2206,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2333,7 +2328,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2458,7 +2454,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2579,7 +2576,8 @@ const daily_songs = {
             },
             "14": {
                 "title": "",
-                "artist": ""},
+                "artist": ""
+            },
             "15": {
                 "title": "",
                 "artist": ""
@@ -2652,7 +2650,10 @@ const daily_songs = {
     }
 }
 
+
 var navbar = new Navbar();
 var term = new Terminal();
-// var ducks = new DucktopBuddy();
 
+document.addEventListener("DOMContentLoaded", function () {
+    navbar.time_function();
+})
