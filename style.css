@@ -1065,7 +1065,7 @@ h1 {
 .duck-space {
     width: 216px;
     height: 150px;
-    display: flex;
+    display: none;
     position: absolute;
     bottom: 0;
     right: 0;

@@ -595,7 +595,7 @@
         <div class="sticky-footer">
           <span style="width: 100%; line-height: 40px; height: 40px;">
             <div id="choice-duck" style="display: inline-flex; left: 3%; position: relative;"></div>
-              <button class="submit-duck" onclick="navbar.DUCKTOP.launch()">
+              <button id="submit-duck" class="submit-duck" onclick="navbar.DUCKTOP.launch()" disabled>
                 Launch
               </button>
           </span>
@@ -679,7 +679,22 @@
           <button class="button-head max" onclick="navbar.toggle_max('plant-program')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('plant-program')"></button>
         </div>
-        plant
+        <div class="content" style="flex-flow: row;">
+          <div style="display: flexbox; width: 40%; float: left; margin: 15px;"> 
+          <p>I forgot what I was originally gonna put here and had weirdly few notes recorded on this section.</p> 
+          <p>
+            In any case – grapevine appreciation time!!! My favorite part of my parent’s yard has got to be the grapevines. 
+            I loved going up to them and biting the tendrils right off the vine! (saying loved as if I don’t do this anymore daghj) 
+            On the right you can see a real, unedited photo of me taking a bite.
+          </p>
+          <p>
+            I’m trying to get an indoor transplant going, so I’ll be updating this section with progress!
+          </p>
+        </div>
+        <div style="display: flexbox; width: 50%; float: left; flex-grow: 1; padding: 20px;">
+          <div style="content: url('content/pictures/uneditedphotoofme.jpg'); width: 100%;"></div>
+        </div>
+        </div>
       </div>
       <div id="terminal-program" class="running-prog term">
         <div class="term head">
@@ -720,7 +735,7 @@
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
           <div id="trash-item" style="display: flex; overflow-x:hidden; margin: 0px; padding: 0px;" class="highlight"
-            ondblclick="navbar.toggle_show('txt-prog')">
+            ondblclick="term.show_file('secrets.txt')">
             <h4 style="display: flexbox; flex-grow: 1;">secrets.txt</h4>
             <input style="display: flexbox; padding-right: 20px;" type="checkbox" id="empty-trash" name="secrets.txt"
               value="secrets.txt" onchange="document.getElementById('trash-button').disabled = !this.checked;">
@@ -729,7 +744,7 @@
         <div class="sticky-footer">
           <span style="width: 100%; line-height: 40px; height: 40px;">
             Empty trash?
-            <button class="submit-trash" id="trash-button" onclick="navbar.empty()">
+            <button class="submit-trash" id="trash-button" onclick="navbar.empty()" disabled>
               Empty
             </button>
           </span>

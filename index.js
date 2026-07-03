@@ -14,6 +14,7 @@ class Navbar {
             "trash-program": { "shown": false, "max": false, "min": false },
             "art.txt-program": { "shown": false, "max": false, "min": false },
             "credits.txt-program": { "shown": false, "max": false, "min": false },
+            "secrets.txt-program": { "shown": false, "max": false, "min": false },
             "cv.txt-program": { "shown": false, "max": false, "min": false },
             "ducktop.txt-program": { "shown": false, "max": false, "min": false },
             "email.txt-program": { "shown": false, "max": false, "min": false },
@@ -33,6 +34,7 @@ class Navbar {
         this.day = new Date();
         this.day.setHours(0, 0, 0, 0);
         this.DUCKTOP = null;
+        this.duckchoice = "";
     }
 
     log() {
@@ -337,39 +339,29 @@ class Navbar {
 
     change_val(id, duckname) {
         if (document.getElementById(id).checked) {
+            this.duckchoice = duckname;
             document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
+            document.getElementById('submit-duck').disabled = false;
         }
     }
 
 }
 
-const State = {
-    FacingR: "FacingR",
-    FacingL: "FacingL",
-    Swim: "Swim",
-    Idle: "Idle",
-    Blink: "Blink",
-    Quack: "Quack"
-}
-
 const Paths = {
-    /**
-     *  |----A-----^-----B----|
-     *             D
-     *        <----
-     *   /---------
-     *   \---->     ---------\
-     *         <-------------/ 
-     */
     direct: "direct",
     one_b: "one_b",
     two_b: "two_b",
 }
 
 
-// TODO refactor
+// TODO refactor/fix
 class DuckBehavior {
     constructor() {
+
+        this.version = "1.0.0"
+
+        document.getElementById("duck-buddy").style.left = '0px';
+
         this.current_path = Paths.direct;
         this.stopped = false;
         this.facing = true; // true left false right
@@ -426,7 +418,14 @@ class DuckBehavior {
     }
 
     launch() {
+        document.getElementById("duck-space").style.display = "flex";
         this.movestart();
+
+    }
+
+    stop() {
+        this.stopped = true;
+        document.getElementById("duck-space").style.display = "none";
     }
 
     movestart() {
@@ -612,11 +611,6 @@ class DuckBehavior {
         if (!this.stopped) {
             this.get_target()
         }
-    }
-
-
-    stop() {
-        this.stopped = true;
     }
 }
 
