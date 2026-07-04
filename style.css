@@ -4,6 +4,172 @@ html, head, body {
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    color: black;
+}
+
+.dark-mode {
+    body {
+        color: white;
+    }
+
+    .dark-mode-toggle {
+        background-image: url("content/icons/night_16.png");
+    }
+
+    .navbar {
+        background-color: hsl(300, 27%, 15%);
+        border-top: 4px, solid, hsl(300, 6%, 30%);
+        color: white;
+    }
+
+    .task-container {
+        border: 1px solid hsl(300, 6%, 30%);
+    }
+
+    .centext {
+        border: 2px, solid, hsl(300, 6%, 30%);
+    }
+
+    .home-button {
+        &:hover {
+            background-color: gray;
+        }
+    }
+
+    .home-menu {
+        color: white;
+        border: solid 4px hsl(300, 6%, 30%);
+        background-color: hsl(300, 27%, 15%);
+    }
+
+    .pfp-zone {
+        color: white;
+        background-color: PINK;
+        border: 3px solid hsl(300, 6%, 30%);
+    }
+
+    .info-zone, .button-zone, .link-zone {
+        color: white;
+        border: 2px solid hsl(300, 6%, 30%);
+    }
+
+    .styling {
+        background-color: hsl(300, 27%, 25%);
+        scrollbar-color: hsl(299, 17%, 28%) hsl(299, 17%, 48%);
+        &:nth-child(even) {
+            background-color: hsl(300, 27%, 15%);
+        }
+        &.a:hover{
+        background-color: rgba(100, 149, 237, .2);
+        border: 2px solid rgba(100, 149, 237, .15);
+        }
+    }
+
+    .running-prog {
+        border: solid 4px hsl(300, 6%, 30%);
+        background-color: white;
+    }
+
+    .running-prog.term {
+        border: solid 4px hsl(0, 0%, 21%);
+    }
+
+    .running-icons {
+        &:hover {
+        background-color: gray;
+        }
+    }
+
+    .restart, .sleep, .power, .dark-mode-toggle {
+        &:hover {
+            background-color: grey;
+        }
+    }
+
+    .highlight:hover {
+        background-color: rgba(100, 149, 237, .2);
+        border: 2px solid rgba(100, 149, 237, .15);
+    }
+
+    .head {
+        color: white;
+        &.common {
+            background-color:  hsl(300, 27%, 15%);
+            border-bottom: 2px solid hsl(300, 6%, 30%);
+        }
+        &.term {
+            background-color: hsl(0, 0%, 53%);
+            border-bottom: solid 2px hsl(0, 0%, 21%);
+        }
+        &.site-header {
+            background-color: rgb(60, 48, 71);
+            color: white;
+            border-bottom: 2px solid hsl(300, 6%, 30%);
+        }
+    }
+
+    .desktop-full:hover {
+        background-color: rgba(100, 149, 237, .2);
+        border: 2px solid rgba(100, 149, 237, .15);
+    }
+
+    .sticky-footer {
+        color: white;
+        border-top: 2px solid hsl(300, 6%, 30%);
+        background-color:  hsl(300, 27%, 15%);
+    }
+
+    .submit-duck {
+        color: black;
+        background-color: hsla(59, 89%, 50%, 0.753);
+    }
+
+    .submit-trash {
+        color: black;
+        background-color: hsla(0, 7%, 94%, 0.753);
+    }
+
+    .content {
+        color: white;
+        background-color: rgb(91, 82, 94);
+        &.site-header-program{
+            color: black;
+        }
+    }
+
+    .duck-bio {
+        border-top: 1px solid rgb(223, 164, 14);
+    }
+
+    .duck-radio {
+        accent-color: rgb(255, 255, 36);
+    }
+
+    .duck-icon {
+        border: 3px solid rgb(209, 154, 14);
+    }
+
+    .file-entry {
+        border: 1px solid grey;
+    }
+
+    .build {
+        background-color: rgb(91, 82, 94);
+
+    }
+
+    .talk-box {
+        background-color: rgb(31, 31, 31); 
+        border: 1px solid white;
+        color: white;
+    }
+}
+
+
+
+
+
 h1 {
     margin: 0;
     padding: 0;
@@ -426,19 +592,15 @@ h1 {
     background-size: 125%;
     padding: 2px;
     background-position: -3px -2px;
+    background-image: url("content/icons/day_16.png");
+
 
     &:hover {
         background-color: grey;
     }
 }
 
-.dark.dark-mode-toggle {
-    background-image: url("content/icons/night_16.png");
-}
 
-.light.dark-mode-toggle {
-    background-image: url("content/icons/day_16.png");
-}
 
 .line {
     display: flexbox;
@@ -462,13 +624,19 @@ h1 {
     flex-flow: row;
     position: sticky;
     &.common{
-    /* background-color: hsla(322, 93%, 82%, 0.67); */
-    background-color: rgb(146, 224, 255);
+    background-color: hsla(322, 93%, 82%, 0.67);
+    /* background-color: rgb(146, 224, 255); */
     border-bottom: 2px solid hsl(321, 17%, 56%);
     }
     &.term {
         background-color: hsl(0, 0%, 53%);
         border-bottom: solid 2px hsl(0, 0%, 21%);
+    }
+    &.site-header {
+        background-color: rgb(179, 137, 218);
+        color: black;
+        border-bottom: 2px solid hsl(321, 17%, 56%);
+
     }
 }
 
@@ -836,6 +1004,12 @@ h1 {
     flex-grow: 1;
     top: 5rem;
     right: 0rem;
+}
+
+.talk-box {
+    background-color: azure; 
+    border: 1px solid black; 
+    padding: 5px;
 }
 
 .tip {

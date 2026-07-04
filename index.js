@@ -35,6 +35,9 @@ class Navbar {
         this.day.setHours(0, 0, 0, 0);
         this.DUCKTOP = null;
         this.duckchoice = "";
+
+
+        this.darkmode = false;
     }
 
     log() {
@@ -2721,9 +2724,35 @@ const daily_songs = {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    navbar.time_function();
+
+    // Following code follows: https://dev.to/bridget_amana/how-to-easily-add-dark-mode-to-your-website-29dl
+    const body = document.body;
+
+    const toggleButton = document.getElementById('toggles_dark_mode');
+
+    toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+    })
+
+    window.addEventListener('load', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode')
+    }
+    })
+    // end code reference block
+})
+
 var navbar = new Navbar();
 var term = new Terminal();
 
-document.addEventListener("DOMContentLoaded", function () {
-    navbar.time_function();
-})
+
+

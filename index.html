@@ -19,7 +19,7 @@
           <button class="restart" onclick="navbar.restart()"></button>
           <button class="sleep" onclick="navbar.sleep()"></button>
           <button class="power" onclick="navbar.power()"></button>
-          <button class="dark dark-mode-toggle"></button>
+          <button class="dark-mode-toggle" id="toggles_dark_mode"></button>
         </div>
         <div class="pfp-zone">
 
@@ -219,7 +219,7 @@
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <img src="./content/art/ram.jpg" class="art-img" style="align-content: center; border: 5px goldenrod solid;">
                 <h3 class="art-title">Random Access Memories, Painted</h3>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   This album was done during undergrad! Unknown before now - I chose this album for two reasons.
                   Surprisingly, it's not because it's my favorite (that'd have to be Discovery).
                   I knew I needed tone and underpainting practice for a <a
@@ -259,19 +259,19 @@
               </div>
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
                 <h3 class="art-title">Musiks Cube, C2C Crochet</h3>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   For this bag, my goal was to have something that fit my center console and was easy
                   to take in and out of the house - so I added a lining and bottom piece for support.
                   The rest of this page is going to detail the process for any interested crocheters.
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;"> 
+                <p class="art-talk talk-box"> 
                   Yarn Weight: Worsted (I used Acrylic) Hook: US H (500 mm)
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   Start by making the six panels. Each sub cube side consists of a 3x3 c2c crochet square - if you
                   want to make a solved cube, you can make a solid 9x9 square and stich the seams on after, like I did.
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   On each panel, you're going to want to use the surface slip stich pattern to create a tic-tac-toe
                   pattern.
                   For the embroidering route, you'll want to use the chain stitch. (For scrambled cube - joining the
@@ -279,14 +279,14 @@
                   Then, using black - do 1 round of sc around each of the panels ~120 if you do 3 sc per c2c square and
                   each corner.
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   The sides can then be joined however for the actual bag construction - I like using the mattress stitch
                   but it really depends on what vibe you want to go for!
                   For the top embroidery part I tried to replicate the "rubik's" but as "musik's" (for the CDs
                   ba-dum-tssshh). Not great at embroidering letters on crochet so
                   I don't have any tips. (sorry lol)
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   The lining was sewn into a box and then joined to the rim of the opening and lid with some spare rings
                   sandwiched in between.
                   To get bottom support I cut a sqare from a lettuce tub and put it between the crochet and lining layers.
@@ -329,12 +329,12 @@
               <img src="./content/art/collection.jpg" class="art-img" style="border: 2px green solid; height: 80%;">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Painted @ Alyssa's & ACMW, A Series</h3>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   One of the best party ideas (that I immediatley started using myself) was to have a second quieter
                   activity room
                   away from the main event. The largest and smaller three were all done at the same party!
                 </p>
-                <p class="art-talk" style="background-color: azure; border: 1px solid black; padding: 5px;">
+                <p class="art-talk talk-box">
                   The second mountain was from an ACMW Bob Ross painting social. Haven't had the opportunity to talk much
                   about them on this site otherwise - and given
                   this was meant to incorperate the things that made me fall in love with my CS degree - I can't not
@@ -762,14 +762,14 @@
         </div>
       </div>
       <div id="site-header-program" class="running-prog" style="display: flex; border-color: rgb(46, 85, 8);">
-        <div class="common head" style="background-color: rgb(80, 35, 122); color: white;">
+        <div class="head site-header">
           <div class="pic-head" style="content: url(./content/icons/link_24.png);"></div>
           <span class="span-title">Welcome To The Site!!!!</span>
           <button class="button-head min" onclick="navbar.toggle_min('site-header-program')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('site-header-program')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('site-header-program')"></button>
         </div>
-        <div class="content"
+        <div class="content site-header-program"
           style="font-family: 'Courier New', Courier, monospace; background-image: url(content/from_online/shadow_relm_ass_background.jpeg); display: flex; justify-content: center;">
           <div class="displaying" style="overflow-y: scroll;" >
             <div style="width: 100%; display: flex; justify-content: center;">              
