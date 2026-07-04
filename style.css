@@ -1063,7 +1063,7 @@ h1 {
 }
 
 .duck-space {
-    width: 216px;
+    width: 288px;
     height: 150px;
     display: none;
     position: absolute;
@@ -1074,94 +1074,102 @@ h1 {
 
 @keyframes duck1r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(24px);}
+    100% {transform: translateX(32px);}
 }
 
 @keyframes duck2r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(48px);}
+    100% {transform: translateX(64px);}
 }
 
 @keyframes duck3r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(72px);}
+    100% {transform: translateX(96px);}
 }
 
 @keyframes duck4r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(96px);}
+    100% {transform: translateX(128px);}
 }
 
 @keyframes duck5r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(120px);}
+    100% {transform: translateX(160px);}
 }
 
 @keyframes duck6r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(144px);}
+    100% {transform: translateX(192px);}
 }
 
 @keyframes duck7r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(168px);}
+    100% {transform: translateX(224px);}
 }
 
 @keyframes duck8r {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(192px);}
+    100% {transform: translateX(256px);}
 }
 
 @keyframes duck1l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-24px);}
+    100% {transform: translateX(-32px);}
 }
 
 @keyframes duck2l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-48px);}
+    100% {transform: translateX(-72px);}
 }
 
 @keyframes duck3l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-72px);}
+    100% {transform: translateX(-96px);}
 }
 
 @keyframes duck4l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-96px);}
+    100% {transform: translateX(-128px);}
 }
 
 @keyframes duck5l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-120px);}
+    100% {transform: translateX(-160px);}
 }
 
 @keyframes duck6l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-144px);}
+    100% {transform: translateX(-192px);}
 }
 
 @keyframes duck7l{
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-168px);}
+    100% {transform: translateX(-224px);}
 }
 
 @keyframes duck8l {
     0% {transform: translateX(0px);}
-    100% {transform: translateX(-192px);}
+    100% {transform: translateX(-256px);}
 }
 
 .duck-buddy {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
     bottom: 0;
     border: 1px solid cornflowerblue;
-    content: url(content/icons/missing_24.png);
+    
+
     position: absolute;
     display: flexbox;
     animation-timing-function: linear;
     animation-delay: 10ms;
+}
+
+.duckorator {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    background-image: url(content/ducks/ducks_32.png);
 }
 
 

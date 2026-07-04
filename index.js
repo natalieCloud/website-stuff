@@ -339,10 +339,14 @@ class Navbar {
 
     change_val(id, duckname) {
         if (document.getElementById(id).checked) {
-            this.duckchoice = duckname;
+            this.duckchoice = document.getElementById(id).value;
             document.getElementById("choice-duck").innerHTML = `${duckname}! I choose you!`;
             document.getElementById('submit-duck').disabled = false;
         }
+    }
+
+    get_duck() {
+        return this.duckchoice;
     }
 
 }
@@ -378,10 +382,41 @@ class DuckBehavior {
             3: Paths.two_b,
             4: Paths.one_b,
         }
+
+        this.duckorators = {
+            "napstar-r": "2px",
+            "napstar-l": "2px",
+            "higgs-r": "-430px",
+            "higgs-l": "-394px",
+            "timmy-r": "-248px",
+            "timmy-l": "-284px",
+            "tommy-r": "-420px",
+            "tommy-l": "-356px",
+            "nami-r": "-212px",
+            "nami-l": "-176px",
+            "nimda-r": "-34px",
+            "nimda-l": "-34px",
+            "brock-r": "-104px",
+            "brock-l": "-70px",
+            "guy-r": "-140px",
+            "guy-l": "-140px",
+            "shaduck-r": "-502px",
+            "shaduck-l": "-466px",
+        }
+
+        this.duck_type = "higgs";
+        this.reflect = false;
+
         this.start = 0;
         this.bouncea = 0;
         this.bounceb = 0;
         this.end = 0;
+
+
+        this.r_x = 0;
+        this.l_x = 0;
+        this.blink_i = 0;
+        this.quack_i = 0;
     }
 
     bounce_dir(bool_val) {
@@ -405,20 +440,73 @@ class DuckBehavior {
 
         this.current_path = this.path_p[rdm];
 
-        if (this.current_path == Paths.one_b) {
-            this.bouncea = this.bounce_dir(this.facing);
-        } else if (this.current_path == Paths.two_b) {
-            this.bouncea = this.bounce_dir(this.facing);
-            this.bounceb = this.bounce_dir(!this.facing);
-        }
+        // if (this.current_path == Paths.one_b) {
+        //     this.bouncea = this.bounce_dir(this.facing);
+        // } else if (this.current_path == Paths.two_b) {
+        //     this.bouncea = this.bounce_dir(this.facing);
+        //     this.bounceb = this.bounce_dir(!this.facing);
+        // }
+
+        // if (this.current_path ==)
 
         console.log(`New path: ${this.current_path}`)
 
         this.movestart();
     }
 
+    set_duckoration() {
+
+        let disp = '';
+
+        if (this.facing) {
+            disp = `${this.duckorators[this.duck_type + '-l']}`;
+        } else {
+            disp = `${this.duckorators[this.duck_type + '-r']}`;
+        }
+
+        document.getElementById("duckorator").style.backgroundPositionX = "0px";
+        document.getElementById("duckorator").style.backgroundPositionY = disp;
+
+        if (!this.facing) {
+            if (this.duck_type === 'napstar' || this.duck_type === 'nimda' || this.duck_type === 'guy') {
+                document.getElementById("duckorator").style.transform = "scale(-1, 1)";
+            } else {
+                document.getElementById("duckorator").style.transform = "scale(1, 1)";
+            }
+        } else {
+            document.getElementById("duckorator").style.transform = "scale(1, 1)";
+        }
+
+    }
+
+    quack_or_blink(which) {
+        if (which === 'quack') {
+            document.getElementById("duckorator").style.backgroundPositionX = "-36px";
+        } else {
+            document.getElementById("duckorator").style.backgroundPositionX = "-108px";
+        }
+
+        if (!this.facing) {
+            if (this.duck_type === 'napstar' || this.duck_type === 'nimda' || this.duck_type === 'guy') {
+                document.getElementById("duckorator").style.transform = "scale(-1, 1)";
+            } else {
+                document.getElementById("duckorator").style.transform = "scale(1, 1)";
+            }
+        } else {
+            document.getElementById("duckorator").style.transform = "scale(1, 1)";
+        }
+
+    }
+
     launch() {
+        console.log(`Launching ${navbar.get_duck()}`)
         document.getElementById("duck-space").style.display = "flex";
+
+        // document.getElementById("duckorator").className = `duckorator ${navbar.duckchoice}-r`;
+
+        this.duck_type = navbar.get_duck();
+        this.set_duckoration();
+
         this.movestart();
 
     }
@@ -429,6 +517,7 @@ class DuckBehavior {
     }
 
     movestart() {
+
         console.log(`Start: ${this.start}`);
 
         if (this.facing) {
@@ -437,15 +526,20 @@ class DuckBehavior {
             console.log('Facing right');
         }
 
+
         if (this.current_path == Paths.direct) {
             var dur = Math.abs(this.end - this.start);
             var time = dur * 4;
 
             if (this.start >= this.end) {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+                this.facing = true;
             } else {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+                this.facing = false;
             }
+
+            this.set_duckoration();
 
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
@@ -459,9 +553,13 @@ class DuckBehavior {
 
             if (this.start >= this.bouncea) {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+                this.facing = true;
             } else {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+                this.facing = false;
             }
+
+            this.set_duckoration();
 
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
@@ -476,9 +574,6 @@ class DuckBehavior {
 
     bounce1() {
 
-        this.facing = !this.facing;
-
-
         if (this.facing) {
             console.log('Facing left');
         } else {
@@ -486,7 +581,9 @@ class DuckBehavior {
         }
 
         document.getElementById("duck-buddy").style.position = 'absolute';
-        document.getElementById("duck-buddy").style.left = `${24 * this.bouncea}px`;
+        document.getElementById("duck-buddy").style.left = `${32 * this.bouncea}px`;
+        this.set_duckoration();
+
 
         if (this.current_path == Paths.one_b) {
             var dur = Math.abs(this.end - this.bouncea);
@@ -495,9 +592,15 @@ class DuckBehavior {
 
             if (this.bouncea >= this.end) {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+                this.facing = true;
+
             } else {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+                this.facing = false;
+
             }
+            this.set_duckoration();
+
 
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
@@ -513,9 +616,15 @@ class DuckBehavior {
 
             if (this.bouncea >= this.bounceb) {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+                this.facing = true;
+
             } else {
                 document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+                this.facing = false;
+
             }
+            this.set_duckoration();
+
 
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
@@ -530,7 +639,6 @@ class DuckBehavior {
     }
 
     bounce2() {
-        this.facing = !this.facing;
 
         if (this.facing) {
             console.log('Facing left');
@@ -539,7 +647,7 @@ class DuckBehavior {
         }
 
         document.getElementById("duck-buddy").style.position = 'absolute';
-        document.getElementById("duck-buddy").style.left = `${24 * this.bounceb}px`;
+        document.getElementById("duck-buddy").style.left = `${32 * this.bounceb}px`;
 
 
 
@@ -549,9 +657,15 @@ class DuckBehavior {
 
         if (this.bounceb >= this.end) {
             document.getElementById("duck-buddy").style.animation = `duck${dur}l`
+            this.facing = true;
+
         } else {
             document.getElementById("duck-buddy").style.animation = `duck${dur}r`
+            this.facing = false;
+
         }
+        this.set_duckoration();
+
 
         document.getElementById("duck-buddy").style.animationDuration = `${time}s`
         var me = this;
@@ -570,7 +684,9 @@ class DuckBehavior {
             console.log('Now facing right');
         }
         document.getElementById("duck-buddy").style.position = 'absolute';
-        document.getElementById("duck-buddy").style.left = `${24 * this.end}px`;
+        document.getElementById("duck-buddy").style.left = `${32 * this.end}px`;
+        this.set_duckoration();
+
         this.start = this.end;
 
         this.quack_seq();
@@ -582,25 +698,46 @@ class DuckBehavior {
         if (rdm <= ((this.quack_prob + (this.last_quacked * 0.05)) * 100)) {
             this.last_quacked = 0;
             console.log("Quack");
+            this.quack_or_blink("quack");
+            var me = this;
+
+            let t = setTimeout(function () {me.quack_end();}, 1000);
             // do quack
         } else {
             this.last_quacked += 1;
+            this.blink_seq();
         }
 
+    }
+
+    quack_end() {
+        this.set_duckoration();
         this.blink_seq();
     }
 
     blink_seq() {
+
         var rdm = Math.floor(Math.random() * 100);
 
         if (rdm <= ((this.blink_prob + (this.last_blinked * 0.1)) * 100)) {
             this.last_blinked = 0;
             console.log("Blink");
+            this.quack_or_blink("blink");
+            var me = this;
+
             // do blink
+            let t = setTimeout(function () {me.blink_end();}, 1000);
+
         } else {
             this.last_blinked += 1;
+            this.check_stop();
+
         }
 
+    }
+
+    blink_end() {
+        this.set_duckoration();
         this.check_stop();
     }
 
