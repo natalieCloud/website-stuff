@@ -1069,7 +1069,7 @@ h1 {
     position: absolute;
     bottom: 0;
     right: 0;
-    border: 2px solid chartreuse;
+    /* border: 2px solid chartreuse; */
 }
 
 @keyframes duck1r {
@@ -1156,7 +1156,7 @@ h1 {
     width: 32px;
     height: 32px;
     bottom: 0;
-    border: 1px solid cornflowerblue;
+    /* border: 1px solid cornflowerblue; */
     
 
     position: absolute;

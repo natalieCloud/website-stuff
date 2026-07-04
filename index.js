@@ -388,8 +388,8 @@ class DuckBehavior {
             "napstar-l": "2px",
             "higgs-r": "-430px",
             "higgs-l": "-394px",
-            "timmy-r": "-248px",
-            "timmy-l": "-284px",
+            "timmy-r": "-284px",
+            "timmy-l": "-248px",
             "tommy-r": "-420px",
             "tommy-l": "-356px",
             "nami-r": "-212px",
@@ -440,17 +440,6 @@ class DuckBehavior {
 
         this.current_path = this.path_p[rdm];
 
-        // if (this.current_path == Paths.one_b) {
-        //     this.bouncea = this.bounce_dir(this.facing);
-        // } else if (this.current_path == Paths.two_b) {
-        //     this.bouncea = this.bounce_dir(this.facing);
-        //     this.bounceb = this.bounce_dir(!this.facing);
-        // }
-
-        // if (this.current_path ==)
-
-        console.log(`New path: ${this.current_path}`)
-
         this.movestart();
     }
 
@@ -499,10 +488,7 @@ class DuckBehavior {
     }
 
     launch() {
-        console.log(`Launching ${navbar.get_duck()}`)
         document.getElementById("duck-space").style.display = "flex";
-
-        // document.getElementById("duckorator").className = `duckorator ${navbar.duckchoice}-r`;
 
         this.duck_type = navbar.get_duck();
         this.set_duckoration();
@@ -517,15 +503,6 @@ class DuckBehavior {
     }
 
     movestart() {
-
-        console.log(`Start: ${this.start}`);
-
-        if (this.facing) {
-            console.log('Facing left');
-        } else {
-            console.log('Facing right');
-        }
-
 
         if (this.current_path == Paths.direct) {
             var dur = Math.abs(this.end - this.start);
@@ -544,8 +521,6 @@ class DuckBehavior {
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
  
-            console.log(`Moving from ${this.start} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
-
             let t = setTimeout(function () { me.moveend(); }, time * 1000);
         } else {
             var dur = Math.abs(this.bouncea - this.start);
@@ -564,7 +539,6 @@ class DuckBehavior {
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
 
-            console.log(`Moving from ${this.start} to ${this.bouncea} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
             let t = setTimeout(function () { me.bounce1(); }, time * 1000);
         }
 
@@ -573,12 +547,6 @@ class DuckBehavior {
     }
 
     bounce1() {
-
-        if (this.facing) {
-            console.log('Facing left');
-        } else {
-            console.log('Facing right');
-        }
 
         document.getElementById("duck-buddy").style.position = 'absolute';
         document.getElementById("duck-buddy").style.left = `${32 * this.bouncea}px`;
@@ -605,9 +573,6 @@ class DuckBehavior {
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
 
-            console.log(`Moving from ${this.bouncea} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
-
-
             let t = setTimeout(function () { me.moveend(); }, time * 1000);
         } else {
             var dur = Math.abs(this.bounceb - this.bouncea);
@@ -629,9 +594,6 @@ class DuckBehavior {
             document.getElementById("duck-buddy").style.animationDuration = `${time}s`
             var me = this;
             
-            console.log(`Moving from ${this.bouncea} to ${this.bounceb} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
-
-
             let t = setTimeout(function () { me.bounce2(); }, time * 1000);
         }
 
@@ -640,16 +602,8 @@ class DuckBehavior {
 
     bounce2() {
 
-        if (this.facing) {
-            console.log('Facing left');
-        } else {
-            console.log('Facing right');
-        }
-
         document.getElementById("duck-buddy").style.position = 'absolute';
         document.getElementById("duck-buddy").style.left = `${32 * this.bounceb}px`;
-
-
 
         var dur = Math.abs(this.end - this.bounceb);
         var time = dur * 4;
@@ -670,19 +624,11 @@ class DuckBehavior {
         document.getElementById("duck-buddy").style.animationDuration = `${time}s`
         var me = this;
 
-        console.log(`Moving from ${this.bounceb} to ${this.end} with time ${time} and animation ${document.getElementById("duck-buddy").style.animation}`)
-
-
         let t = setTimeout(function () { me.moveend(); }, time * 1000);
     }
 
     moveend() {
 
-        if (this.facing) {
-            console.log('Now facing left');
-        } else {
-            console.log('Now facing right');
-        }
         document.getElementById("duck-buddy").style.position = 'absolute';
         document.getElementById("duck-buddy").style.left = `${32 * this.end}px`;
         this.set_duckoration();
@@ -697,12 +643,10 @@ class DuckBehavior {
 
         if (rdm <= ((this.quack_prob + (this.last_quacked * 0.05)) * 100)) {
             this.last_quacked = 0;
-            console.log("Quack");
             this.quack_or_blink("quack");
             var me = this;
 
             let t = setTimeout(function () {me.quack_end();}, 1000);
-            // do quack
         } else {
             this.last_quacked += 1;
             this.blink_seq();
@@ -721,11 +665,8 @@ class DuckBehavior {
 
         if (rdm <= ((this.blink_prob + (this.last_blinked * 0.1)) * 100)) {
             this.last_blinked = 0;
-            console.log("Blink");
             this.quack_or_blink("blink");
             var me = this;
-
-            // do blink
             let t = setTimeout(function () {me.blink_end();}, 1000);
 
         } else {
@@ -742,8 +683,6 @@ class DuckBehavior {
     }
 
     check_stop() {
-
-        console.log("Checking stop")
 
         if (!this.stopped) {
             this.get_target()
