@@ -768,6 +768,8 @@ h1 {
     width: 100vw;
     height: 100vh;
     background-color: black;
+    background-image: url(content/from_online/bubbles\ 4.gif);
+    background-repeat: repeat;
     z-index: 200;
     position: fixed;
     opacity: 1;

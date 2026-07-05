@@ -201,7 +201,7 @@ class Navbar {
             }
             else if (icon_name === 'art-program') {
                 document.getElementById("jupiter").style.display = "flex";
-                document.getElementById("build").style.backgroundImage = "url(content/floor_2.png)";
+                document.getElementById("build").style.backgroundImage = "url(content/gallery_tiles/floor_2.png)";
             }
             else if (icon_name === 'music-program') {
                 this.change_song(this.day);
@@ -306,7 +306,7 @@ class Navbar {
             prev = this.art[idx - 1];
             my_num = this.num[idx - 1];
         }
-        var temp_content = `url(content/floor_${my_num}.png)`;
+        var temp_content = `url(content/gallery_tiles/floor_${my_num}.png)`;
         document.getElementById("build").style.backgroundImage = temp_content;
         document.getElementById(me).style.display = "none";
         document.getElementById(prev).style.display = "flex";
@@ -323,7 +323,7 @@ class Navbar {
             prev = this.art[idx + 1];
             my_num = this.num[idx + 1];
         }
-        var temp_content = `url(content/floor_${my_num}.png)`;
+        var temp_content = `url(content/gallery_tiles/floor_${my_num}.png)`;
         document.getElementById("build").style.backgroundImage = temp_content;
         document.getElementById(me).style.display = "none";
         document.getElementById(prev).style.display = "flex";
