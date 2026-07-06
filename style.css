@@ -166,9 +166,45 @@ body {
     }
 }
 
+@font-face {
+    font-family: 'Determination';
+    src: url('content/fonts/determination/determination.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Pixel Sans Serif';
+    src: url('content/fonts/pixel_sans_serif/Pixel\ Sans\ Serif.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'BitPap';
+    src: url('content/fonts/BitPap.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: 'Gumball';
+    src: url('content/fonts/Gumball\ Thick\ Wires.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jersey15';
+    src: url('content/fonts/Jersey15-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 h1 {
     margin: 0;

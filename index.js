@@ -29,7 +29,7 @@ class Navbar {
             "site-header-program": { "shown": true, "max": false, "min": true }
         }
         this.art = ["jupiter", "jfsp", "reigen", "ram", "mmask", "musik", "gsnk", "hmc", "collection", "vest", "mtg", "saiki", "hs", "ssb"];
-        this.num = [2, 9, 1, 0, 0, 0, 3, 6, 5, 6, 4, 2, 3, 9];
+        this.num = [5, 9, 6, 1, 6, 7, 7, 1, 7, 3, 7, 9, 8, 1];
         this.modulo = 14;
         this.day = new Date();
         this.day.setHours(0, 0, 0, 0);
@@ -201,7 +201,7 @@ class Navbar {
             }
             else if (icon_name === 'art-program') {
                 document.getElementById("jupiter").style.display = "flex";
-                document.getElementById("build").style.backgroundImage = "url(content/gallery_tiles/floor_2.png)";
+                document.getElementById("build").style.backgroundImage = "url(content/gallery_tiles/floor_5.png)";
             }
             else if (icon_name === 'music-program') {
                 this.change_song(this.day);
@@ -700,6 +700,9 @@ class Terminal {
         this.looking = false;
         this.location = term_out.terminal.file_sys;
         this.index = 0;
+
+        this.konami = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "start"]
+        this.quack_count = 0;
     }
 
     nav_parent(its_rough_but_works) {
@@ -926,6 +929,7 @@ const term_out = {
         "screen": "desktop",
         "disk-scheduling-algorithms": "dsa",
         "disk scheduling algorithms": "dsa",
+        "dsa": "dsa",
         "website": "website",
         "nataliechmura.com": "website",
         "www.nataliechmura.com": "website",
@@ -978,18 +982,50 @@ const term_out = {
         "dsa fanthey": "natalie",
         "clock": "clock",
         "time": "clock",
-        "dsa-c-scan": "dsa-c-scan",
-        "dsa-f-scan": "dsa-f-scan",
-        "dsa-fcfs": "dsa-fcfs",
-        "dsa-scan": "dsa-scan",
-        "dsa-look": "dsa-look",
-        "dsa-c-look": "dsa-c-look",
-        "dsa-sstf": "dsa-sstf",
+        // "dsa-c-scan": "dsa-c-scan", leaving out for now..
+        // "dsa-f-scan": "dsa-f-scan",
+        // "dsa-fcfs": "dsa-fcfs",
+        // "dsa-scan": "dsa-scan",
+        // "dsa-look": "dsa-look",
+        // "dsa-c-look": "dsa-c-look",
+        // "dsa-sstf": "dsa-sstf",
         "hidden": "hidden",
         "menu-up": "menu-up",
         "menu-full": "menu-full",
         "menu-true": "menu",
         "menu-false": "menu-false",
+        "up": "up",
+        "w": "up",
+        "down": "down",
+        "s": "down",
+        "right": "right",
+        "a": "right",
+        "left": "left",
+        "d": "left",
+        "b": "b",
+        "a": "a",
+        "start": "start",
+        "linkedin": "linkedin",
+        "gif": "gif",
+        ".gif" : "gif",
+        "void": "void",
+        "ostep": "ostep",
+        "the book": "ostep",
+        "sudo": "sudo",
+        "su": "sudo",
+        "japanese": "japanese",
+        "nihongo": "japanese", 
+        "site-header": "site-header",
+        "header": "site-header",
+        "popup": "site-header",
+        "welcome": "site-header",
+        "kick": "huh",
+        "touch": "huh",
+        "attack": "huh",
+        "kiss": "huh",
+        "fuck": "huh",
+        "shit": "huh",
+        "eat": "huh"
     },
     terminal: {
         "help": {
