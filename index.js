@@ -2253,218 +2253,218 @@ const daily_songs = {
                 "artist": ""
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "test launch song",
+                "artist": "test launch artist"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Hysterical Us",
+                "artist": "Magdalena Bay"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "Orion",
+                "artist": "Cassiopiea"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "CONDOR44 db",
+                "artist": "Moku"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "A Walk in the Skies",
+                "artist": "Joe Hisaishi"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "Prison Gate Island Theme",
+                "artist": "Shinichi Tanabe"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "I Thought It Was You",
+                "artist": "Herbie Hancock"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "The Loneliest Time",
+                "artist": "Carly Rae Jepson"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "Paraiso",
+                "artist": "Pearl & The Oysters"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Feeling Lonely",
+                "artist": "Boy Pablo"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "Leave the Door Open",
+                "artist": "Bruno Mars, Anderson .Paak, Silk Sonic"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "Spotlight",
+                "artist": "나상현씨밴드 Band Nah"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "Secrets (Your Fire)",
+                "artist": "Magdalena Bay"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "Love on the Line (Call Now)",
+                "artist": "Her's"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Hellion",
+                "artist": "Machine Girl"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "Turn to Stone",
+                "artist": "Electric Light Orchestra"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "On This Rock",
+                "artist": "TWRP"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "悶々",
+                "artist": "Cody Lee(李)"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "Looking Up",
+                "artist": "Cassiopiea"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "Far Away",
+                "artist": "Cassiopiea"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "Lo que tú me das",
+                "artist": "Juanpalitoschinos"
             },
             "31": {
-                "title": "",
-                "artist": ""
+                "title": "Everything",
+                "artist": "Mild Monk"
             }
         },
         "august": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "Deep Down",
+                "artist": "Mild Monk"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Jun Togawa",
+                "artist": "POSEY"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "Them Changes",
+                "artist": "Thundercat"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "Enjoy Music Club",
+                "artist": "EMCトラベル"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "Jamiroquai",
+                "artist": "Cosmic Girl"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "Chase The Clouds Away",
+                "artist": "Chuck Magione"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Alien",
+                "artist": "Mild Monk"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "Cry",
+                "artist": "Carly Rae Jepson"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "TAISO",
+                "artist": "Yellow Magic Orchestra"
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "A Human's Touch",
+                "artist": "TWRP"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Tong Poo",
+                "artist": "Yellow Magic Orchestra"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "Top Secret",
+                "artist": "TWRP"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "Sunset Skating",
+                "artist": "Louie Zong"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "Comets",
+                "artist": "Mild Monk"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "O Descobridor Dos Sete Mares",
+                "artist": "Tim Maia"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "A Good Song Never Dies",
+                "artist": "Saint Motel"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "City Slicker",
+                "artist": "Ginger Root"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "Darlin'",
+                "artist": "Beach Boys"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Day 1",
+                "artist": "Red Velvet"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "Fine Wine",
+                "artist": "Saint Motel"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "Dreamer",
+                "artist": "Supertramp"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "我愛你",
+                "artist": "Cody Lee(李)"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "Man in a Movie",
+                "artist": "Day 6"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Funny Thing",
+                "artist": "Thundercat"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "Tokyo Fantasy",
+                "artist": "椎菜"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "Ketosis",
+                "artist": "Cory Wong"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "Finger Dancin'",
+                "artist": "Masayoshi Takanaka"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "Love Together",
+                "artist": "NONA REEVES"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "Let It Down",
+                "artist": "George Harrison"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "I Love You More",
+                "artist": "George Duke"
             },
             "31": {
-                "title": "",
-                "artist": ""
+                "title": "Hello World", // actually quite fitting lol
+                "artist": "Louie Zong"
             }
         },
         "september": {
