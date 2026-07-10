@@ -22,53 +22,54 @@ Blargh
 
 ### Duck Content
 
-Small window to pop up - controls properties of duck animation and ~~info + picture about each of the ducks?~~
+~~Small window to pop up - controls properties of duck animation and info + picture about each of the ducks?~~
 
 ### Email Content
 
 ~~Small window to pop up - embeds an auto populated email to my proton mail?~~
 
 ### File Content
-Pictures + descriptions of finished projects + current wips? + github and download link?
+~~Pictures + descriptions of finished projects + current wips? + github and download link?~~
 
 ### Music Content
-Blog style, atp mostly just photos and a daily rec type deal.
+~~Blog style, atp mostly just photos and a daily rec type deal.~~
 
 ### Plant Content
 
-Blog style, at this point photos and descriptions I think
+~~Blog style, at this point photos and descriptions I think~~
 
 ### Terminal Content
 
-Interactive mock terminal! A subproject in and of itself...
+~~Interactive mock terminal! A subproject in and of itself...~~
 
 ### Trash Content
 
-Secrets.txt file
+~~Secrets.txt file~~
 
 ### other stuff
 - ~~menu styling~~
 - ~~menu 'user' (i.e. me) content~~
 - ~~finalize borders n stuff for the window - will they be standard or diff? most likey standard for most but the terminal...~~
 - ~~make it so the taskbar icons shrink and go to a popup button hover thing/scroll for hidden tasks if the window is too small~~
-- screen reader accessible!!!
-- dark mode color palette
+- ~~screen reader accessible!!!~~
+- ~~dark mode color palette~~
 - ~~add icons in top left of each window~~
 
 - ~~take photos of artwork~~
 - ~~add photos of stella~~
 - make song rec list ~~100 minimum~~ but ideally 366
 - ~~daily song~~
-- duck prog
-- term prog
-- term game content
-- file and project content - ~~include the link to the libre office themes!~~
-- links open new tabs
+- ~~duck prog~~
+- ~~term prog~~
+- ~~term game content~~
+- ~~file and project content - include the link to the libre office themes!~~
+- ~~links open new tabs
 - music rec the daily looks like a mp3 player type interface where its like the daily in the center, then rewind, back, (dis for curr. day) forward, skip so users can puruse the previous recommended tracks? IDK that is def a stretch goal and not goin in release 1.0.0
-- Make it so site header pops up on no js AND has a please enable javascript message!
+- ~~Make it so site header pops up on no js AND has a please enable javascript message!~~
 
 
 Right now the implementation of the duckstop buddy is rough - needs to be refactored ASAP!!!!
+Scratch that make it everything needs refactoring ^ 
 
 
 <sup>1</sup> 
