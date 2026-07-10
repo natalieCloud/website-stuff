@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="image-container">
+  <div class="image-container" title="Desktop view, backgound shows slightly glitched pixelated heart in space">
     <div class="desktop-space" id="desktop-space">
       <div id="menu-container" class="home-menu">
         <div class="button-zone">
@@ -51,36 +51,36 @@
           <div class="line"></div>
           <ul class="styling"> <!-- Regular Programs -->
             <li class="styling a" onclick="navbar.toggle_show('art-program')">
-              <div class="licon art"></div>
+              <div class="licon art" title="palette icon"></div>
               <span class="lspan">art projects</span>
             </li>
             <li class="styling a" onclick="navbar.show_file('cv', 'Natalie_Chmura_CV.pdf')">
-              <div class="licon cv"></div>
+              <div class="licon cv" title="cv icon"></div>
               <span class="lspan">curriculum vitae</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('duck-program')">
-              <div class="licon duck"></div>
+              <div class="licon duck" title="rubber duck icon"></div>
               <span class="lspan">ducktop buddy</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('terminal-program')">
-              <div class="licon term"></div>
+              <div class="licon term" title="terminal icon"></div>
               <span class="lspan">terminal</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('file-program')">
-              <div class="licon file"></div>
+              <div class="licon file" title="file folder icon"></div>
               <span class="lspan">other projects</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('music-program')">
-              <div class="licon music"></div>
+              <div class="licon music" title="music note icon"></div>
               <span class="lspan">music projects</span>
             </li>
             <li class="styling a" onclick="navbar.toggle_show('plant-program')">
-              <div class="licon plant"></div>
+              <div class="licon plant" title="potted plant icon"></div>
               <span class="lspan">plant posts</span>
             </li>
 
             <li class="styling a" onclick="navbar.toggle_show('trash-program')">
-              <div class="licon trash"></div>
+              <div class="licon trash" title="trash can icon"></div>
               <span class="lspan">trash program</span>
             </li>
           </ul>
@@ -89,27 +89,27 @@
           <div class="line"></div>
           <ul class="styling"> <!-- Social Media -->
             <li class="styling a" onclick="window.open('https://github.com/natalieCloud', '_blank')">
-              <div class="licon github"></div>
+              <div class="licon github" title="Github logo"></div>
               <span class="lspan">github</span>
             </li>
             <li class="styling a" onclick="window.open('https://www.instagram.com/natalie_chmura', '_blank')">
-              <div class="licon instagram"></div>
+              <div class="licon instagram" title="Instagram logo"></div>
               <span class="lspan">instagram</span>
             </li>
             <li class="styling a" onclick="window.open('https://www.linkedin.com/in/nataliechmura34224/', '_blank')">
-              <div class="licon linkedin"></div>
+              <div class="licon linkedin" title="linkedin logo"></div>
               <span class="lspan">linkedin</span>
             </li>
             <li class="styling a" onclick="window.open('https://pixelfed.social/Chmura', '_blank')">
-              <div class="licon pixelfed"></div>
+              <div class="licon pixelfed" title="pixelfed logo"></div>
               <span class="lspan">pixelfed</span>
             </li>
             <li class="styling a" onclick="navbar.sendEmail()">
-              <div class="licon email"></div>
+              <div class="licon email" title="email icon"></div>
               <span class="lspan" style="font-size: small;">ntchmura[@]proton.me</span>
             </li>
             <li class="styling a" onclick="window.open('http://www.nataliechmura.com', '_blank')">
-              <div class="licon website"></div>
+              <div class="licon website" title="tangerine icon"></div>
               <span class="lspan">website</span>
             </li>
           </ul>
@@ -176,7 +176,8 @@
 
           <div class="content" style="background-color: transparent;">
             <div id="jupiter" class="art-page">
-              <img src="./content/art/jupiter.jpg" class="art-img" style="border: 3px saddlebrown solid;">
+              <img src="./content/icons/coffee.png" style="position: absolute; width: 10%; bottom: 15%; left: 53%" alt="Cup of spilled coffee">
+              <img src="./content/art/jupiter.jpg" class="art-img" style="border: 3px saddlebrown solid;" alt="Jupiter suncatcher on window in front of tree.">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Stained Glass Light Catcher, Jupiter</h3>
                 <p class="art-talk">
@@ -189,7 +190,7 @@
               </div>
             </div>
             <div id="jfsp" class="art-page" >
-              <img src="./content/art/jfsp.jpg" class="art-img" style="border: 5px black solid;">
+              <img src="./content/art/jfsp.jpg" class="art-img" style="border: 5px black solid;" alt="square canvas, womans lower body in jumpsuit with green tint">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Jun Fukamachi Second Phase, Painted</h3>
                 <p class="art-talk">
@@ -203,7 +204,7 @@
               </div>
             </div>
             <div id="reigen" class="art-page">
-              <img src="./content/art/ar.jpg" class="art-img" style="border: 3px purple solid;">
+              <img src="./content/art/ar.jpg" class="art-img" style="border: 3px purple solid;" alt="man ready to scam you smiles advertising his psychic consultation services">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Arataka Reigen Poster, Painted</h3>
                 <p class="art-talk">From the series Mob Psycho 100! Had a 2 year gap inbetween sketching it
@@ -217,7 +218,7 @@
             </div>
             <div id="ram" class="art-page">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
-                <img src="./content/art/ram.jpg" class="art-img" style="align-content: center; border: 5px goldenrod solid;">
+                <img src="./content/art/ram.jpg" class="art-img" style="align-content: center; border: 5px goldenrod solid;" alt="painting of album cover, half-and-half two different robot masks">
                 <h3 class="art-title">Random Access Memories, Painted</h3>
                 <p class="art-talk talk-box">
                   This album was done during undergrad! Unknown before now - I chose this album for two reasons.
@@ -234,7 +235,7 @@
               </div>
             </div>
             <div id="mmask" class="art-page">
-              <div style="content: url(./content/art/mmart.png)" class="art-img"></div>
+              <div style="content: url(./content/art/mmart.png)" class="art-img" title="Pixel art image of spiked mask from zelda game - majora's mask "></div>
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Majora's Mask Pixel Art</h3>
                 <p class="art-talk">
@@ -250,11 +251,11 @@
             </div>
             <div id="musik" class="art-page">
               <div style="display: flex; flex-flow: column; width: 50%;">
-                <img src="./content/art/musiks_cube.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <img src="./content/art/musiks_cube.jpg" class="art-img" style="width: 100%; border: 5px silver solid;" alt="soft multi-colored cube shaped bag - label on top read's musik's in font of original rubix cube">
                 <h4>cube exterior</h4>
-                <img src="./content/art/cube_inner.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <img src="./content/art/cube_inner.jpg" class="art-img" style="width: 100%; border: 5px silver solid;" alt="bag open, can see colors of each side and cds in the bag">
                 <h4>interior unlined</h4>
-                <img src="./content/art/lining.jpg" class="art-img" style="width: 100%; border: 5px silver solid;">
+                <img src="./content/art/lining.jpg" class="art-img" style="width: 100%; border: 5px silver solid;" alt="bag open, added lining gives interior a winne-the-pooh pattern. cds in the bag">
                 <h4>interior lined</h4>
               </div>
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
@@ -299,12 +300,12 @@
               </div>
             </div>
             <div id="gsnk" class="art-page">
-              <img src="./content/art/gsnk.jpg" class="art-img" style="border: 3px rgb(110, 29, 29) solid;">
+              <img src="./content/art/gsnk.jpg" class="art-img" style="border: 3px rgb(110, 29, 29) solid;" alt="anime couple walking side by side - boy's umbrella is titlted to protect girl from rain, but the angle makes it so the water pours on her head instead of protecting her">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Monthly Girl's Nozaki Kun, A Funny Scene</h3>
                 <p class="art-talk">
-                  Probably one of my all-time favorite series! I wanted to do a scene from this show,
-                  and felt like this moment captured its vibe pretty well hahaha
+                  Probably one of my all-time favorite series! I wanted to do a scene from this show, and although there were many contenders, 
+                  I felt like this moment captured its vibe the best!
                 </p>
               </div>
               <div style="display: flexbox; position: absolute; bottom: 0rem; right: 0rem;">
@@ -313,7 +314,7 @@
               </div>
             </div>
             <div id="hmc" class="art-page">
-              <img src="./content/art/hmc.jpg" class="art-img" style="border: 4px palevioletred solid;">
+              <img src="./content/art/hmc.jpg" class="art-img" style="border: 4px palevioletred solid;" alt="Howl and Sophie taking a walk in the skies, from the studio ghibli film">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Howl's Face Took So Long, Painted</h3>
                 <p class="art-talk">
@@ -326,7 +327,7 @@
               </div>
             </div>
             <div id="collection" class="art-page">
-              <img src="./content/art/collection.jpg" class="art-img" style="border: 2px green solid; height: 80%;">
+              <img src="./content/art/collection.jpg" class="art-img" style="border: 2px green solid; height: 80%;" alt="large painting of mountain and cherry tree, three small paintings showing a cat, bee and jellyfish, and on mid-sized painting showing a autum day by a mountain">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Painted @ Alyssa's & ACMW, A Series</h3>
                 <p class="art-talk talk-box">
@@ -349,7 +350,7 @@
               </div>
             </div>
             <div id="vest" class="art-page">
-              <img src="./content/art/vest.jpg" class="art-img" style="border: 5px rebeccapurple solid;">
+              <img src="./content/art/vest.jpg" class="art-img" style="border: 5px rebeccapurple solid;" alt="dark brown solid knit sweater vest. sleves are ribbed and bodice is majority stockinette, but with some slight texture to it">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Knit Sweater Vest</h3>
                 <p class="art-talk">
@@ -364,9 +365,9 @@
             </div>
             <div id="mtg" class="art-page">
               <div style="display: flex; flex-flow: column; width: 50%;">
-                <img src="./content/art/grtk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;">
+                <img src="./content/art/grtk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;" alt="wooden squares showing a menu, meowth (pokemon), and a lucky cat. Text is the same as a Magic the Gathering food and cat tokens">
                 <h4>MTG Tokens</h4>
-                <img src="./content/art/stk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;">
+                <img src="./content/art/stk.jpg" class="art-img" style="width: 100%; border: 3px gold solid;" alt="shooting star, rays spell out 'the friends we made along the way'. Text is the same as a Magic the Gathering treasure token">
                 <h4>Treasure Token</h4>
               </div>
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1; margin-left: 50px;">
@@ -382,7 +383,7 @@
               </div>
             </div>
             <div id="saiki" class="art-page">
-              <img src="./content/art/saiki.jpg" class="art-img" style="border: 5px #b00b69 solid;">
+              <img src="./content/art/saiki.jpg" class="art-img" style="border: 5px #b00b69 solid;" alt="Anime character Saiki Kusuo savors a dish of coffee jelly">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Saiki K, Snacking</h3>
                 <p class="art-talk">First anime styled painting I did!</p>
@@ -393,7 +394,7 @@
               </div>
             </div>
             <div id="hs" class="art-page">
-              <img src="./content/art/hs.jpg" class="art-img" style="border: 3px tomato solid;">
+              <img src="./content/art/hs.jpg" class="art-img" style="border: 3px tomato solid;" alt="dusty blue crochet triangle headscarf. two tangering slices and one tangerine are aligned on the wide end. vine with orange spheres boarders the opposing sides.">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Tangerine Hair Scarf, Crochet & Embroidery</h3>
                 <p class="art-talk">
@@ -406,7 +407,7 @@
               </div>
             </div>
             <div id="ssb" class="art-page">
-              <img src="./content/art/ssb.jpg" class="art-img" style="border: 5px white solid;">
+              <img src="./content/art/ssb.jpg" class="art-img" style="border: 5px white solid;" alt="Small green tentacle'd creature vomiting up rainbows, in crochet">
               <div style="display: flexbox; flex-flow: column; width: 100%; flex-grow: 1;">
                 <h3 class="art-title">Infant SunStalker from Kingdom Death Monster, Crochet</h3>
                 <p class="art-talk">
@@ -475,11 +476,11 @@
                       href="https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking#Sombrero_potential">sombrero
                       potential</a>'.</p>
               </div>
-              <div class="duck-icon higgs"></div>
+              <div class="duck-icon higgs" title="Astronaut rubber duck"></div>
             </div>
             <div class="duck-bio">
               <input type="radio" class="duck-radio" id="napstar" name="duck-choice" value="napstar" onchange="navbar.change_val('napstar', 'Napstar')">
-              <div class="duck-icon napstar"></div>
+              <div class="duck-icon napstar" title="purple vested pirate rubber duck"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(111, 22, 194);">Napstar</h3>
                 <h4>Birthday: 3/24/23</h3>
@@ -500,11 +501,11 @@
                     in the animal crossing series, this name comes namely from the duck being part of
                     a duo, and one that references gaming.</p>
               </div>
-              <div class="duck-icon timmy"></div>
+              <div class="duck-icon timmy" title="Green gamer rubber duck"></div>
             </div>
             <div class="duck-bio">
               <input type="radio" class="duck-radio" id="tommy" name="duck-choice" value="tommy" onchange="navbar.change_val('tommy', 'Tommy')">
-              <div class="duck-icon tommy"></div>
+              <div class="duck-icon tommy" title="Blue gamer rubber duck"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(18, 52, 165);">Tommy</h3>
                 <h4>Birthday: 8/31/23</h3>
@@ -525,11 +526,11 @@
                     aesthetic. Nami is a character that I use for a gaming pfp. The keyboard featured on the baseplate
                     uses the QWERTY layout.</p>
               </div>
-              <div class="duck-icon nami"></div>
+              <div class="duck-icon nami" title="Pink gamer rubber duck, cat ear headphones"></div>
             </div>
             <div class="duck-bio">
               <input type="radio" class="duck-radio" id="nimda" name="duck-choice" value="nimda" onchange="navbar.change_val('nimda', 'Nimda')">
-              <div class="duck-icon nimda"></div>
+              <div class="duck-icon nimda" title="red rubber duck with hack ohio logo on chest"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(138, 28, 13);">Nimda</h3>
                 <h4>Birthday: 10/29/23</h3>
@@ -559,11 +560,11 @@
                     please let me know.
                   </p>
               </div>
-              <div class="duck-icon brock"></div>
+              <div class="duck-icon brock" title="pink rubber duck with blue hat tyoe thing on head"></div>
             </div>
             <div class="duck-bio">
               <input type="radio" class="duck-radio" id="guy" name="duck-choice" value="guy" onchange="navbar.change_val('guy', 'Guy')">
-              <div class="duck-icon guy"></div>
+              <div class="duck-icon guy" title="classic rubber duck with heart shades and gold chain"></div>
               <div class="about-fmt">
                 <h3 style="text-align: center; color: rgb(141, 15, 135);">Guy</h3>
                 <h4>Birthday: 10/2/24</h3>
@@ -587,7 +588,7 @@
                     intentional and not
                     because there aren't really any duck puns that worked with hedgehog.</p>
               </div>
-              <div class="duck-icon shaduck"></div>
+              <div class="duck-icon shaduck" title="rubber duck that looks like the sonic character shadow the hedgehog"></div>
             </div>
           </form>
         </div>
@@ -655,17 +656,17 @@
           <div id="daily-songs"></div>
           <figure style="display: inline-block;">
             <img id="corner_stella" src="./content/pictures/corner_stella.jpg" style="position: relative; width: 300px; height: auto; margin: 50px;
-              border: 4px solid palevioletred;">
+              border: 4px solid palevioletred;" alt="light blue bass guitar stands in corner by bookshelf">
             <figcaption>"Natalie puts Stella in the Corner"</figcaption>
           </figure>
           <figure style="display: inline-block;">
             <img id="horistellantal" src="./content/pictures/horistellantal.jpg" style="position: relative; width: 450px; height: auto;  margin: 50px;
-              border: 4px solid rgb(84, 94, 105);">
+              border: 4px solid rgb(84, 94, 105);" alt="light blue bass guitar lies on dusty rose comforter">
             <figcaption>Photo taken after break</figcaption>
           </figure>
           <figure style="display: inline-block;">
             <img id="stella_drawn" src="./content/art/stella_drawn.png" style="position: relative; width: 400px; height: auto; margin: 50px;
-              border: 4px solid rgb(81, 150, 54);">
+              border: 4px solid rgb(81, 150, 54);" alt="drawn image off light blue bass guitar">
             <figcaption>Stella; Drawn in Notability</figcaption>
           </figure>
         </div>
@@ -691,7 +692,7 @@
           </p>
         </div>
         <div style="display: flexbox; width: 50%; float: left; flex-grow: 1; padding: 20px;">
-          <div style="content: url('content/pictures/uneditedphotoofme.jpg'); width: 100%;"></div>
+          <div style="content: url('content/pictures/uneditedphotoofme.jpg'); width: 100%;" title="Picture of Natalie eating part of a grapevine"></div>
         </div>
         </div>
       </div>
@@ -769,13 +770,13 @@
           <button class="button-head close" onclick="navbar.toggle_close('site-header-program')"></button>
         </div>
         <div class="content site-header-program"
-          style="font-family: 'Courier New', Courier, monospace; background-image: url(content/from_online/shadow_relm_ass_background.jpeg); display: flex; justify-content: center;">
+          style="font-family: 'Courier New', Courier, monospace; background-image: url(content/from_online/shadow_relm_ass_background.jpeg); display: flex; justify-content: center;" title="hazy purple mist on black background ">
           <div class="displaying" style="overflow-y: scroll;" >
             <div style="width: 100%; display: flex; justify-content: center;">              
               <div
                 style="height: fit-content; background-color: rgb(24, 24, 31); display: flex; margin: 6px; padding: 10px; border: 2px solid chartreuse;">
                 
-                <img src="content/100Human.png" style="width: 100px; position: relative; margin: 15px;">
+                <img src="content/100Human.png" style="width: 100px; position: relative; margin: 15px;" alt="100% humand made content label">
                 <h4 style="text-align: center; color: deeppink; flex-grow: 1; font-size: 110%;">
                   Hi! Welcome to my site on the</br>WORLD WIDE WEB!!! ^-^</h4>
                 <img src="content/from_online/color_earth.gif"
@@ -787,7 +788,7 @@
             </div>
             <div class="site-home-stuff">
               <div class="home1">
-                <img src="content/from_online/hamsterfinal.gif" style="display: inline; size: 80px; margin-bottom: -5px;">
+                <img src="content/from_online/hamsterfinal.gif" style="display: inline; size: 80px; margin-bottom: -5px;" alt="hamster with a welcome sign">
                 <p style="text-align: center; display: inline; margin-bottom: 20px;">Thanks for stopping by!</p>
                 <div class="line"></div>
                 <p style="color: crimson;"> <strong>Alert!</strong> This site needs Javascript enabled!</p>
@@ -797,19 +798,19 @@
                   I say shout into the void but in all reality it'll mostly be - "I did this thing and think it's cool" or
                   "I learnt this thing and want to talk about it" 
                 </p> -->
-              <img src="content/from_online/sparkles5.gif" style=" width: 90%; height: 20px; position: relative; padding-top: 9%;">
-              <img src="content/from_online/Miso.gif" style="width: 90px; position: absolute; left: 6%; top: 9%; border: #090b50 solid 3px;">
-              <img src="content/from_online/catamari.gif" style="width: 70px; position: absolute; left: 26%; top: 9%; border: #090b50 solid 3px;">
-              <img src="content/from_online/wuddup.gif" style="width: 90px; position: absolute; left: 42%; top: 9%; border: #090b50 solid 3px;">
+              <img src="content/from_online/sparkles5.gif" style=" width: 90%; height: 20px; position: relative; padding-top: 9%;" alt="black sparkles">
+              <img src="content/from_online/Miso.gif" style="width: 90px; position: absolute; left: 6%; top: 9%; border: #090b50 solid 3px;" alt="katamari cousin miso">
+              <img src="content/from_online/catamari.gif" style="width: 70px; position: absolute; left: 26%; top: 9%; border: #090b50 solid 3px;" alt="katamri damacy cat model">
+              <img src="content/from_online/wuddup.gif" style="width: 90px; position: absolute; left: 42%; top: 9%; border: #090b50 solid 3px;" alt="katamari cousin wuddup">
               </div>
               <div class="home2">
                 <p>I have stuff related to past and current work in CompSci! If you are curious about it check out my CV or the projects
                   folder!
                 </p>
-                <img src="content/from_online/bear 89.gif" style="width: 70px; display: inline;">
+                <img src="content/from_online/bear 89.gif" style="width: 70px; display: inline;" alt="walking polar bear">
 
-                <img src="content/from_online/coming soon.gif" style="width: 100px; display: inline;">
-                <img src="content/from_online/bear 89.gif" style="width: 70px; display: inline; transform: scale(-1, 1);">
+                <img src="content/from_online/coming soon.gif" style="width: 100px; display: inline;" alt="light lined coming soon sign">
+                <img src="content/from_online/bear 89.gif" style="width: 70px; display: inline; transform: scale(-1, 1);" alt="walking polar bear">
 
                 <p>
                   I'm dropping more LibreOffice impress templates, but they'll be on my own 
@@ -834,15 +835,15 @@
                 </p>
                 </div>
                 <div class="boarder"></div>
-                <img src="content/from_online/Vlvbtyshck.gif" style="margin-top: 30px;">
+                <img src="content/from_online/Vlvbtyshck.gif" style="margin-top: 30px;" alt="sailor venus attacks!">
               </div>
               <div class="home6">
-                <img src="content/from_online/line29.gif" style="width: 90%; margin-bottom: 20px;">
+                <img src="content/from_online/line29.gif" style="width: 90%; margin-bottom: 20px;" alt="border line of strawberries and sparkles">
                 <h3 style="color: #090b50;">Like the backgrounds? </br> They're just <span style="color: red;">ONE</span> click away!:</br></h3>
-                <a href="content/Desktop.png" download><div class="small_bk_a" ></div></a>
-                <a href="content/Mobile.png" download><div class="small_bk_b"></div></a>
+                <a href="content/Desktop.png" download><div class="small_bk_a" title="desktop format of heart in space background"></div></a>
+                <a href="content/Mobile.png" download><div class="small_bk_b"  title="mobile format of heart in space background"></div></a>
                 <p>desktop and mobile </br> ripe for the clicking!</p>
-                <img src="content/from_online/line29.gif" style="width: 90%; margin-top: 20px;">
+                <img src="content/from_online/line29.gif" style="width: 90%; margin-top: 20px;" alt="border line of strawberries and sparkles">
               </div>
               <div class="home4">
                 <div class="line"></div>
@@ -850,7 +851,7 @@
                 online… maybe? Anyways- enjoy poking around!
                 </p>
                 <div class="line"></div> </br>
-                <img src="content/from_online/kao039.gif">
+                <img src="content/from_online/kao039.gif" alt="jumping dumpling with sparkles">
               </div>
               <div class="home5">
                 <h3 style="font-size: medium; font-weight: 900;">Here are some projects I like && think are really cool:</h3>
@@ -870,33 +871,33 @@
               </div>
               </div>
               <div class="gif2">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
               </div>
               <div class="gif4">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
-                <img src="content/from_online/spinningcd.gif">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
+                <img src="content/from_online/spinningcd.gif" alt="spinning cd">
               </div>
               <div class="gif1">
                 <div style="background-color: #b00b69; border: #090b50 solid; color: chartreuse; margin-bottom: 10px; text-align: center;">Last Updated:</br>7/3/26</div>
 
-                <img src="content/from_online/pikachuuu.webp" style="margin-left: 20%;">
+                <img src="content/from_online/pikachuuu.webp" style="margin-left: 20%;" alt="slightly off looking render of pikachu">
                 <h5 style="text-align: center;">my new favorite render of pikachu</h5>
               </div>
               <div class="gif5">
-                <img src="content/from_online/kitty.gif" style="position: absolute; transform: translateY(-70px);">
-                <img src="content/from_online/Amonitor.gif">
+                <img src="content/from_online/kitty.gif" style="position: absolute; transform: translateY(-70px);" alt="artemis from sailor moon resting">
+                <img src="content/from_online/Amonitor.gif" alt="box computer monitor">
               </div>
               <div class="gif6">
-                <img src="content/from_online/gif.gif" style="width: 100%;">
+                <img src="content/from_online/gif.gif" style="width: 100%;" alt="rotating text that says gif">
               </div>
               <div class="home7-style">
                 <h2 style="color: #b00b69; position: static; top: 0; display: inline-block">Web Links!</h3>
-                  <img src="content/from_online/wand.gif" style="display: inline-block;">
+                  <img src="content/from_online/wand.gif" style="display: inline-block;" alt="sailor moon wand">
                   <div style="padding: 5px;">
                   <a style="color:crimson;" target="_blank" href="https://99gifshop.neocities.org/">99gifshop</a>
                 </div>
@@ -914,23 +915,23 @@
                 </div>
               </div>
               <div class="gif7">
-                  <img src="content/from_online/cat 226.gif" style="margin-top: 30px;">
+                  <img src="content/from_online/cat 226.gif" style="margin-top: 30px;" alt="cat on file cabinet">
               </div>
-              <img src="content/from_online/flower 142.gif" style="height: 80px; position: absolute; right: 23%">
-              <img src="content/from_online/purin3.gif" style="height: 70px; position: absolute; left: 0%; bottom: 4%">
-              <img src="content/from_online/frog 83.gif" style="height: 60px; position: absolute; right: 12%; bottom: 12%">
-              <img src="content/from_online/luckycat2.gif" style="height: 80px; position: absolute; left: 5%; top: 30%">
-              <img src="content/from_online/turtle 17.gif" style="height: 40px; position: absolute; right: 38%; top: 69%; transform: scale(-1, 1);">
-              <img src="content/from_online/coffee 30.gif" style="height: 70px; position: absolute; left: 15%; top: 78%">
-              <img src="content/from_online/rubiks cube 3.gif" style="height: 60px; position: absolute; left: 0; top: 81%">
-              <img src="content/from_online/blimp 3.gif" style="height: 60px; position: absolute; left: 37%; top: 32%">
-              <img src="content/from_online/chao.gif" style="height: 60px; position: absolute; right: 14%; top: 68%">
-              <img src="content/from_online/cat_thing.gif" style="height: 60px; position: absolute; right: 4%; top: 51%">
-              <img src="content/from_online/137.gif" style="width: 80px; position: absolute; right: 41%; top: 56%">
-              <img src="content/from_online/portal2.png" style="width: 80px; position: absolute; right: 4%; top: 83%">
-              <img src="content/from_online/continue_anyway_by_kicked_in_teeth-dbvqsb1.png" style="height: 50px; position: absolute; right: 12%; bottom: 17%">
-              <img src="content/from_online/portal1.png" style="width: 80px; position: absolute; right: 23%; top: 6%;">
-              <img src="content/from_online/chao-read.gif" style="width: 90px; position: absolute; right: 8%; top: 26%;">
+              <img src="content/from_online/flower 142.gif" style="height: 80px; position: absolute; right: 23%" alt="hanging potted dark pink flowers">
+              <img src="content/from_online/purin3.gif" style="height: 70px; position: absolute; left: 0%; bottom: 4%" alt="sanrio's pompompurin jumping and saying hello">
+              <img src="content/from_online/frog 83.gif" style="height: 60px; position: absolute; right: 12%; bottom: 12%" alt="frog waving">
+              <img src="content/from_online/luckycat2.gif" style="height: 80px; position: absolute; left: 5%; top: 30%" alt="lucky cat waving">
+              <img src="content/from_online/turtle 17.gif" style="height: 40px; position: absolute; right: 38%; top: 69%; transform: scale(-1, 1);" alt="turtle walking">
+              <img src="content/from_online/coffee 30.gif" style="height: 70px; position: absolute; left: 15%; top: 78%" alt="steaming cup of coffee">
+              <img src="content/from_online/rubiks cube 3.gif" style="height: 60px; position: absolute; left: 0; top: 81%" alt="animated rubik's cube">
+              <img src="content/from_online/blimp 3.gif" style="height: 60px; position: absolute; left: 37%; top: 32%" alt="flying blimp">
+              <img src="content/from_online/chao.gif" style="height: 60px; position: absolute; right: 14%; top: 68%" alt="sitting chao">
+              <img src="content/from_online/cat_thing.gif" style="height: 60px; position: absolute; right: 4%; top: 51%" alt="cat type creature">
+              <img src="content/from_online/137.gif" style="width: 80px; position: absolute; right: 41%; top: 56%" alt="large pink bow">
+              <img src="content/from_online/portal2.png" style="width: 80px; position: absolute; right: 4%; top: 83%" alt="portal exit">
+              <img src="content/from_online/continue_anyway_by_kicked_in_teeth-dbvqsb1.png" style="height: 50px; position: absolute; right: 12%; bottom: 17%" alt="window with text - 'continue anyway'">
+              <img src="content/from_online/portal1.png" style="width: 80px; position: absolute; right: 23%; top: 6%;" alt="portal entrance">
+              <img src="content/from_online/chao-read.gif" style="width: 90px; position: absolute; right: 8%; top: 26%;" alt="chao reading">
 
             </div>
           </div>
@@ -945,12 +946,12 @@
     <div class="nav-space">
       <nav class="navbar">
         <div class="home-container">
-          <button class="home-button" onclick="navbar.toggle_popup()"></button>
+          <button class="home-button" onclick="navbar.toggle_popup()" title="house icon"></button>
         </div>
         <div id="task-buttons" class="task-container">
-          <button class="running-icons site-header", id="site-header-icon" onclick="navbar.toggle_min('site-header-program')"></button>
+          <button class="running-icons site-header", id="site-header-icon" onclick="navbar.toggle_min('site-header-program')" title="triforce button"></button>
         </div>
-        <div class="time-container" id="clock">
+        <div class="time-container" id="clock" title="Clock interface">
         </div>
       </nav>
     </div>
