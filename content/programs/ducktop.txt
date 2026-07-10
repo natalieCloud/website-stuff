@@ -7,7 +7,7 @@ Higgs Boson
 
 Birthday: 10/27/20
 
-Origin: A clubmate from the sci-fi club was doing a halloween event, passing out ducks and candy (distanced!)
+Origin: A club-mate from the sci-fi club was doing a Halloween event, passing out ducks and candy (distanced!)
 for any members that wanted them. Here I got my first duck, and being very physics focused at the time I 
 decided to name him after the Higgs boson particle. For the rabbit-hole oriented among you, I recommend
 the related topic of 'sombrero potential'. https://en.wikipedia.org/wiki/Spontaneous_symmetry_breaking#Sombrero_potential
@@ -27,7 +27,7 @@ Timmy
 Birthday: 8/31/23
 
 Origin:
-Like Tommy, was a gift from one of my brothers. Named after one of the Nookings 
+Like Tommy, was a gift from one of my brothers. Named after one of the Nooklings 
 in the animal crossing series, this name comes namely from the duck being part of 
 a duo, and one that references gaming. While there are more video game duos out
 there, the colors don't line up quite as nicely.
@@ -37,7 +37,7 @@ Tommy
 Birthday: 8/31/23
 
 Origin:
-Like Timmy, was a gift from one of my brothers. Named after one of the Nookings 
+Like Timmy, was a gift from one of my brothers. Named after one of the Nooklings 
 in the animal crossing series, this name comes namely from the duck being part of 
 a duo, and one that references gaming. While there are more video game duos out
 there, the colors don't line up quite as nicely.
@@ -47,10 +47,10 @@ Nami
 Birthday: 10/18/23
 
 Origin: ACMW - mentorship duck decorating event. I saw the headphones and knew I had 
-to incorperate them somehow. Did not really plan anything, but went for a "gaming accessory" 
-aesthetic. It was not explicatly inspired by, but ended up lining up quite nicely with
+to incorporate them somehow. Did not really plan anything, but went for a "gaming accessory" 
+aesthetic. It was not explicitly inspired by, but ended up lining up quite nicely with
 Nami's gear (color aside) in the color spread featuring Nami and Usopp* playing games together 
-The keyboard featured on the baseplate uses the QWERTY layout.
+The keyboard featured on the base-plate uses the QWERTY layout.
 
 *One Piece - Oda
 
@@ -59,21 +59,21 @@ Nimda
 Birthday: 10/29/2023
 
 Origin: tOSU's 2023 hackathon gave out many forms of swag. My personal favorite was obviously,
-the duck. Due to the numerous hacking related jokes my groupmates and I made. (All horrible tbh)
-I wanted to give this duck a name related to something compsci related. So, this duck is named
+the duck. Due to the numerous hacking related jokes my group-mates and I made. (All horrible tbh)
+I wanted to give this duck a name related to something comp-sci related. So, this duck is named
 after the nimda virus* - a malicious file infecting worm - very fun!
 
-*which is 'admin' spelled backwords!
+*which is 'admin' spelled backwards!
 
 Brock
 
-Birthday: Unkown
+Birthday: Unknown
 
 Origin: To be completely honest, I have no clue where this duck came into my life, or when.
 All I know is that it was sometime after Spring 2022 and before May 2025. I wasn't entirely sure what the blue part on his head was, but it vaguely reminded 
 me of a long handle frying pan. Naturally, I thought of this classic line: 
 https://www.youtube.com/watch?v=oawUi9s3ENE Thus, there was no other name I could chose!
-If anyone (really only friends and roomates) has any information on duck events that I might have aquired this fella at,
+If anyone (really only friends and roommates) has any information on duck events that I might have acquired this fella at,
 please let me know.
 
 Guy
@@ -95,4 +95,3 @@ aren't really any duck puns that worked with hedgehog.
 
 this program was inspired by the vs-code pets plugin: https://github.com/tonybaloney/vscode-pets
 and the game placid plastic duck simulator
-

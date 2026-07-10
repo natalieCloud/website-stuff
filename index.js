@@ -13,6 +13,7 @@ class Navbar {
             "terminal-program": { "shown": false, "max": false, "min": false },
             "trash-program": { "shown": false, "max": false, "min": false },
             "art.txt-program": { "shown": false, "max": false, "min": false },
+            "house.txt-program": { "shown": false, "max": false, "min": false },
             "credits.txt-program": { "shown": false, "max": false, "min": false },
             "secrets.txt-program": { "shown": false, "max": false, "min": false },
             "cv.txt-program": { "shown": false, "max": false, "min": false },
@@ -99,6 +100,7 @@ class Navbar {
     time_function() {
         var date = new Date();
         document.getElementById("clock").innerHTML = date.toLocaleTimeString(navigator.language || 'en-US', { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true });
+        this.time = date;
         if (this.day > date.setHours(0, 0, 0, 0)) {
             this.day = date;
             this.change_song();
@@ -136,6 +138,7 @@ class Navbar {
             if (icon_name === 'terminal-program') {
                 document.getElementById("baseball_stat_1").value = "";
                 document.getElementById("history").innerHTML = "";
+                term = new Terminal();
             }
             if (icon_name === 'art-program') {
                 for (const elem of document.getElementsByClassName('art-page')) {
@@ -699,10 +702,13 @@ class Terminal {
         this.addendum = '~$'
         this.looking = false;
         this.location = term_out.terminal.file_sys;
-        this.index = 0;
-
+        this.more_index = 0;
+        this.dead = false;
         this.konami = ["up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "start"]
+        this.konami_step = 0;
         this.quack_count = 0;
+        this.clock_count = 0;
+        this.else = [1, 2, 3];
     }
 
     nav_parent(its_rough_but_works) {
@@ -745,8 +751,9 @@ class Terminal {
     fetch_outcome(input_key) {
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
+        var case_stnd = input_key.toLowerCase();
 
-        const [first, ...rest] = input_key.split(" ");
+        const [first, ...rest] = case_stnd.split(" ");
         const input = first;
         const remaining = rest.join(" ");
 
@@ -759,27 +766,147 @@ class Terminal {
                 leaf.innerHTML = this.print_tree("", 0, this.location);
             } else if (input === "help") {
                 leaf.innerHTML = term_out.terminal["help"][""];
+            } else if (input === "quit") {
+                navbar.toggle_close('terminal-program')
+            } else if (input === "more" && this.more_index !== 0) {
+                leaf.innerHTML = this.help_info();
+            } else {
+                leaf.innerHTML = `Either ${input} is not a command, or you need to add an argument!`
             }
         }
         else {
             if (input === "help" && term_out.terminal["help"][remaining]) {
-                leaf.innerHTML = term_out.terminal["help"][remaining];
+
+                if (remaining === "more") {
+                    this.more_index = 0;
+                    leaf.innerHTML = this.help_info();
+                } else {
+                    leaf.innerHTML = term_out.terminal["help"][remaining];
+                }
             } else if (input === "cd") {
-                leaf.innerHTML = this.change_dir(remaining)
+                leaf.innerHTML = this.change_dir(remaining);
             } else if (input === "show") {
+                const [first, ...rest] = input_key.split(" ");
+                const input = first;
+                const remaining = rest.join(" ");
                 leaf.innerHTML = this.show_file(remaining);
             } else if (input === "run") {
                 leaf.innerHTML = this.run_program(remaining);
+            } else if (input === "look") {
+                leaf.innerHTML = this.start_looking(remaining);
+            } else if (input === "list") {
+                if (input_key === "list $HOME") {
+                    leaf.innerHTML = this.print_list(term_out.terminal.file_sys);
+                } else {
+                    leaf.innerHTML = "You can only list with $HOME currrently"
+                }
+            } else if (input === "tree") {
+                if (input_key === "tree $HOME") {
+                    leaf.innerHTML = this.print_tree("", 0, term_out.terminal.file_sys);
+                } else {
+                    leaf.innerHTML = "You can only tree with $HOME currrently"
+                }
+            } else {
+                leaf.innerHTML = "You sure that's a command you can run?"
             }
         }
         return leaf;
     }
+    
+    help_info() {
+        var key = `more_${this.more_index}`;
+        this.more_index += 1;
+        return term_out.terminal["help"][key];
+    }    
+
+    start_looking(command) {
+        var check = term_out.alias[command];
+
+        console.log(`Command: ${command}, Check: ${check}`)
+        if (this.dead) {
+            return "You're dead and can't do anything. Please exit and restart the program to continue.";
+        }
+
+        if (this.looking) {
+
+            if (check === "the duck") {
+                return `Awww look at ${command} - aren't they cute?!?`;
+            } else if (check === "huh") {
+                return 'You wanna what?!?!';
+            } else if (this.konami.includes(check)) {
+                if (check === this.konami.at(this.konami_step)) {
+                    this.konami_step += 1;
+                    return term_out.output[check];
+                } else {
+                    this.konami_step = 0;
+                    return `You look at ${check}`;
+                }
+            } else if (check === "void" || check === "gif" || check === "no") {
+                this.dead = true;
+                return term_out.output[check];
+            } else if (check === "ducks") {
+                if (this.quack_count < 2) {
+                    this.quack_count += 1;
+                    return term_out.output[check];
+                } else {
+                    return term_out.output[`${check}-3`];
+                }
+            } else if (check === "natalie") {
+                if (navbar.time.getHours() === 4 || navbar.time.getHours() === 16) {
+                    return term_out.output[`${check}-4`];
+                } else {
+                    return term_out.output[check];
+                }
+            } else if (check === "clock") {
+                if (this.clock_count === 0) {
+                    this.clock_count = 1;
+                    return term_out.output[check];
+                } else {
+                    return term_out.output[`${check}-2`] + navbar.time;
+                }
+            } else if (check !== undefined) {
+                return term_out.output[check];
+            } else {
+                var rdm = Math.floor(Math.random() * 3);
+                var key = `else-${this.else[rdm]}`
+
+                console.log(`${rdm}, ${key}`)
+                return `\'${command}\'${term_out.output[key]}`;
+            }
+
+        } else {
+            if (check !== undefined && (check === "roberta" || check === "dsa"  || check === "terminal")) {
+                if (check === "terminal") {
+                    this.looking = true;;
+                }
+                return term_out.output[check]
+            } else if (check !== undefined) {
+                return "You sure you're in the right mode for that partner?"
+            } else {
+                return `${command} isn't a thing you can look at...`
+            }
+
+        }
+    }
 
     show_file(file_name) {
+        console.log(file_name)
+
+        if (this.location === term_out.terminal.file_sys.installed_programs.trash_program) {
+            if (name === "even_more_secrets.txt") {
+                file_name = "credits.txt";
+            }
+        } else if (this.location === term_out.terminal.file_sys.installed_programs.cv_program && file_name === "Natalie_Chmura_CV.pdf") {
+            navbar.show_file('cv', file_name);
+        } else if (this.location.arrgh === undefined || !this.location.arrgh.includes(file_name)) {
+            return `You aren't in the right directory to show ${file_name}`;
+        }
+
         let name = file_name.split(".");
         if (name[1] !== "txt" && name[1] !== "pdf") {
             return `${file_name} does not have the appropriate extension for use with the show command`;
         }
+
 
         navbar.prog_map[file_name] = { "shown": false, "max": false, "min": false };
         var icon = "missing_24.png"
@@ -825,15 +952,28 @@ class Terminal {
         return `opened ${file_name}`;
     }
 
-    // TODO Refactor for the CV prog!!
     run_program(exe_name) {
+
         let name = exe_name.split(".");
         if (name[1] !== "exe") {
             return `${exe_name} is not a runnable program`;
         }
 
-        console.log(name[0])
-        navbar.toggle_show(name[0]);
+        if (this.location.arrgh === undefined || !this.location.arrgh.includes(exe_name)) {
+            return `You aren't in the right directory to run ${exe_name}`;
+        }
+
+        if (exe_name === "cv.exe") {
+            navbar.show_file('cv', 'Natalie_Chmura_CV.pdf');
+        } else if (exe_name === "email.exe") {
+            navbar.sendEmail();
+        } else if (exe_name === "ducktop.exe") {
+            navbar.toggle_show('duck-program');
+        } else if (exe_name === "projects.exe") {
+            navbar.toggle_show('file-program');
+        } else {
+            navbar.toggle_show(`${name[0]}-program`);
+        }
 
         return `started ${exe_name}`
     }
@@ -908,9 +1048,6 @@ class Terminal {
 }
 
 
-
-
-
 const term_out = {
     alias: {
         "look": "look",
@@ -918,8 +1055,11 @@ const term_out = {
         "examine": "look",
         "view": "look",
         "Roberta": "roberta",
+        "roberta": "roberta",
         "Berta": "roberta",
+        "berta": "roberta",
         "Roberta Williams": "roberta",
+        "roberta williams": "roberta",
         "terminal": "terminal",
         "term": "terminal",
         "this": "terminal",
@@ -958,6 +1098,8 @@ const term_out = {
         "email": "email",
         "email link": "email",
         "email program": "email",
+        "letter": "letter",
+        "envelope": "letter",
         "trash": "trash",
         "trash program": "trash",
         "garbage": "trash",
@@ -982,6 +1124,8 @@ const term_out = {
         "dsa fanthey": "natalie",
         "clock": "clock",
         "time": "clock",
+        "background": "background",
+        "wallpaper": "background",
         // "dsa-c-scan": "dsa-c-scan", leaving out for now..
         // "dsa-f-scan": "dsa-f-scan",
         // "dsa-fcfs": "dsa-fcfs",
@@ -989,26 +1133,26 @@ const term_out = {
         // "dsa-look": "dsa-look",
         // "dsa-c-look": "dsa-c-look",
         // "dsa-sstf": "dsa-sstf",
+        "profile": "profile",
+        "profile-picture": "profile",
+        "profile picture": "profile",
         "hidden": "hidden",
         "menu-up": "menu-up",
         "menu-full": "menu-full",
         "menu-true": "menu",
         "menu-false": "menu-false",
         "up": "up",
-        "w": "up",
         "down": "down",
-        "s": "down",
         "right": "right",
-        "a": "right",
         "left": "left",
-        "d": "left",
         "b": "b",
         "a": "a",
         "start": "start",
-        "linkedin": "linkedin",
+        "linkedin": "no",
         "gif": "gif",
         ".gif" : "gif",
         "void": "void",
+        "space": "void",
         "ostep": "ostep",
         "the book": "ostep",
         "sudo": "sudo",
@@ -1025,7 +1169,20 @@ const term_out = {
         "kiss": "huh",
         "fuck": "huh",
         "shit": "huh",
-        "eat": "huh"
+        "eat": "huh",
+        "higgs-boson": "the duck",
+        "higgs boson": "the duck",
+        "timmy": "the duck",
+        "tommy": "the duck",
+        "nami": "the duck",
+        "nimda": "the duck",
+        "brock": "the duck",
+        "guy": "the duck",
+        "shaduck-the-hedgehog": "the duck",
+        "shaduck the hedgehog": "the duck",
+        "shaduck": "the duck",
+        "secrets": "secrets",
+        "secrets.txt": "secrets",
     },
     terminal: {
         "help": {
@@ -1044,8 +1201,8 @@ const term_out = {
             <div class='col-text r'>
                 quit</br>
                 run [name]</br>
-                show[name]</br>
-                tree[dir| ]</br>
+                show [name]</br>
+                tree [dir| ]</br>
             </div>
             </div></br>`,
             "cd":
@@ -1080,18 +1237,7 @@ const term_out = {
             <div class='def'>Further info about the reasoning behind these values can be gained by running 'help look value'</div>
             <div class='def'>'disk-scheduling-algorithms'</br>'roberta'</br>'terminal'</br></div>
             </br>`,
-            "roberta":
-                `<div class='word'>look Roberta</div>
-            <div class='def'>A very cool game desginer behind many of the Sierra Titles, which is how I got into parser gaming in particular.</div>
-            </br>`,
-            "terminal":
-                `<div class='word'>look terminal</div>
-            <div class='def'>About text parser games</div>
-            </br>`,
-            "disk-scheduling-algorithms":
-                `<div class='word'>look disk-scheduling-algorithms</div>
-            <div class='def'>If only Natalie had included the ability to <span style='color: blue'>look</span> at a specific dsa</div>
-            </br>`,
+            "more": "Defaulting defaulting defaulting",
             "more":
                 `</br>
                 NTerminalC version 1.0.0 release (static-web)</br> 
@@ -1161,6 +1307,14 @@ const term_out = {
     directory. By default uses the current working directory, but can take HOME as another
     value.</div>
             </br>`,
+            "text-parser":
+                `<div class='word'>text-parser</div>
+            <div class='def'>A text parser game is one in which you control your actions through typing out a verb + noun combination. 
+            To enter into this game, you entered ‘look terminal’ which prompted the choice of taking a look at the terminal. 
+            In this game, look is the only verb action you are allowed (for now) Like Roberta and disk-scheduling-algorithms may have suggested, 
+            there is a wide range at the nouns you can try to look at. 
+            Try something general, like website – and see where that gets you!</div>
+            </br>`,
         },
         file_sys: {
             name: "./",
@@ -1196,7 +1350,7 @@ const term_out = {
                 plants_program: {
                     name: "plants_program/",
                     parent: "installed_programs/",
-                    arrgh: ["plants.txt", "plants.exe"]
+                    arrgh: ["plants.txt", "plant.exe"]
                 },
                 projects_program: {
                     name: "projects_program/",
@@ -1231,38 +1385,86 @@ const term_out = {
         },
     },
     output: {
-        "roberta": "Natalie doesn't double check their work so you see this.",
-        "terminal": "Natalie doesn't double check their work so you see this.",
-        "desktop": "You see a finely crafted desktop environment, with a variety of pixel art icons corresponding to the \"programs\", that have been installed.",
-        "dsa": "Natalie doesn't double check their work so you see this.",
-        "website": "Natalie doesn't double check their work so you see this.",
-        "code": "Natalie doesn't double check their work so you see this.",
-        "cleveland": "Natalie doesn't double check their work so you see this.",
-        "icons": "Natalie doesn't double check their work so you see this.",
-        "ducks": "Natalie doesn't double check their work so you see this.",
-        "art": "Natalie doesn't double check their work so you see this.",
-        "projects": "Natalie doesn't double check their work so you see this.",
-        "cv": "Are you doing research related to Operating Systems and/or memory management and currently taking on grad students?</br>Hey - it's nice to meet you! :D I'm going to be applying to start my PhD in Au2027",
-        "music": "Natalie doesn't double check their work so you see this.",
-        "plants": "Natalie doesn't double check their work so you see this.",
-        "email": "Natalie doesn't double check their work so you see this.",
+        "roberta": "Roberta Williams – an absolute goat – legend among legends. Queen of many classic titles such as King’s Quest. If you have not heard of her before I would absolutely recommend checking out her work.",
+        "terminal": `</br><pre> 
+
+             ▗▄▄▄▖▐▌    ▄▄▄ ▄▄▄  █  ▐▌  ▐▌       ▗▄▄▄▖▐▌   ▗▞▀▚▖ 
+               █  ▐▌   █   █   █ ▀▄▄▞▘  ▐▌         █  ▐▌   ▐▛▀▀▘
+               █  ▐▛▀▚▖█   ▀▄▄▄▀        ▐▛▀▚▖      █  ▐▛▀▚▖▝▚▄▄▖     
+               █  ▐▌ ▐▌              ▗▄▖▐▌ ▐▌      █  ▐▌ ▐▌
+                                    ▐▌ ▐▌
+                                     ▝▀▜▌                            
+                                    ▐▙▄▞▘                 
+
+▗▖ ▄▄▄   ▄▄▄  █  ▄ ▄ ▄▄▄▄        ▗▄▄▄▖▗▞▀▚▖ ▄▄▄ ▄▄▄▄  ▄ ▄▄▄▄  ▗▞▀▜▌█
+▐▌█   █ █   █ █▄▀  ▄ █   █         █  ▐▛▀▀▘█    █ █ █ ▄ █   █ ▝▚▄▟▌█ 
+▐▌▀▄▄▄▀ ▀▄▄▄▀ █ ▀▄ █ █   █         █  ▝▚▄▄▖█    █   █ █ █   █      █ 
+▐▙▄▄▖         █  █ █     ▗▄▖       █                  █            █ 
+                        ▐▌ ▐▌                                       
+                         ▝▀▜▌                                       
+                        ▐▙▄▞▘                                        
+            </pre> </br></br>
+            An interactive, mini text parser terminal adventure game.</br></br> 
+            Enjoy \‘look\’ing at everything I included!</br></br>
+            Disclaimer: There is a fine line in between clever solutions and ones that only makes sense to the mind of their creator. Hopefully the latter is not true here – but time (and those who would reach out to let me know) will tell! </br></br>
+
+            For a brief explanation of a text parser, type help text-parser. For a more in depth explanation, look online! There are many interesting and informative videos + written works that do the topic, and its history, more justice then I could!</br></br>
+
+            * Any text written with an asterisk will not contain clues.</br>`,
+        "desktop": "You see a carefully crafted desktop environment, with a variety of pixel art icons corresponding to the \"programs\", that have been installed.",
+        "dsa": "I couldn't not include an reference to my dearly beloved disk scheduling algorithms here!</br>If I loved them less I may be able to talk about them more...",
+        "website": "You gaze at the screen, unable to tear your eyes from the desktop littered with icons. What secrets do they hold?",
+        "code": "Eeeesh that might not be a good idea if you’re trying to follow good practice. After seeing their TA/grading experience* having included giving feedback on code quality, you might have been tempted to think Natalie’d know what to avoid, then BOOM! 1 massive JavaScript file with multiple classes. BOOM! Code smells everywhere. BOOM! Coupling out the wazoo!</br></br>*To any former students I apologize, do as I say – not as I do.",
+        "cleveland": "You gaze wistfully into the distance on reminder of that city. The motherland, part of the perogi pocket of the United States, and where Natalie’s from. Hell yeah! Visitors might enjoy going to one of the many delicious ice cream parlors; like Handles, Honey Hut, Mitchell’s, or Zero Zest! (Blue Moon enthusiasts will wanna go to Handles in particular!) </br> </br>*I have nowhere else to recommend this so check out the video “The Largest Poison Ivy in Suburban Cleveland”",
+        "icons": "Each icon pops out against the background. Trash, Ducktop, CV, Email Me? </br> \"Oh god\” you internally wonder – \"do I have to email Natalie for this?\" </br></br> Your fears immediately subside after they break the narrative flow to reveal that no, no you do not. ",
+        "ducks": "Quack!",
+        "ducks-3": "Sorry – you can\’t talk to the animals here :X",
+        "art": "A gallery of some of the stuff Natalie has made. A prime place to browse through, that’s for sure! Maybe you’ll grab a coffee and peruse the sights...",
+        "projects": "An assortment of projects and papers are gathered here, in a deceptively coding centered icon.	You pause, wondering if Natalie would include anything here that could be integrated into the terminal game. Probably not. ",
+        "cv": "*Are you working in research related to Operating Systems and/or memory management? Are you currently accepting new grad students? Let me throw my hat in the ring. And if you weren’t convinced before you might wanna take another gander at that CV. How many OS researchers do you know that were key-holders at a Juice and Smoothie bar?",
+        "music": "The developer\’s personal favorite way of listening to music lies sparkling in the night sky. What groovy tunes lie on that celestial disk?",
+        "plants": "A singular potted plant lies on the desktop. You wonder if it will manage to stay alive, what with there being no sun and water in sight...",
+        "email": "A wax sealed envelope lies patiently on the desktop – its skeuomorphic design harking back to a time before phoning or texting was possible. If only you could examine its contents! What secrets must it hold? Guess that mystery will have to remain a mystery",
+        "letter": "Gah! That\’s a crime you know? You could go to jail for that! Quick, seal it back up – make sure you don’t read anything!",
         "trash": "You marvel at the level of detail in the art for this icon. You can even see the crumpled up forms of the documents that have been moved there!",
-        "menu": "Natalie doesn't double check their work so you see this.",
-        "house": "Natalie doesn't double check their work so you see this.",
-        "natalie": "Natalie doesn't double check their work so you see this.",
-        "clock": "Natalie doesn't double check their work so you see this.",
-        "dsa-c-scan": "Natalie doesn't double check their work so you see this.",
-        "dsa-f-scan": "Natalie doesn't double check their work so you see this.",
-        "dsa-fcfs": "Natalie doesn't double check their work so you see this.",
-        "dsa-scan": "Natalie doesn't double check their work so you see this.",
-        "dsa-look": "Natalie doesn't double check their work so you see this.",
-        "dsa-c-look": "Natalie doesn't double check their work so you see this.",
-        "dsa-sstf": "Natalie doesn't double check their work so you see this.",
+        "menu": "A list showing the potential programs that could be run and other social media sites the developer has rests on the left hand side. A profile picture of, what you could only assume to be Natalie themselves in mii form, gazes wistfully into the distance as the sea gently laps at the dock they stand on. A few clouds hover in the distance, the largest appearing as though it could be a puff on a winter hat worn by the mii. Very fittingly worn, in fact: as Natalie\’s surname means \‘cloud\’ in Polish.",
+        "house": "opened house.txt",
+        "natalie": "Based on the site\’s color scheme you might have thought Natalie’s favorite color was purple. Nope! It’s pink – specifically #FFB4DA. More fun facts at four….",
+        "natalie-4": "The Natalie fun facts report – </br>Their favorite weather type is windy! ",
+        "clock": "Wow! A real-time clock! In the beta version of this website, it was the last thing I had gotten working before completely losing all my progress. In this iteration, it was the first thing I did!",
+        "clock-2": "The time is: ",
+        "huh": "You wanna what?!? ",
+        "site-header": "An attempt at an old web style homepage waits to greet any and all visitors. Maximizing the window reveals the fact that it\’s been sitting in the Shadow Realm this entire time!",
+        "up": "You look up",
+        "down": "You look down",
+        "right": "You look right",
+        "left": "You look left",
+        "b": "You look at b",
+        "a": "You look at a",
+        "start": "Tried and true, the konami code strikes again. There isn’t any useful power up I can give you right now, but maybe I can turn this section into a secret guestbook area of sorts? Names will be added below. https://forms.gle/GVd3CTQigQ9aX2RN6",
+        "no": "Of your own free will?!</br></br>* Please exit and restart the program to continue.",
+        "gif": "A .gif of a piano has fallen out of a .gif of a window and turned you into a gif of a corpse.</br></br>* Please exit and restart the program to continue.",
+        "void": "As you gaze into the vast emptiness of space, you are reminded of the inevitable end to all things. It could be a profound moment, if you had the time to dwell on that. Unfortunately you cannot survive in space and never have another thought, profound or otherwise. You’ve died.</br></br>* Please exit and restart the program to continue.",
+        "ostep": "Natalie\’s favorite textbook!",
+        "sudo": "Nice try – you can’t do that here though.",
+        "japanese": "<div hreflang='jp'>はい!日語は話します。オハイヨー州立大学で勉強しながら。僕の文章 はまあまあですけど…聴聞がちょと…(╥_╥)</div>",
+        "background": "A pixilated heart stands out against a dark night sky.",
+        "profile": "It’s a mii… Natalii!",
+        // "dsa-c-scan": "Natalie doesn't double check their work so you see this.", Working an a worthy acknowledgement
+        // "dsa-f-scan": "Natalie doesn't double check their work so you see this.",
+        // "dsa-fcfs": "Natalie doesn't double check their work so you see this.",
+        // "dsa-scan": "Natalie doesn't double check their work so you see this.",
+        // "dsa-look": "Natalie doesn't double check their work so you see this.",
+        // "dsa-c-look": "Natalie doesn't double check their work so you see this.",
+        // "dsa-sstf": "Natalie doesn't double check their work so you see this.",
         "hidden": "You try and peer through the layers of &ltdiv&gts at the content beneath- tragically the maximized terminal window obscures your vision. Drat!",
-        "menu-up": "</br></br></br></br></br><div class='menu-min'>I wouldn't recommend having the menu screen toggled up while in windowed mode - try going full screen for a moment?</div>",
+        "menu-up": "</br></br></br></br></br></br></br><div class='menu-min'>I wouldn't recommend having the menu screen toggled up while in windowed mode - try going full screen for a moment?</div>",
         "menu-full": "</br></br></br></br></br><div class='menu-min'>It's a feature, not a bug! Anyways, try look menu-true</div>",
         "menu-false": "You gaze at the bottom left hand of the screen, where the home menu button lies waiting to be clicked.",
-        "else": "is not an action you can take in this game",
+        "else-1": " is not an noun you can look at in this game",
+        "else-2": " can’t be looked at here",
+        "else-3": "? I can’t understand what you mean by that",
+        "secrets": "I sure do love ASCII encodings",
     }
 }
 
@@ -2763,7 +2965,7 @@ const daily_songs = {
 document.addEventListener("DOMContentLoaded", function () {
     navbar.time_function();
 
-    // Following code follows: https://dev.to/bridget_amana/how-to-easily-add-dark-mode-to-your-website-29dl
+    // Start code reference block. Source: https://dev.to/bridget_amana/how-to-easily-add-dark-mode-to-your-website-29dl
     const body = document.body;
 
     const toggleButton = document.getElementById('toggles_dark_mode');
@@ -2784,7 +2986,7 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.add('dark-mode')
     }
     })
-    // end code reference block
+    // End code reference block
 })
 
 var navbar = new Navbar();

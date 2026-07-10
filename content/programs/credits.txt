@@ -1,3 +1,9 @@
+
+
+================================================================================
+
+
+
              ▗▄▄▄▖▐▌    ▄▄▄ ▄▄▄  █  ▐▌  ▐▌       ▗▄▄▄▖▐▌   ▗▞▀▚▖     
                █  ▐▌   █   █   █ ▀▄▄▞▘  ▐▌         █  ▐▌   ▐▛▀▀▘     
                █  ▐▛▀▚▖█   ▀▄▄▄▀        ▐▛▀▚▖      █  ▐▛▀▚▖▝▚▄▄▖     
@@ -13,23 +19,30 @@
                          ▝▀▜▌                                        
                         ▐▙▄▞▘    
 
+================================================================================
+
+
     Developer: Natalie Chmura
 
     Writer: Natalie Chmura
 
     Website Pixel Art/Graphics: Natalie Chmura
 
-    Text-to-ASCII: https://patorjk.com/software/taag/#p=testall&f=Four+Tops&t=+++Through+The%0ALooking+Terminal&x=none&v=4&h=4&w=80&we=false
-    
-    Site-Welcome Backround: https://pixelmoondust.neocities.org/archives/archivedtiles/backgroundsindex
-    
-    Site-Welcome Gifs: https://99gifshop.neocities.org/
+    Text-to-ASCII: https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false    
     
     Ancient Greek Translator: https://www.polytranslator.com/ancient-greek/
 
     Producer: Natalie Chmura
 
     Creative Director: Natalie Chmura
+
+
+
+
+
+
+
+    Thank you for playing!
 
 
     

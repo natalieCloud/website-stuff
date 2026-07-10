@@ -7,12 +7,13 @@ house-of-leaves | html | javascript | css | code | natalie | natalie-chmura | cl
 cv | ducks | projects | music | plants | email | trash | dsa-<name>
 <name> c-scan | f-scan | fcfs | scan | look | c-look | sstf
 
+
 Terminal commands
 
 help
 
 NTerminalC version 1.0.0 release (static-web)
-These commands are defined interally. Type `help` to see this list.
+These commands are defined internally. Type `help` to see this list.
 Type `help name` to find out more about the function `name`
 
 cd [dir | ]
@@ -20,9 +21,9 @@ cd [dir | ]
     Changes the shell working directory
 
     Change the current directory to dir. The default value of dir is 
-    the HOME shell vairable.
+    the HOME shell variable.
 
-    To naviagate to the parent directory of the current working directory,
+    To navigate to the parent directory of the current working directory,
     `..` may be used. 
 
     Aside from navigation to the HOME directory, levels may only be traversed
@@ -40,7 +41,7 @@ list [dir| ]
 
     Prints the items in the desired directory.
 
-    The default directory is the current working directoy. 
+    The default directory is the current working directory. 
 
     Aside from listing content in the HOME directory, content may only be listed in
     the current working directory.
@@ -60,19 +61,16 @@ look [value]
 
 look Roberta
 
-    A very cool game desginer behind many of the Sierra Titles, which is how I got into parser gaming in particular.
+    A very cool game designer behind many of the Sierra Titles, which is how I got into parser gaming in particular.
 
 look terminal
 
-    <Opening for through the looking terminal...>
+    It's a terminal!
 
 look disk-scheduling-algorithms
 
     I couldn't not include anything about my dearly beloved scheduling algorithms here!
-    
-    An Ode to Disk Scheduling Algorithms, in Iambic pentameter by Natalie Chmura
-
-    x / x / x / x / x /
+    If I loved them less I may be able to talk about them more...
 
 quit 
 
@@ -80,13 +78,13 @@ quit
 
 run [name] 
 
-    Executes the program spcified by name. Must be in the current working directory
-    of the program in order to launch it sucessfully. Works for any installed program.
+    Executes the program specified by name. Must be in the current working directory
+    of the program in order to launch it successfully. Works for any installed program.
 
 show [name]
 
-    Displays the content of the file specififed by name. Must be in the current working
-    directory of said file in order to launch it successfully. Works for any .txt extension.
+    Displays the content of the file specified by name. Must be in the current working
+    directory of said file in order to launch it successfully. Works for any .text extension.
 
 tree [dir| ]
 
