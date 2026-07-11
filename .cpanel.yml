@@ -1,0 +1,8 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/natCloud/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp index.js $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp -R content $DEPLOYPATH
