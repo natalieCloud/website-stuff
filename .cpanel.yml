@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/natCloud/public_html/
+    - export DEPLOYPATH=/home/natanptv/public_html/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp index.js $DEPLOYPATH
     - /bin/cp style.css $DEPLOYPATH
