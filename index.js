@@ -1243,55 +1243,123 @@ const term_out = {
             <div class='def'>'disk-scheduling-algorithms'</br>'roberta'</br>'terminal'</br></div>
             </br>`,
             "more": "Defaulting defaulting defaulting",
-            "more":
+            "more_0":
                 `</br>
-                NTerminalC version 1.0.0 release (static-web)</br> 
-                These commands are defined interally. Type 'help more' to see this explanation again.</br> </br>
+                    NTerminalC version 1.0.0 release (static-web)</br>
+                    These commands are defined internally. Type 'help tutorial' to start the tutorial over again.</br></br>
 
-                Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.
-                This guide is designed for guests that have seldom/never used a terminal interface before.</br> </br>
-                
-                The whole website turned into a love letter of sorts (to the field && my degree) so there are references I added that may not make
-                sense to my audience without that background. 
-                However, I have done my best to make the main content accessible through this guide, and provided (hopefully!!) enough to find out more!</br> </br>
+                    Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.</br></br> 
 
-                If, after reading this guide you are still confused, or have some feedback about what could be done better - please reach out! 
-                With that out of the way, lets begin!</br> </br>
+                    The 'main content' should all be accessible through the commands used in this guide, anything else was added for my own enjoyment. 
+                    If you found the guide confusing, or have questions about the extra content, please reach out! 
+                    While this site has has turned into a love letter of sorts for my studies of comp-sci, I am not the only viewer, and effectively explaining myself is a must!</br></br> 
 
-                We'll be looking at the following commands. You may notice that some of them have values in brackets '[]' after - what's all that about? </br>
+                    With that out of the way, lets begin!</br>
 
-                <div class='col-text'>
+                    To navigate the terminal, we have 8 commands at our disposal – 7 of which have real world counterparts! 
+                    You may notice that some of them have values in brackets '[]' after - what's all that about?</br></br>
+
+                    <div class='col-text'>
                     <div class='col-text l'>
-                    cd [dir| ]</br>
-                    help [name| ]</br>
-                    list [dir| ]</br>
-                    look [value]</br>
+                        cd [dir| ]</br>
+                        help [name| ]</br>
+                        list [dir| ]</br>
+                        look [value]</br>
                     </div>
                     <div class='col-text r'>
-                    quit</br>
-                    run [name]</br>
-                    show[name]</br>
-                    tree[dir| ]</br>
+                        quit</br>
+                        run [name]</br>
+                        show [name]</br>
+                        tree [dir| ]</br>
                     </div>
-                </div> </br>
+                    </div></br>
 
                 Please type in 'more' to proceed to the next section...
 
-            </br>`,
-            "more_0":
-                `</br>
-                So, for each command in the list you will see its name, followed by its arguments. You can think of the arguments as though they are the variables
-                in a math equation: </br> 
-                2x + 6y cannot be solved if you don't know what x and y are*! So, the values in brackets represent what can be plugged in for that x and y.
-                For simplicities sake, 
-                  
-
-
-                * It cannot be solved mathmatically either - the '=' was omitted for this reason
-            </br>`,
+                </pre>`,
             "more_1":
                 `</br>
-            </br>`,
+                    So, for each command in the list you will see its name, followed by its arguments. 
+                    You can think of the arguments as though they are variables in a math equation:</br>
+                    2x + 6y cannot be solved if you don't know what x and y are*! 
+                    So, the values in brackets represent what can be plugged in for that x and y.</br></br>
+                
+                    Luckily for us, there is only ever 1 potential argument, or 'x' if you will! 
+                    Thus, anything you pass in will become 'x'. 
+                    Except, just 'x' isn't very descriptive, so instead we'll see words reminding us what is allowed as an input!</br></br>
+
+                    * It cannot be solved mathematically either - the '=' was omitted for this reason!</br></br>
+
+                    Please type in 'more' to proceed to the next section...</br>
+                </br>`,
+            "more_2":
+                `</br>
+                dir - Short for directory. We'll go more in depth in just a bit ;), for now, all you need to know is that is describes a location!</br>
+                name - Going back to the algebra example, this is what you would call 'x'. It could describe a command, like 'list' or 'help', but it can also describe a file, like 'art.txt'</br>
+                value - This is like name++, or Name: The Expanded Edition. Pretty much anything you can use as a name you can also use as a value, but you can also describe things that aren't explicitly named. 
+                For example, you could describe the website (like, 'background' or 'home'). Alternatively, you could choose to describe its author ('Natalie', 'dsa fanboy', etc.)</br>
+                blank, or no brackets - For commands without brackets, or with the '| ]' at the end, this is a sign telling us that that it doesn't take a value, or that there is a special default value</br></br>
+
+                The first command we’ll examine is help – you ran a variation of this to get to this tutorial!</br>
+                Try entering ‘help’ now...</br></br>
+
+                Then, please type in 'more' to proceed to the next section...</br>
+                </br>`,
+            "more_3":
+                `</br>
+                    So, ‘help’ on its own gives us a brief view of the commands we can run! Neat-o! </br></br>
+
+                    Now, the remainder of this tutorial is going to be about navigation.</br>
+
+                    For this next section you’ll want to have the mental model of how you navigate around your files on your pc. 
+                    Terminal navigation is just a textual representation* of where you are and what you have access to! 
+                    Except, instead of using the word folder we’re going to be bringing back the word directory from earlier! </br>
+
+                    * It evolved in the reverse direction however – before we had the graphics we know and love it was all text!</br>
+
+                    It’s key to maintain your bearings when moving around! To see your current location look at the text after the ‘guest@natchm-website:’</br></br>
+
+                    Please type in 'more' to proceed to the next section...</br>
+                </br>`,
+            "more_4":
+                `</br>
+                    If you are in a sub-directory, you’ll see the name there, if you are at the top level (or home) you’ll see a tilde ‘~’.</br></br>
+
+                    To look at what your directory contains, enter the command ‘list’. If there are subdirectories you can navigate to, they’ll end with a ‘/’ character. </br></br>
+
+                    But how to navigate? For moving to a new location, type ‘cd directory_name’. 
+                    The ‘cd’ being short for [c]hange [d]irectory! If you want to move to the directory you were in before, type ‘cd  ..’</br></br>
+                    Try changing directories a bit, then type ‘more’ to proceed to the next section...</br>
+                </br>`,
+            "more_5":
+                `</br>
+                    You might have seen some other files during your cd-ing. 
+                    They would have had something like a‘.txt’ or ‘.exe’ extension. 
+                    I won’t go into what a text or pdf is, but the .exe may be newer to some.</br></br> 
+
+                    Simply put - .exe is an ‘executable’ file that allows you to start a program. 
+                    You might have started this terminal by clicking on the icon, but you can also run it – which is of course, our next command. 
+                    By typing ‘run prog_name_here.exe’ you’ll launch that program.</br>
+
+                    But what about the other files? Well there’s a command for that too! 
+                    Type ‘show name_here.txt’ and a new window displaying the contents will appear!</br></br>
+
+                    Note – you have to see the file you want to run or show when you run list! 
+                    This terminal cannot auto find the correct location so you’ll have to go there yourself!</br></br>
+                    Please type in 'more' to proceed to the next section...</br>
+                </br>`,
+            "more_6":
+                `</br>
+                    Finally, there are a few other commands/shorthands that will help you navigate:</br></br>
+
+                    For seeing all the content in your directory and subdirectories at once, enter the command ‘tree’</br></br>
+
+                    For all the above commands that take arguments, you can add $HOME as a possible value. This allows you to quickly jump to or see what’s available from the top at a moments notice!</br></br>
+
+                    The final command is quit! I’ll let you run it to demonstrate its effect!</br></br>
+
+                    Thanks for reading the expanded tutorial - happy terminaling!
+                </br>`,
             "quit":
                 `<div class='word'>quit</div>
             <div class='def'>Exits the currently running terminal session.</div>
@@ -1477,56 +1545,56 @@ const daily_songs = {
     "daily song recs": {
         "january": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "5 Years Time",
+                "artist": "Noah and the Whale"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Joe Le Taxi",
+                "artist": "Jun Togawa"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "Driftin'",
+                "artist": "Herbie Hancock"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "My World",
+                "artist": "Bee Gees"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "My Sweet Lord",
+                "artist": "George Harrison"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "Sin to Win!",
+                "artist": "Machine Girl"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Change",
+                "artist": "Mild Monk"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "ガラスのメモリ",
+                "artist": "椎菜"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "Sunny",
+                "artist": "Boney M."
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "桃源郷とタクシー",
+                "artist": "Mega Shinnosuke"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Second Sleep",
+                "artist": "Magdalena Bay"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "คิด(แต่ไม่)ถึง [Same Page?]",
+                "artist": "Tilly Birds"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "OZONE",
+                "artist": "vistlip"
             },
             "14": {
                 "title": "",
@@ -2469,498 +2537,498 @@ const daily_songs = {
         },
         "september": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "She's a Big Boy",
+                "artist": "Mcbaise"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Message",
+                "artist": "安田レイ"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "Absurdia Fantasmagoria",
+                "artist": "Mcbaise"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "Twilight",
+                "artist": "Electric Light Orchestra"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "Magic",
+                "artist": "Olivia Newton John"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "So Long",
+                "artist": "ABBA"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Synesthesia",
+                "artist": "Tom Chmura"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "Breakin' My Heart (Pretty Brown Eyes)",
+                "artist": "Mint Condition"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "Roomates",
+                "artist": "Malcolm Todd"
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "Girls Want To Be With The Girls",
+                "artist": "Talking Heads"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Virtual Paradise",
+                "artist": "Machine Girl"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "There Was A Time",
+                "artist": "Ginger Root"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "Infinate Potentiality",
+                "artist": "Machine Girl"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "Andromeda Smile",
+                "artist": "Yuji Ohno"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "Since Yesterday",
+                "artist": "Strawberry Switchblade"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "You Can Never Come To This Place",
+                "artist": "Masayoshi Takanaka"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "Killing Time",
+                "artist": "Magdalena Bay"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "Dragon Ball Durag",
+                "artist": "Thundercat"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Living Satellite 'IO' of Jupiter",
+                "artist": "Yuji Ohno"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "When My Time Has Come",
+                "artist": "Mild Monk"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "Parachute",
+                "artist": "Hayley Williams"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "This Is The World (I Made It For You)",
+                "artist": "Magdalena Bay"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "Aleluya",
+                "artist": "Boy Pablo"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Speed Racer",
+                "artist": "Her's"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "Galactic Funk",
+                "artist": "Cassiopiea"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "Digital Love",
+                "artist": "Daft Punk"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "Rise & Shine",
+                "artist": "Louie Zong"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "Sour Candy",
+                "artist": "WOODZ"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "Orinocco Flow",
+                "artist": "Enya"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "ルパン三世のテーマ'78",
+                "artist": "Yuji Ohno"
             }
         },
         "october": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "Do It All The Time",
+                "artist": "I DONT KNOW HOW BUT THEY FOUND ME"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Foggy Mountain Breakdown",
+                "artist": "Gil Trythall"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "The World Becomes Flesh",
+                "artist": "Boards of Canada"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "Cold Cold Man",
+                "artist": "Saint Motel"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "さよならDestiny",
+                "artist": "椎菜"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "Bellavia",
+                "artist": "Chuck Magione"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Sexy Dance",
+                "artist": "Masayoshi Takanaka"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "Have You Heard?",
+                "artist": "TWRP"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "On and On",
+                "artist": "Mild Monk"
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "Wide Awake",
+                "artist": "Pearl & The Oysters"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "99.9",
+                "artist": "MOB CHOIR"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "AQUARIUM CITY",
+                "artist": "Louie Zong"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "Suite III Overture",
+                "artist": "Janelle Monáe"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "Isn't It a Pity",
+                "artist": "George Harrison"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "Taking What's Not Yours",
+                "artist": "T.V. Girl"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "Alice",
+                "artist": "Mcbaise"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "25 or 6 to 4",
+                "artist": "Chicago"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "Victoria",
+                "artist": "Jukebox The Ghost"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Xanadu",
+                "artist": "Olivia Newton John"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "The American Dream is Alive in Mexico",
+                "artist": "Mood Beach"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "Suki Suki Daisuki",
+                "artist": "Jun Togawa"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "Side Quest",
+                "artist": "Pearl & The Oysters"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "Yours Truly, 2095",
+                "artist": "Electric Light Orchestra"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Child of Vision",
+                "artist": "Supertramp"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "Wah Wah",
+                "artist": "George Harrison"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "Bluebird",
+                "artist": "Cory Wong"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "Critters",
+                "artist": "TWRP"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "Rydeen",
+                "artist": "Yellow Magic Orchestra"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "Retro 39",
+                "artist": "Tilly Birds"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "Love Ballade",
+                "artist": "Yuji Ohno"
             },
             "31": {
-                "title": "",
-                "artist": ""
+                "title": "Una Vez Más",
+                "artist": "Juanpalitoschinos"
             }
         },
         "november": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "Oh Darling",
+                "artist": "Supertramp"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Code Number",
+                "artist": "vistlip"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "Steady Hand",
+                "artist": "Saint Motel"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "Mahjong Room",
+                "artist": "Ginger Root"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "Sweet Talk",
+                "artist": "Saint Motel"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "Sadness Theme",
+                "artist": "Franco Micalizzi"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Injured Love",
+                "artist": "Yuji Ohno"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "If It Wasn't For The Nights",
+                "artist": "ABBA"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "Sisters",
+                "artist": "Saint Motel"
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "Pretty U",
+                "artist": "SEVENTEEN"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Ecstasy (Apple of My Eye)",
+                "artist": "Strawberry Switchblade"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "Cuando me amabas",
+                "artist": "Juanpalitoschinos"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "P.M. Mourning",
+                "artist": "Chicago"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "Dumpster Disco",
+                "artist": "Louie Zong"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "Busted (Busted)",
+                "artist": "WOODZ"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "Peg",
+                "artist": "Steely Dan"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "Doom Mood",
+                "artist": "Pearl & The Oysters"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "I Can't Decide",
+                "artist": "Scissor Sisters"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Prime Time of Your Life",
+                "artist": "Daft Punk"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "Fireflies",
+                "artist": "Pearl & The Oysters"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "Rat Taxi",
+                "artist": "Louie Zong"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "Halfway There",
+                "artist": "Magdalena Bay"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "Que Beleza",
+                "artist": "Tim Maia"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Two Step",
+                "artist": "Ginger Root"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "On my own",
+                "artist": "WOODZ"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "Eyes Without A Face",
+                "artist": "Billy Idol"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "Funky Holo Holo Bird",
+                "artist": "Masayoshi Takanaka"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "DANCE DANCE",
+                "artist": "Day 6"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "東京で考え中",
+                "artist": "Enjoy Music Club"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "Tightrope",
+                "artist": "Janelle Monáe"
             }
         },
         "december": {
             "1": {
-                "title": "",
-                "artist": ""
+                "title": "Is This Just A Dream (SMB2)",
+                "artist": "Louie Zong"
             },
             "2": {
-                "title": "",
-                "artist": ""
+                "title": "Something About Us",
+                "artist": "Daft Punk"
             },
             "3": {
-                "title": "",
-                "artist": ""
+                "title": "Soft Science",
+                "artist": "Pearl & The Oysters"
             },
             "4": {
-                "title": "",
-                "artist": ""
+                "title": "PK",
+                "artist": "Chaar Kadam"
             },
             "5": {
-                "title": "",
-                "artist": ""
+                "title": "Maggot Brain",
+                "artist": "Funkadelic"
             },
             "6": {
-                "title": "",
-                "artist": ""
+                "title": "EXO",
+                "artist": "Magdalena Bay"
             },
             "7": {
-                "title": "",
-                "artist": ""
+                "title": "Sayonara Wo Oshiete",
+                "artist": "Jun Togawa"
             },
             "8": {
-                "title": "",
-                "artist": ""
+                "title": "She's My Man",
+                "artist": "Scissor Sisters"
             },
             "9": {
-                "title": "",
-                "artist": ""
+                "title": "Thunder Storm",
+                "artist": "Masayoshi Takanaka"
             },
             "10": {
-                "title": "",
-                "artist": ""
+                "title": "Ivory Coast",
+                "artist": "Mariya Takeuchi"
             },
             "11": {
-                "title": "",
-                "artist": ""
+                "title": "Carmen Habenera",
+                "artist": "Angela Gheorghiu"
             },
             "12": {
-                "title": "",
-                "artist": ""
+                "title": "A Seagull & Clouds",
+                "artist": "Himiko Kikuchi"
             },
             "13": {
-                "title": "",
-                "artist": ""
+                "title": "Lab 002",
+                "artist": "Mild Monk"
             },
             "14": {
-                "title": "",
-                "artist": ""
+                "title": "Out of State",
+                "artist": "Ginger Root"
             },
             "15": {
-                "title": "",
-                "artist": ""
+                "title": "Off the Wall",
+                "artist": "Michael Jackson"
             },
             "16": {
-                "title": "",
-                "artist": ""
+                "title": "Q.U.E.E.N.",
+                "artist": "Janelle Monáe"
             },
             "17": {
-                "title": "",
-                "artist": ""
+                "title": "I Don't Feel Like Dancing",
+                "artist": "Scissor Sisters"
             },
             "18": {
-                "title": "",
-                "artist": ""
+                "title": "Hey Girl",
+                "artist": "Boy Pablo"
             },
             "19": {
-                "title": "",
-                "artist": ""
+                "title": "Vitamin D",
+                "artist": "Pearl & The Oysters"
             },
             "20": {
-                "title": "",
-                "artist": ""
+                "title": "Asayake",
+                "artist": "Cassiopiea"
             },
             "21": {
-                "title": "",
-                "artist": ""
+                "title": "君に、胸キュン",
+                "artist": "Yellow Magic Orchestra"
             },
             "22": {
-                "title": "",
-                "artist": ""
+                "title": "Harvey",
+                "artist": "Her's"
             },
             "23": {
-                "title": "",
-                "artist": ""
+                "title": "M2",
+                "artist": "Franco Micalizzi"
             },
             "24": {
-                "title": "",
-                "artist": ""
+                "title": "Crime of the Century",
+                "artist": "Supertramp"
             },
             "25": {
-                "title": "",
-                "artist": ""
+                "title": "Refrain",
+                "artist": "Yurie Kokubu"
             },
             "26": {
-                "title": "",
-                "artist": ""
+                "title": "O Sole Mio",
+                "artist": "High and Low 1963 OST"
             },
             "27": {
-                "title": "",
-                "artist": ""
+                "title": "Adore U",
+                "artist": "SEVENTEEN"
             },
             "28": {
-                "title": "",
-                "artist": ""
+                "title": "Weather",
+                "artist": "Ginger Root"
             },
             "29": {
-                "title": "",
-                "artist": ""
+                "title": "Au Pays du Cocaine",
+                "artist": "Geese"
             },
             "30": {
-                "title": "",
-                "artist": ""
+                "title": "Polygon",
+                "artist": "TWRP"
             },
             "31": {
-                "title": "",
-                "artist": ""
+                "title": "Giddy Up",
+                "artist": "Ginger Root"
             }
         }
     }

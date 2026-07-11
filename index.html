@@ -735,7 +735,7 @@
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
           <div id="trash-item" style="display: flex; overflow-x:hidden; margin: 0px; padding: 0px;" class="highlight"
-            ondblclick="term.show_file('secrets.txt')">
+            ondblclick="navbar.toggle_show('txt-program')">
             <h4 style="display: flexbox; flex-grow: 1;">secrets.txt</h4>
             <input style="display: flexbox; padding-right: 20px;" type="checkbox" id="empty-trash" name="secrets.txt"
               value="secrets.txt" onchange="document.getElementById('trash-button').disabled = !this.checked;">
@@ -752,13 +752,15 @@
       </div>
       <div id="txt-program" class="running-prog">
         <div class="common head">
-          <div class="pic-head" style="content: url(./content/icons/cv_24.png);"></div>
+          <div class="pic-head" style="content: url(./content/icons/txt_24.png);"></div>
           <span class="span-title">secrets.txt</span>
           <button class="button-head min" onclick="navbar.toggle_min('txt-program')"></button>
           <button class="button-head max" onclick="navbar.toggle_max('txt-program')"></button>
           <button class="button-head close" onclick="navbar.toggle_close('txt-program')"></button>
         </div>
         <div class="content" style="font-family: 'Courier New', Courier, monospace;">
+          <object data="./content/programs/secrets.txt" type="text/plain" width="100%" height="100%"
+            style="min-height: 454px;"></object>
         </div>
       </div>
       <div id="site-header-program" class="running-prog" style="display: flex; border-color: rgb(46, 85, 8);">
