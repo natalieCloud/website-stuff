@@ -283,7 +283,8 @@ class Navbar {
     }
 
     power() {
-        window.close();
+        // window.close();
+        self.close();
     }
 
     submitTerm() {
