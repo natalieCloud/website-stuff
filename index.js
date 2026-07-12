@@ -42,7 +42,7 @@ class Navbar {
     }
 
     log() {
-        console.log('Add Popup');
+        // console.log('Add Popup');
     }
 
     toggle_popup() {
@@ -53,7 +53,7 @@ class Navbar {
         } else {
             menu.style.display = "none";
         }
-        console.log(this.toggled);
+        // console.log(this.toggled);
     }
 
     reset_index() {
@@ -73,11 +73,11 @@ class Navbar {
             nicon = icon_name;
             var disp = "txt-txt";
         }
-        console.log("adding button " + nicon);
+        // console.log("adding button " + nicon);
         var open_prog = document.createElement('button');
         open_prog.setAttribute('id', `${nicon}-icon`);
         open_prog.setAttribute('class', `running-icons ${disp}`);
-        open_prog.setAttribute('title', `${disp} idcon`);
+        open_prog.setAttribute('alt', `${disp} idcon`);
         open_prog.setAttribute('onclick', `navbar.toggle_min('${icon_name}')`);
         open_prog.innerHTML = "";
         let t_c = document.getElementById("task-buttons");
@@ -85,9 +85,9 @@ class Navbar {
     }
 
     remove_icon(icon_name) {
-        console.log(`removing div ${icon_name}`);
+        // console.log(`removing div ${icon_name}`);
         var nicon = icon_name.substring(0, icon_name.length - 8);
-        console.log(`removing div ${icon_name}`);
+        // console.log(`removing div ${icon_name}`);
         if (icon_name.indexOf("pdf") !== -1) {
             nicon = icon_name;
         } else if (icon_name.indexOf("txt") !== -1) {
@@ -896,7 +896,7 @@ class Terminal {
     }
 
     show_file(file_name) {
-        console.log(file_name)
+        // console.log(file_name)
 
         if (this.location === term_out.terminal.file_sys.installed_programs.trash_program) {
             if (name === "even_more_secrets.txt") {
@@ -1007,7 +1007,7 @@ class Terminal {
         for (var ch in dir) {
             var child = dir[ch];
             if (typeof child === "object") {
-                console.log(child);
+                // console.log(child);
                 out_str = this.print_tree(out_str, level + 1, child);
             }
         }
@@ -1033,14 +1033,14 @@ class Terminal {
     }
 
     print_list(dir) {
-        console.log("in method")
+        // console.log("in method")
 
         var out_str = "<div class='list-text'>";
 
         for (var prop in dir) {
             if (Array.isArray(dir[prop])) {
-                console.log(typeof prop)
-                console.log(prop)
+                // console.log(typeof prop)
+                // console.log(prop)
                 for (var j = 0; j < dir[prop].length; j++) {
                     out_str += `<div class='list-col'>${dir[prop][j]}</div>`;
                 }
