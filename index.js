@@ -206,7 +206,7 @@ class Navbar {
             else if (icon_name === 'art-program') {
                 document.getElementById("jupiter").style.display = "flex";
                 document.getElementById("build").style.backgroundImage = "url(content/gallery_tiles/floor_5.png)";
-                document.getElementById("build").style.title = "floor_5.png";
+                document.getElementById("build").style.alt = "floor_5.png";
 
             }
             else if (icon_name === 'music-program') {
