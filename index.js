@@ -110,18 +110,18 @@ class Navbar {
     }
 
     toggle_item(icon_name) {
-        console.log("pushed " + icon_name);
+        // console.log("pushed " + icon_name);
         let prog = document.getElementById(icon_name);
         let p = this.prog_map[icon_name];
         p["min"] = !p["min"];
         p["shown"] = !p["shown"];
         if (p["shown"]) {
             prog.style.display = "block";
-            console.log(prog.style.display);
+            // console.log(prog.style.display);
         } else {
             prog.style.display = "none";
         }
-        console.log(p);
+        // console.log(p);
     }
 
     toggle_close(icon_name) {
@@ -134,7 +134,7 @@ class Navbar {
             prog.style.height = "500px";
             prog.style.display = "none";
             prog.style.zIndex = "90";
-            console.log("closed " + icon_name);
+            // console.log("closed " + icon_name);
             navbar.remove_icon(icon_name);
             if (icon_name === 'terminal-program') {
                 document.getElementById("baseball_stat_1").value = "";
@@ -199,7 +199,7 @@ class Navbar {
             navbar.reset_index();
             prog.style.zIndex = "91";
             navbar.add_icon(icon_name);
-            console.log("opened " + icon_name);
+            // console.log("opened " + icon_name);
             if (icon_name === 'terminal-program') {
                 document.getElementById("baseball_stat_1").focus();
             }
@@ -229,13 +229,13 @@ class Navbar {
         p["shown"] = true;
         if (p["min"]) {
             prog.style.display = "flex";
-            console.log("un-minimized " + icon_name);
+            // console.log("un-minimized " + icon_name);
             navbar.reset_index();
             prog.style.zIndex = "91";
         } else {
             prog.style.display = "none";
             prog.style.zIndex = "90";
-            console.log("minimized " + icon_name);
+            // console.log("minimized " + icon_name);
         }
     }
 
@@ -248,12 +248,12 @@ class Navbar {
             prog.style.height = "100%";
             navbar.reset_index();
             prog.style.zIndex = "91";
-            console.log("maximized " + icon_name);
+            // console.log("maximized " + icon_name);
         } else {
             prog.style.width = "700px";
             prog.style.height = "500px";
             prog.style.zIndex = "91";
-            console.log("un-maximized " + icon_name);
+            // console.log("un-maximized " + icon_name);
         }
     }
 
@@ -266,13 +266,13 @@ class Navbar {
     }
 
     wakeup() {
-        console.log("removing div");
+        // console.log("removing div");
         var child_to_abort = document.getElementById('sleep-overlay');
         document.body.removeChild(child_to_abort);
     }
 
     sleep() {
-        console.log("adding div");
+        // console.log("adding div");
         var sleepDiv = document.createElement('div');
         sleepDiv.setAttribute('id', 'sleep-overlay');
         sleepDiv.setAttribute('class', 'sleep-overlay');
@@ -289,13 +289,13 @@ class Navbar {
 
     submitTerm() {
         var input = document.getElementById('baseball_stat_1').value;
-        console.log(input);
+        // console.log(input);
     }
 
     change_song(up_date) {
         let month_key = up_date.toLocaleString('en-US', { month: 'long' }).toLowerCase();
         let day_key = up_date.toLocaleString('en-US', { day: 'numeric' });
-        console.log(day_key)
+        // console.log(day_key)
         let artist = daily_songs["daily song recs"][month_key][day_key]["artist"];
         let title = daily_songs["daily song recs"][month_key][day_key]["title"];
         document.getElementById("daily-songs").innerHTML = `<h4 style="text-align: center;">${title}; ${artist}<h4>`
@@ -443,7 +443,7 @@ class DuckBehavior {
         }
 
         this.end = rdm;
-        console.log(`New target: ${this.end}`)
+        // console.log(`New target: ${this.end}`)
         this.get_path();
     }
 
@@ -733,7 +733,7 @@ class Terminal {
             this.location = term_out.terminal.file_sys.website_content;
             return "";
         } else {
-            console.log(its_rough_but_works);
+            // console.log(its_rough_but_works);
             return `${its_rough_but_works} is not valid`;
         }
     }
@@ -758,12 +758,9 @@ class Terminal {
         var leaf = document.createElement('div');
         leaf.setAttribute('class', 'term-history');
         var case_stnd = input_key.toLowerCase();
-
         const [first, ...rest] = case_stnd.split(" ");
         const input = first;
         const remaining = rest.join(" ");
-
-        console.log(input);
 
         if (remaining.length === 0) {
             if (input === "list") {
@@ -782,7 +779,6 @@ class Terminal {
         }
         else {
             if (input === "help" && term_out.terminal["help"][remaining]) {
-
                 if (remaining === "more") {
                     this.more_index = 0;
                     leaf.innerHTML = this.help_info();
@@ -790,7 +786,11 @@ class Terminal {
                     leaf.innerHTML = term_out.terminal["help"][remaining];
                 }
             } else if (input === "cd") {
-                leaf.innerHTML = this.change_dir(remaining);
+                if (remaining === "$home") {
+                    leaf.innerHTML = this.change_dir("$HOME");
+                } else {
+                    leaf.innerHTML = this.change_dir(remaining);
+                }
             } else if (input === "show") {
                 const [first, ...rest] = input_key.split(" ");
                 const input = first;
@@ -828,7 +828,7 @@ class Terminal {
     start_looking(command) {
         var check = term_out.alias[command];
 
-        console.log(`Command: ${command}, Check: ${check}`)
+        // console.log(`Command: ${command}, Check: ${check}`)
         if (this.dead) {
             return "You're dead and can't do anything. Please exit and restart the program to continue.";
         }
@@ -876,7 +876,7 @@ class Terminal {
                 var rdm = Math.floor(Math.random() * 3);
                 var key = `else-${this.else[rdm]}`
 
-                console.log(`${rdm}, ${key}`)
+                // console.log(`${rdm}, ${key}`)
                 return `\'${command}\'${term_out.output[key]}`;
             }
 
@@ -1194,7 +1194,7 @@ const term_out = {
         "help": {
             "":
                 `</br>
-            NTerminalC version 1.0.0 release (static-web)</br>
+            NTerminalC version 1.0.1 release (static-web)</br>
             These commands are defined interally. Type 'help' to see this list.</br>
             Type 'help name' to find out more about the function 'name'</br></br>
             <div class='col-text'>
@@ -1246,7 +1246,7 @@ const term_out = {
             "more": "Defaulting defaulting defaulting",
             "more_0":
                 `</br>
-                    NTerminalC version 1.0.0 release (static-web)</br>
+                    NTerminalC version 1.0.1 release (static-web)</br>
                     These commands are defined internally. Type 'help tutorial' to start the tutorial over again.</br></br>
 
                     Hello hello and welcome all! Today I will be going over the basics of using terminal controls as used on this site.</br></br> 
