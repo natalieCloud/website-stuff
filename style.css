@@ -1383,6 +1383,7 @@ h1 {
 
 .it {
     position: relative;
+    display: flexbox;
 }
 
 
