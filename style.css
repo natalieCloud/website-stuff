@@ -20,11 +20,15 @@ body {
 
     .navbar {
         background-color: hsl(300, 27%, 15%);
-        border-top: 4px, solid, hsl(300, 6%, 30%);
+        border-top: 4px outset hsl(300, 6%, 30%);
         color: white;
     }
 
     .task-container {
+        border: 1px solid hsl(300, 6%, 30%);
+    }
+
+    .time-container {
         border: 1px solid hsl(300, 6%, 30%);
     }
 
@@ -167,46 +171,6 @@ body {
     }
 }
 
-@font-face {
-    font-family: 'Determination';
-    src: url('content/fonts/determination/determination.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Pixel Sans Serif';
-    src: url('content/fonts/pixel_sans_serif/Pixel\ Sans\ Serif.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'BitPap';
-    src: url('content/fonts/BitPap.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gumball';
-    src: url('content/fonts/Gumball\ Thick\ Wires.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Jersey15';
-    src: url('content/fonts/Jersey15-Regular.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 h1 {
     margin: 0;
     padding: 0;
@@ -238,6 +202,7 @@ h1 {
     display: flex;
     top: 0;
     width: 100%;
+    height: fit-content;
     flex: 2 1 0;
     position: relative;
     justify-content: center;
@@ -253,7 +218,7 @@ h1 {
 
 .navbar {
     background-color: hsl(299, 24%, 58%);
-    border-top: 4px, solid, hsl(299, 17%, 48%);
+    border-top: 4px outset hsl(299, 17%, 48%);
     display: flex;
     flex-direction: row;
     bottom: 0;
@@ -279,7 +244,7 @@ h1 {
     max-height: 52px;
     width: 100%;
     border: 1px solid hsl(299, 17%, 48%);
-    overflow-x: scroll;
+    overflow: hidden;
     flex-direction: column;
 
 }
@@ -419,14 +384,14 @@ h1 {
     z-index: 90;
     width: 700px;
     height: 500px;
-    border: solid 4px hsl(321, 17%, 56%);
+    border: outset 4px hsl(321, 17%, 56%);
     background-color: white;
     cursor: pointer;
     align-self: center;
 }
 
 .running-prog.term {
-    border: solid 4px hsl(0, 0%, 21%);
+    border: outset 4px hsl(0, 0%, 21%);
 }
 
 .running-term {
@@ -649,6 +614,14 @@ h1 {
     margin: 4px;
     border-bottom: 2px solid hsl(299, 17%, 28%);
     height: 10 px;
+    align-self: center;
+}
+
+.newline {
+    display: flexbox;
+    width: 100%;
+    margin: 4px;
+    height: 10px;
     align-self: center;
 }
 
@@ -881,6 +854,15 @@ h1 {
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: rgb(245, 224, 250);
+}
+
+.site-header-program {
+    background-image: url(content/from_online/shadow_relm_ass_background.jpeg);
+    display: flex;
+    overflow-y: scroll;
+    /* overflow: visible; */
+    justify-content: center;
+    scrollbar-color: purple chartreuse;
 }
 
 .term .content {
@@ -1145,15 +1127,39 @@ h1 {
     margin-left: 10px;
 }
 
-.displaying {
+.content-col{
     min-width: 700px;
     max-width: 900px;
-    display: flexbox;
+    height: 100%;
+    align-self: center;
+    flex-grow: 1;
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+}
+
+.displaying {
+    margin-top: 10px;
+    display: flex;
     background-color: rgb(203, 243, 221);
-    border-left: 3px solid chartreuse;
-    border-right: 3px solid chartreuse;
-    overflow: hidden;
-    scrollbar-color: purple chartreuse;
+    border: 3px double chartreuse;
+    width: 100%;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+.welcome_banner {
+    width: max-content;
+    background: linear-gradient(90deg, rgb(24, 24, 31) 70%, transparent 100%);
+    
+    border: 2px double chartreuse;
+    border-radius: 13px;
+    display: flex; 
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: fit-content;
+    padding: 10px;
 }
 
 .site-home-stuff {
@@ -1165,108 +1171,63 @@ h1 {
     row-gap: 20px;
 }
 
-.home1 {
-    grid-area: 1 / 2 / 2 / 21;
-}
-
 .home2 {
-    grid-area: 2 / 5 / 3 / 27;
+    width: 70%;
+    height: fit-content;
+    justify-content: center; 
+    align-content: center;
+    position: relative;
     text-align: center;
+    display: flexbox;
+    padding: 6px;
     background-color: aquamarine;
     border: 2px solid teal;
+    border-radius: 5px;
 }
 
-.home3 {
-    grid-area: 3 / 2 / 5 / 14;
-    vertical-align: middle;
+.flex-col {
+    display: flex;
+    flex-flow: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row;
 }
 
 .home3-style {
-    grid-area: 3 / 2 / 5 / 14;
     border: 2px solid chartreuse;
     padding: 10px;
     text-align: center;
     vertical-align: middle;
     color: white;
     background-color: black;
-    margin-top: 20%;
+    margin-top: -8%;
 }
 
 .home4 {
-    grid-area: 5 / 6 / 6 / 25;
     padding: 15px;
-    padding-top: 60px;
     text-align: center;
     font-style: oblique;
+    width: 50%;
 }
 
 .home5 {
-    grid-area: 6 / 2 / 7 / 30;
     text-align: center;
+    width: 70%;
     background-image: url(content/from_online/sora5.gif);
-    border: 2px solid ;
-}
-
-.home6 {
-    grid-area: 3 / 15 / 4 / 31;
-    padding: 15px;
-    padding-top: 60px;
-    text-align: center;
-    
-}
-
-.home7 {
-    grid-area: 4 / 16 / 5 / 30;
+    border: 2px solid black;
+    padding: 20px;
 }
 
 .home7-style {
     display: flexbox;
-    grid-area: 4 / 16 / 5 / 27;
     text-align: center;  
-    margin: 10px;
+    width: 70%;
+    margin: 10%;
     padding: 10px;
     background-image: url(content/from_online/purp027.jpg);    
     border: 2px solid palevioletred;
-}
-
-.gif7 {
-    padding-top: 50px;
-    grid-area: 4 / 27 / 5 / 31;
-    display: flexbox;
-    right: 0;
-}
-
-
-.gif1 {
-    grid-area: 1 / 24 / 2 / 30;
-    /* padding: 10%; */
-}
-
-.gif2 {
-    grid-area: 2 / 2 / 3 / 4;
-    padding-top: 50%;
-}
-
-.gif3 {
-    grid-area: 4 / 15 / 5 / 31;
-    
-}
-
-.gif4 {
-    grid-area: 2 / 28 / 3 / 30;
-    padding-top: 50%;
-}
-
-.gif5 {
-    grid-area: 5 / 2 / 6 / 6;
-    padding-top: 60%;
-    padding-left: 10%;
-}
-
-.gif6 {
-    grid-area: 5 / 25 / 6 / 31;
-    padding-top: 40%;
-    padding-right: 10%;
 }
 
 .build {
@@ -1414,6 +1375,14 @@ h1 {
     height: 32px;
     position: absolute;
     background-image: url(content/ducks/ducks_32.png);
+}
+
+.new-info-box{
+    display: flexbox;
+}
+
+.it {
+    position: relative;
 }
 
 
